@@ -1,0 +1,497 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#fdf8ef;
+    color:#4b2d0d;
+    overflow-x:hidden;
+}
+
+/* Loader */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:#fff8eb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:32px;
+    color:#c89b3c;
+    font-family:'Cinzel',serif;
+    z-index:9999;
+    transition:1s;
+}
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(255,248,230,.65),rgba(255,248,230,.75)),
+    url("assets/bg.jpg") center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+    position:relative;
+}
+
+.content{
+    max-width:700px;
+    animation:fadeUp 1.5s ease;
+}
+
+.content h3{
+    color:#b8841c;
+    font-size:30px;
+    margin-bottom:10px;
+    font-family:'Cinzel',serif;
+}
+
+.content h1{
+    font-size:70px;
+    color:#8a5c09;
+    margin-bottom:20px;
+    text-shadow:0 4px 15px rgba(255,200,0,.25);
+}
+
+.content p{
+    font-size:20px;
+    line-height:1.8;
+    color:#6a4b12;
+    margin-bottom:40px;
+}
+
+/* Button */
+
+.btn{
+    display:inline-block;
+    padding:16px 42px;
+    background:linear-gradient(135deg,#d4af37,#ffeb8a);
+    color:#4d2c05;
+    text-decoration:none;
+    border-radius:40px;
+    font-weight:600;
+    transition:.4s;
+    box-shadow:0 10px 30px rgba(212,175,55,.4);
+}
+
+.btn:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 40px rgba(212,175,55,.55);
+}
+
+/* Invitation */
+
+.invite{
+    padding:100px 20px;
+    text-align:center;
+}
+
+.invite h2{
+    font-size:48px;
+    color:#9c6c14;
+    margin-bottom:60px;
+    font-family:'Cinzel',serif;
+}
+
+.card{
+    width:90%;
+    max-width:520px;
+    margin:auto;
+    background:white;
+    padding:50px;
+    border-radius:30px;
+    box-shadow:0 25px 60px rgba(0,0,0,.08);
+    transition:.5s;
+    border:2px solid #f3d67c;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    color:#b8841c;
+    margin-top:25px;
+    font-size:28px;
+}
+
+.card p{
+    margin-top:8px;
+    font-size:20px;
+}
+
+.map-btn{
+    display:inline-block;
+    margin-top:40px;
+    padding:15px 35px;
+    border-radius:35px;
+    text-decoration:none;
+    background:#b8841c;
+    color:white;
+    transition:.3s;
+}
+
+.map-btn:hover{
+    background:#8b650d;
+}
+
+/* Ganpati Section */
+
+.ganpati{
+    padding:120px 20px;
+    text-align:center;
+}
+
+.ganpati img{
+    width:320px;
+    max-width:90%;
+    animation:float 4s ease-in-out infinite;
+}
+
+.ganpati h2{
+    margin-top:30px;
+    font-size:50px;
+    color:#9c6c14;
+    font-family:'Cinzel',serif;
+}
+
+.ganpati p{
+    margin:30px auto;
+    max-width:650px;
+    font-size:20px;
+    line-height:1.8;
+}
+
+/* Footer */
+
+footer{
+    background:#b8841c;
+    color:white;
+    text-align:center;
+    padding:30px;
+    font-size:18px;
+}
+
+/* Decorative Circles */
+
+.hero::before{
+    content:"";
+    width:300px;
+    height:300px;
+    background:#ffe9a6;
+    border-radius:50%;
+    position:absolute;
+    top:-80px;
+    left:-80px;
+    opacity:.3;
+}
+
+.hero::after{
+    content:"";
+    width:250px;
+    height:250px;
+    background:#ffd76f;
+    border-radius:50%;
+    position:absolute;
+    bottom:-70px;
+    right:-70px;
+    opacity:.25;
+}
+
+/* Floating Animation */
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-18px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/* Fade Up */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(60px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.content h1{
+    font-size:50px;
+}
+
+.content h3{
+    font-size:24px;
+}
+
+.invite h2,
+.ganpati h2{
+    font-size:38px;
+}
+
+.card{
+    padding:35px;
+}
+
+}
+
+@media(max-width:600px){
+
+.content h1{
+    font-size:38px;
+}
+
+.content p{
+    font-size:17px;
+}
+
+.btn{
+    padding:14px 28px;
+}
+
+.card{
+    padding:25px;
+}
+
+.card h3{
+    font-size:22px;
+}
+
+.card p{
+    font-size:17px;
+}
+
+.ganpati img{
+    width:240px;
+}
+
+footer{
+    font-size:15px;
+}
+
+}
+
+.hidden{
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s ease;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.progress{
+    position:fixed;
+    top:0;
+    left:0;
+    width:0%;
+    height:5px;
+    background:linear-gradient(to right,#FFD700,#FF9800);
+    z-index:99999;
+}
+
+.sparkle{
+    position:fixed;
+    top:-20px;
+    border-radius:50%;
+    background:#FFD700;
+    pointer-events:none;
+    animation:fall linear forwards;
+    z-index:999;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh);
+    }
+}
+
+.btn,
+.map-btn{
+    position:relative;
+    overflow:hidden;
+}
+
+.ripple{
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:rgba(255,255,255,.6);
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    animation:ripple .6s linear;
+}
+
+@keyframes ripple{
+    from{
+        transform:translate(-50%,-50%) scale(0);
+        opacity:1;
+    }
+    to{
+        transform:translate(-50%,-50%) scale(15);
+        opacity:0;
+    }
+}
+
+.shine{
+    box-shadow:0 0 20px gold,0 0 40px gold;
+}
+
+.family-name{
+    text-align:center;
+    margin:15px 0 30px;
+    font-family:'Cinzel', serif;
+    font-size:1.6rem;
+    color:#d4af37;
+    line-height:1.8;
+    letter-spacing:1px;
+}
+
+.family-name span{
+    color:#ffb347;
+    font-weight:700;
+    font-size:2rem;
+    display:inline-block;
+    margin-top:8px;
+    text-transform:uppercase;
+}
+
+/* Ganpati Image */
+.hero-bappa{
+    width:220px;
+    max-width:80%;
+    display:block;
+    margin:0 auto 20px;
+    animation:float 3s ease-in-out infinite;
+    filter:drop-shadow(0 0 25px rgba(255,215,0,.7));
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+.family-name{
+text-align:center;
+margin:20px 0;
+font-size:28px;
+color:#d4af37;
+font-weight:bold;
+line-height:1.8;
+}
+
+.family-name span{
+display:block;
+font-size:36px;
+color:#ffd700;
+margin-top:10px;
+}
+
+@media(max-width:768px){
+
+.hero-bappa{
+width:150px;
+}
+
+.family-name{
+font-size:22px;
+}
+
+.family-name span{
+font-size:28px;
+}
+
+}
+
+/* Temple Bells */
+
+.bells{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:180px;
+pointer-events:none;
+z-index:5;
+}
+
+.bell{
+position:absolute;
+width:320px;
+animation:bellSwing 4s ease-in-out infinite;
+filter:drop-shadow(0 5px 15px rgba(0,0,0,.35));
+}
+
+.left-bell{
+left:50px;
+top:0;
+transform-origin:top center;
+}
+
+.right-bell{
+right:50px;
+top:0;
+transform-origin:top center;
+animation-delay:2s;
+}
+
+@keyframes bellSwing{
+0%{transform:rotate(0deg);}
+25%{transform:rotate(8deg);}
+50%{transform:rotate(0deg);}
+75%{transform:rotate(-8deg);}
+100%{transform:rotate(0deg);}
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.bell{
+width:60px;
+}
+
+.left-bell{
+left:15px;
+}
+
+.right-bell{
+right:15px;
+}
+
+}
