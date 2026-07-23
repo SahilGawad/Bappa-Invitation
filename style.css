@@ -1,452 +1,110 @@
+/*========================
+  GOOGLE FONT
+========================*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/*========================
+  RESET
+========================*/
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+html{
+font-size:16px;
+overflow-x:hidden;
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:#fdf8ef;
-    color:#4b2d0d;
-    overflow-x:hidden;
+font-family:'Poppins',sans-serif;
+background:#fff8ef;
+color:#333;
+overflow-x:hidden;
+line-height:1.7;
 }
 
-/* Loader */
-
-.loader{
-    position:fixed;
-    inset:0;
-    background:#fff8eb;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:32px;
-    color:#c89b3c;
-    font-family:'Cinzel',serif;
-    z-index:9999;
-    transition:1s;
+/*========================
+  VARIABLES
+========================*/
+:root{
+--primary:#d35400;
+--secondary:#ffcc70;
+--accent:#ff9933;
+--white:#ffffff;
+--dark:#2c2c2c;
+--shadow:0 15px 35px rgba(0,0,0,.15);
 }
 
-/* Hero */
+/*========================
+  LOADER
+========================*/
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#fff8ef;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+transition:.5s;
+}
 
+.loader-img{
+width:min(180px,45vw);
+animation:float 2.5s ease-in-out infinite;
+}
+
+/*========================
+  HERO SECTION
+========================*/
 .hero{
-    min-height:100vh;
-    background:
-    linear-gradient(rgba(255,248,230,.65),rgba(255,248,230,.75)),
-    url("assets/bg.jpg") center/cover;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:40px;
-    position:relative;
+position:relative;
+min-height:100svh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 20px 60px;
+background:url("assets/bg.jpg") center/cover no-repeat;
+overflow:hidden;
+isolation:isolate;
 }
-
-.content{
-    max-width:700px;
-    animation:fadeUp 1.5s ease;
-}
-
-.content h3{
-    color:#b8841c;
-    font-size:30px;
-    margin-bottom:10px;
-    font-family:'Cinzel',serif;
-}
-
-.content h1{
-    font-size:70px;
-    color:#8a5c09;
-    margin-bottom:20px;
-    text-shadow:0 4px 15px rgba(255,200,0,.25);
-}
-
-.content p{
-    font-size:20px;
-    line-height:1.8;
-    color:#6a4b12;
-    margin-bottom:40px;
-}
-
-/* Button */
-
-.btn{
-    display:inline-block;
-    padding:16px 42px;
-    background:linear-gradient(135deg,#d4af37,#ffeb8a);
-    color:#4d2c05;
-    text-decoration:none;
-    border-radius:40px;
-    font-weight:600;
-    transition:.4s;
-    box-shadow:0 10px 30px rgba(212,175,55,.4);
-}
-
-.btn:hover{
-    transform:translateY(-6px);
-    box-shadow:0 18px 40px rgba(212,175,55,.55);
-}
-
-/* Invitation */
-
-.invite{
-    padding:100px 20px;
-    text-align:center;
-}
-
-.invite h2{
-    font-size:48px;
-    color:#9c6c14;
-    margin-bottom:60px;
-    font-family:'Cinzel',serif;
-}
-
-.card{
-    width:90%;
-    max-width:520px;
-    margin:auto;
-    background:white;
-    padding:50px;
-    border-radius:30px;
-    box-shadow:0 25px 60px rgba(0,0,0,.08);
-    transition:.5s;
-    border:2px solid #f3d67c;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-}
-
-.card h3{
-    color:#b8841c;
-    margin-top:25px;
-    font-size:28px;
-}
-
-.card p{
-    margin-top:8px;
-    font-size:20px;
-}
-
-.map-btn{
-    display:inline-block;
-    margin-top:40px;
-    padding:15px 35px;
-    border-radius:35px;
-    text-decoration:none;
-    background:#b8841c;
-    color:white;
-    transition:.3s;
-}
-
-.map-btn:hover{
-    background:#8b650d;
-}
-
-/* Ganpati Section */
-
-.ganpati{
-    padding:120px 20px;
-    text-align:center;
-}
-
-.ganpati img{
-    width:320px;
-    max-width:90%;
-    animation:float 4s ease-in-out infinite;
-}
-
-.ganpati h2{
-    margin-top:30px;
-    font-size:50px;
-    color:#9c6c14;
-    font-family:'Cinzel',serif;
-}
-
-.ganpati p{
-    margin:30px auto;
-    max-width:650px;
-    font-size:20px;
-    line-height:1.8;
-}
-
-/* Footer */
-
-footer{
-    background:#b8841c;
-    color:white;
-    text-align:center;
-    padding:30px;
-    font-size:18px;
-}
-
-/* Decorative Circles */
 
 .hero::before{
-    content:"";
-    width:300px;
-    height:300px;
-    background:#ffe9a6;
-    border-radius:50%;
-    position:absolute;
-    top:-80px;
-    left:-80px;
-    opacity:.3;
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.45);
+z-index:-1;
 }
 
-.hero::after{
-    content:"";
-    width:250px;
-    height:250px;
-    background:#ffd76f;
-    border-radius:50%;
-    position:absolute;
-    bottom:-70px;
-    right:-70px;
-    opacity:.25;
+/*========================
+  OVERLAY
+========================*/
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to bottom,
+rgba(0,0,0,.25),
+rgba(0,0,0,.45));
+pointer-events:none;
 }
 
-/* Floating Animation */
-
-@keyframes float{
-    0%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-18px);
-    }
-    100%{
-        transform:translateY(0);
-    }
-}
-
-/* Fade Up */
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(60px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-/* Responsive */
-
-@media(max-width:900px){
-
-.content h1{
-    font-size:50px;
-}
-
-.content h3{
-    font-size:24px;
-}
-
-.invite h2,
-.ganpati h2{
-    font-size:38px;
-}
-
-.card{
-    padding:35px;
-}
-
-}
-
-@media(max-width:600px){
-
-.content h1{
-    font-size:38px;
-}
-
-.content p{
-    font-size:17px;
-}
-
-.btn{
-    padding:14px 28px;
-}
-
-.card{
-    padding:25px;
-}
-
-.card h3{
-    font-size:22px;
-}
-
-.card p{
-    font-size:17px;
-}
-
-.ganpati img{
-    width:240px;
-}
-
-footer{
-    font-size:15px;
-}
-
-}
-
-.hidden{
-    opacity:0;
-    transform:translateY(60px);
-    transition:1s ease;
-}
-
-.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-.progress{
-    position:fixed;
-    top:0;
-    left:0;
-    width:0%;
-    height:5px;
-    background:linear-gradient(to right,#FFD700,#FF9800);
-    z-index:99999;
-}
-
-.sparkle{
-    position:fixed;
-    top:-20px;
-    border-radius:50%;
-    background:#FFD700;
-    pointer-events:none;
-    animation:fall linear forwards;
-    z-index:999;
-}
-
-@keyframes fall{
-    to{
-        transform:translateY(110vh);
-    }
-}
-
-.btn,
-.map-btn{
-    position:relative;
-    overflow:hidden;
-}
-
-.ripple{
-    position:absolute;
-    width:20px;
-    height:20px;
-    background:rgba(255,255,255,.6);
-    border-radius:50%;
-    transform:translate(-50%,-50%);
-    animation:ripple .6s linear;
-}
-
-@keyframes ripple{
-    from{
-        transform:translate(-50%,-50%) scale(0);
-        opacity:1;
-    }
-    to{
-        transform:translate(-50%,-50%) scale(15);
-        opacity:0;
-    }
-}
-
-.shine{
-    box-shadow:0 0 20px gold,0 0 40px gold;
-}
-
-.family-name{
-    text-align:center;
-    margin:15px 0 30px;
-    font-family:'Cinzel', serif;
-    font-size:1.6rem;
-    color:#d4af37;
-    line-height:1.8;
-    letter-spacing:1px;
-}
-
-.family-name span{
-    color:#ffb347;
-    font-weight:700;
-    font-size:2rem;
-    display:inline-block;
-    margin-top:8px;
-    text-transform:uppercase;
-}
-
-/* Ganpati Image */
-.hero-bappa{
-    width:220px;
-    max-width:80%;
-    display:block;
-    margin:0 auto 20px;
-    animation:float 3s ease-in-out infinite;
-    filter:drop-shadow(0 0 25px rgba(255,215,0,.7));
-}
-
-@keyframes float{
-
-0%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(-10px);
-}
-
-100%{
-transform:translateY(0);
-}
-
-}
-
-.family-name{
-text-align:center;
-margin:20px 0;
-font-size:28px;
-color:#d4af37;
-font-weight:bold;
-line-height:1.8;
-}
-
-.family-name span{
-display:block;
-font-size:36px;
-color:#ffd700;
-margin-top:10px;
-}
-
-@media(max-width:768px){
-
-.hero-bappa{
-width:150px;
-}
-
-.family-name{
-font-size:22px;
-}
-
-.family-name span{
-font-size:28px;
-}
-
-}
-
-/* Temple Bells */
-/* Temple Bells */
-
+/*========================
+  BELLS
+========================*/
 .bells{
 position:absolute;
 top:0;
 left:0;
 width:100%;
-height:220px;
+height:200px;
 pointer-events:none;
 z-index:5;
 overflow:hidden;
@@ -454,126 +112,637 @@ overflow:hidden;
 
 .bell{
 position:absolute;
-width:180px;
+top:0;
+width:clamp(80px,12vw,170px);
 height:auto;
+transform-origin:top center;
 animation:bellSwing 4s ease-in-out infinite;
-filter:drop-shadow(0 5px 15px rgba(0,0,0,.35));
+filter:drop-shadow(0 8px 20px rgba(0,0,0,.4));
 }
 
 .left-bell{
-left:30px;
-top:0;
-transform-origin:top center;
+left:2%;
 }
 
 .right-bell{
-right:30px;
-top:0;
-transform-origin:top center;
+right:2%;
 animation-delay:2s;
 }
 
+/*========================
+  HERO BAPPA
+========================*/
+.hero-bappa{
+display:block;
+width:min(240px,55vw);
+margin:0 auto 25px;
+animation:float 4s ease-in-out infinite;
+filter:drop-shadow(0 12px 25px rgba(0,0,0,.3));
+}
+
+/*========================
+  HERO CONTENT
+========================*/
+.content{
+position:relative;
+z-index:10;
+width:min(100%,720px);
+margin:auto;
+padding:0 10px;
+}
+
+.content h3{
+color:#ffd369;
+font-size:clamp(1.3rem,3vw,2rem);
+margin-bottom:15px;
+font-weight:500;
+}
+
+.content h1{
+color:#fff;
+font-size:clamp(2.4rem,7vw,4.8rem);
+font-weight:700;
+line-height:1.2;
+margin-bottom:20px;
+text-shadow:0 5px 12px rgba(0,0,0,.35);
+}
+
+.content p{
+color:#fff;
+font-size:clamp(1rem,2.5vw,1.25rem);
+margin-bottom:35px;
+max-width:650px;
+margin-inline:auto;
+}
+
+/*========================
+  BUTTONS
+========================*/
+.btn,
+.map-btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:14px 34px;
+border-radius:50px;
+background:linear-gradient(135deg,#ff9933,#ff6f00);
+color:#fff;
+font-weight:600;
+font-size:1rem;
+text-decoration:none;
+transition:.35s;
+box-shadow:0 10px 25px rgba(255,111,0,.35);
+}
+
+.btn:hover,
+.map-btn:hover{
+transform:translateY(-4px);
+box-shadow:0 16px 35px rgba(255,111,0,.45);
+}
+
+/*========================
+  HERO ANIMATIONS
+========================*/
+@keyframes float{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-12px);
+}
+}
+
 @keyframes bellSwing{
-0%{transform:rotate(0deg);}
-25%{transform:rotate(8deg);}
-50%{transform:rotate(0deg);}
-75%{transform:rotate(-8deg);}
-100%{transform:rotate(0deg);}
+0%,100%{
+transform:rotate(0deg);
+}
+25%{
+transform:rotate(6deg);
+}
+75%{
+transform:rotate(-6deg);
+}
 }
 
-/* Mobile */
-
-@media(max-width:768px){
-
-.bell{
-width:60px;
+/*========================
+  INVITATION SECTION
+========================*/
+.invite{
+position:relative;
+padding:90px 20px;
+background:linear-gradient(180deg,#fffdf8,#fff3dd);
+text-align:center;
+overflow:hidden;
 }
 
-.left-bell{
-left:15px;
+.invite::before{
+content:"";
+position:absolute;
+top:-120px;
+left:-120px;
+width:280px;
+height:280px;
+background:rgba(255,180,0,.12);
+border-radius:50%;
+filter:blur(60px);
 }
 
-.right-bell{
-right:15px;
+.invite::after{
+content:"";
+position:absolute;
+bottom:-120px;
+right:-120px;
+width:280px;
+height:280px;
+background:rgba(255,120,0,.12);
+border-radius:50%;
+filter:blur(60px);
+}
+
+.invite h2{
+font-size:clamp(2rem,5vw,3.2rem);
+color:var(--primary);
+margin-bottom:18px;
+font-weight:700;
+position:relative;
+z-index:2;
+}
+
+.invite .subtitle{
+font-size:clamp(1rem,2.5vw,1.2rem);
+color:#666;
+margin-bottom:45px;
+position:relative;
+z-index:2;
+}
+
+/*========================
+  FAMILY NAME
+========================*/
+.family-name{
+display:inline-block;
+margin:0 auto 40px;
+padding:18px 35px;
+background:linear-gradient(135deg,#fff8eb,#ffe2b6);
+border:2px solid rgba(211,84,0,.15);
+border-radius:60px;
+box-shadow:0 12px 30px rgba(0,0,0,.08);
+font-size:clamp(1.3rem,3vw,2rem);
+font-weight:600;
+color:var(--primary);
+position:relative;
+z-index:2;
+}
+
+.family-name span{
+display:block;
+margin-top:8px;
+font-size:clamp(1.8rem,5vw,2.8rem);
+font-weight:700;
+color:#b23c17;
+}
+
+/*========================
+  INVITATION CARD
+========================*/
+.card{
+position:relative;
+width:min(100%,700px);
+margin:0 auto;
+padding:45px 35px;
+background:#ffffff;
+border-radius:28px;
+box-shadow:0 20px 45px rgba(0,0,0,.12);
+border:1px solid rgba(211,84,0,.08);
+z-index:2;
+transition:.35s ease;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 30px 55px rgba(0,0,0,.16);
+}
+
+.card h3{
+font-size:clamp(1.6rem,4vw,2.3rem);
+color:var(--primary);
+margin-bottom:25px;
+}
+
+.card p{
+font-size:clamp(1rem,2.5vw,1.15rem);
+color:#444;
+line-height:1.9;
+margin-bottom:18px;
+}
+
+.card strong{
+color:#b23c17;
+font-weight:600;
+}
+
+.card hr{
+border:none;
+height:1px;
+background:rgba(0,0,0,.08);
+margin:25px 0;
+}
+
+.card .date{
+font-size:clamp(1.2rem,3vw,1.5rem);
+font-weight:700;
+color:#d35400;
+margin-bottom:10px;
+}
+
+.card .time{
+font-size:clamp(1rem,2.5vw,1.2rem);
+color:#555;
+margin-bottom:25px;
+}
+
+.card .address{
+font-size:clamp(1rem,2.5vw,1.15rem);
+color:#444;
+line-height:1.8;
+}
+
+/*========================
+  MAP BUTTON
+========================*/
+.map-btn{
+margin-top:30px;
+}
+
+/*========================
+  RIPPLE EFFECT
+========================*/
+.ripple{
+position:absolute;
+border-radius:50%;
+background:rgba(255,255,255,.5);
+transform:scale(0);
+animation:ripple .6s linear;
+pointer-events:none;
+}
+
+@keyframes ripple{
+to{
+transform:scale(4);
+opacity:0;
+}
+}
+
+/*========================
+  DECORATIVE FLOWERS
+========================*/
+.flower-left,
+.flower-right{
+position:absolute;
+width:120px;
+opacity:.15;
+pointer-events:none;
+}
+
+.flower-left{
+top:60px;
+left:-20px;
+transform:rotate(-20deg);
+}
+
+.flower-right{
+bottom:60px;
+right:-20px;
+transform:rotate(20deg);
+}
+
+/*====================================
+    GANPATI SECTION
+====================================*/
+.ganpati{
+position:relative;
+padding:100px 20px;
+text-align:center;
+background:linear-gradient(180deg,#fff8ef,#ffe9cf);
+overflow:hidden;
+}
+
+.ganpati h2{
+font-size:clamp(2rem,5vw,3.2rem);
+color:var(--primary);
+margin-bottom:20px;
+font-weight:700;
+}
+
+.ganpati p{
+max-width:750px;
+margin:0 auto 40px;
+font-size:clamp(1rem,2.5vw,1.2rem);
+line-height:1.9;
+color:#555;
+}
+
+.ganpati img{
+display:block;
+width:min(340px,80vw);
+margin:0 auto;
+filter:drop-shadow(0 15px 30px rgba(0,0,0,.25));
+animation:float 4s ease-in-out infinite;
+}
+
+/*====================================
+    DECORATIVE CIRCLES
+====================================*/
+.ganpati::before,
+.ganpati::after{
+content:"";
+position:absolute;
+width:320px;
+height:320px;
+border-radius:50%;
+filter:blur(80px);
+z-index:0;
+}
+
+.ganpati::before{
+top:-120px;
+left:-120px;
+background:rgba(255,170,0,.12);
+}
+
+.ganpati::after{
+bottom:-120px;
+right:-120px;
+background:rgba(255,120,0,.12);
+}
+
+.ganpati>*{
+position:relative;
+z-index:2;
+}
+
+/*====================================
+    SPARKLES
+====================================*/
+.sparkle{
+position:absolute;
+width:8px;
+height:8px;
+background:#ffd54f;
+border-radius:50%;
+pointer-events:none;
+animation:sparkle 4s linear infinite;
+box-shadow:
+0 0 10px #ffd54f,
+0 0 20px #ffb300;
+}
+
+.sparkle:nth-child(1){
+top:15%;
+left:12%;
+animation-delay:0s;
+}
+
+.sparkle:nth-child(2){
+top:28%;
+right:18%;
+animation-delay:1s;
+}
+
+.sparkle:nth-child(3){
+bottom:22%;
+left:25%;
+animation-delay:2s;
+}
+
+.sparkle:nth-child(4){
+bottom:18%;
+right:20%;
+animation-delay:3s;
+}
+
+/*====================================
+    DIVIDER
+====================================*/
+.divider{
+width:120px;
+height:4px;
+margin:25px auto 40px;
+border-radius:20px;
+background:linear-gradient(to right,#ff9800,#ffd54f,#ff9800);
+}
+
+/*====================================
+    FOOTER
+====================================*/
+footer{
+background:#7b2507;
+color:#fff;
+text-align:center;
+padding:35px 20px;
+font-size:1rem;
+line-height:1.8;
+}
+
+footer h3{
+font-size:1.5rem;
+margin-bottom:12px;
+font-weight:600;
+}
+
+footer p{
+margin:6px 0;
+}
+
+footer a{
+color:#ffd54f;
+text-decoration:none;
+transition:.3s;
+}
+
+footer a:hover{
+color:#fff;
+}
+
+/*====================================
+    SCROLL TO TOP BUTTON
+====================================*/
+#topBtn{
+position:fixed;
+right:20px;
+bottom:20px;
+width:52px;
+height:52px;
+border:none;
+border-radius:50%;
+background:linear-gradient(135deg,#ff9800,#ff6f00);
+color:#fff;
+font-size:22px;
+cursor:pointer;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 12px 25px rgba(0,0,0,.25);
+transition:.3s;
+z-index:999;
+}
+
+#topBtn:hover{
+transform:translateY(-5px);
+}
+
+/*====================================
+    ANIMATIONS
+====================================*/
+@keyframes sparkle{
+
+0%{
+transform:translateY(20px) scale(0);
+opacity:0;
+}
+
+30%{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+70%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-40px) scale(0);
+opacity:0;
 }
 
 }
-@media (max-width:768px){
+
+@keyframes fadeUp{
+
+0%{
+opacity:0;
+transform:translateY(40px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.fade-up{
+animation:fadeUp .9s ease both;
+}
+
+@keyframes zoomIn{
+
+0%{
+opacity:0;
+transform:scale(.85);
+}
+
+100%{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+.zoom-in{
+animation:zoomIn .8s ease both;
+}
+
+@keyframes rotateSlow{
+
+0%{
+transform:rotate(0deg);
+}
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+.rotate-slow{
+animation:rotateSlow 20s linear infinite;
+}
+
+/*====================================
+    LARGE LAPTOPS (1200px+)
+====================================*/
+@media (min-width:1200px){
 
 .hero{
-min-height:100vh;
-padding:20px;
+padding:120px 40px 70px;
+}
+
+.content{
+max-width:760px;
+}
+
+.card{
+max-width:720px;
+}
+
+.ganpati img{
+width:360px;
+}
+
+}
+
+/*====================================
+    LAPTOP (992px–1199px)
+====================================*/
+@media (max-width:1199px){
+
+.hero{
+padding:100px 30px 60px;
+}
+
+.content{
+max-width:680px;
+}
+
+.hero-bappa{
+width:220px;
+}
+
+.bell{
+width:140px;
+}
+
+.card{
+padding:40px 30px;
+}
+
+.ganpati img{
+width:300px;
+}
+
+}
+
+/*====================================
+    TABLET (768px–991px)
+====================================*/
+@media (max-width:991px){
+
+.hero{
+padding:90px 25px 50px;
 }
 
 .content{
 max-width:100%;
 }
 
-.content h3{
-font-size:20px;
-}
-
-.content h1{
-font-size:34px;
-line-height:1.3;
-}
-
-.content p{
-font-size:16px;
-line-height:1.7;
-}
-
 .hero-bappa{
-width:140px;
-}
-
-.btn,
-.map-btn{
-padding:12px 25px;
-font-size:15px;
-}
-
-.invite h2,
-.ganpati h2{
-font-size:30px;
-}
-
-.family-name{
-font-size:22px;
-}
-
-.family-name span{
-font-size:28px;
-}
-
-.card{
-width:95%;
-padding:25px;
-}
-
-.card h3{
-font-size:22px;
-}
-
-.card p{
-font-size:16px;
-}
-
-.ganpati img{
-width:220px;
-}
-
-footer{
-font-size:15px;
-padding:20px;
-}
-
-.bells{
-height:130px;
+width:180px;
+margin-bottom:20px;
 }
 
 .bell{
-width:90px;
+width:110px;
 }
 
 .left-bell{
@@ -584,76 +753,262 @@ left:10px;
 right:10px;
 }
 
+.card{
+width:95%;
+padding:35px 25px;
 }
-@media (max-width:992px){
 
-.hero{
+.family-name{
+padding:15px 25px;
+}
+
+.btn,
+.map-btn{
+padding:13px 28px;
+}
+
+.ganpati img{
+width:260px;
+}
+
+footer{
 padding:30px 20px;
 }
 
-.content h1{
-font-size:52px;
 }
 
-.content p{
-font-size:18px;
+/*====================================
+    MOBILE (576px–767px)
+====================================*/
+@media (max-width:767px){
+
+html{
+font-size:15px;
+}
+
+.hero{
+min-height:100svh;
+padding:80px 18px 40px;
 }
 
 .hero-bappa{
-width:180px;
+width:150px;
+margin-bottom:18px;
+}
+
+.bells{
+height:120px;
 }
 
 .bell{
-width:140px;
+width:85px;
 }
-
-.left-bell{
-left:20px;
-}
-
-.right-bell{
-right:20px;
-}
-
-.card{
-padding:35px;
-}
-
-}
-@media (max-width:480px){
 
 .content h1{
-font-size:28px;
+line-height:1.25;
 }
 
 .content p{
-font-size:15px;
+margin-bottom:25px;
+}
+
+.btn,
+.map-btn{
+width:100%;
+max-width:320px;
+margin:auto;
+}
+
+.family-name{
+width:100%;
+padding:15px;
+border-radius:20px;
+}
+
+.card{
+width:100%;
+padding:28px 20px;
+border-radius:20px;
+}
+
+.ganpati{
+padding:70px 20px;
+}
+
+.ganpati img{
+width:220px;
+}
+
+footer h3{
+font-size:1.3rem;
+}
+
+#topBtn{
+width:46px;
+height:46px;
+font-size:18px;
+right:15px;
+bottom:15px;
+}
+
+}
+
+/*====================================
+    SMALL MOBILE (480px)
+====================================*/
+@media (max-width:480px){
+
+html{
+font-size:14px;
+}
+
+.hero{
+padding:70px 15px 35px;
 }
 
 .hero-bappa{
 width:120px;
 }
 
+.bells{
+height:90px;
+}
+
 .bell{
-width:70px;
+width:65px;
+}
+
+.left-bell{
+left:5px;
+}
+
+.right-bell{
+right:5px;
+}
+
+.invite{
+padding:60px 15px;
+}
+
+.family-name{
+font-size:1.1rem;
+padding:14px;
+}
+
+.family-name span{
+font-size:1.6rem;
 }
 
 .card{
-padding:20px;
+padding:22px 16px;
 }
 
 .card h3{
-font-size:20px;
+font-size:1.5rem;
 }
 
-.card p{
-font-size:15px;
+.ganpati{
+padding:60px 15px;
+}
+
+.ganpati img{
+width:180px;
+}
+
+footer{
+padding:25px 15px;
+font-size:.95rem;
+}
+
+}
+
+/*====================================
+    EXTRA SMALL DEVICES (360px)
+====================================*/
+@media (max-width:360px){
+
+.hero-bappa{
+width:100px;
+}
+
+.bell{
+width:55px;
+}
+
+.content h1{
+font-size:2rem;
+}
+
+.content h3{
+font-size:1rem;
+}
+
+.content p{
+font-size:.95rem;
+}
+
+.card{
+padding:18px 14px;
 }
 
 .btn,
 .map-btn{
-width:100%;
-text-align:center;
+font-size:.9rem;
+padding:12px 20px;
 }
 
+.ganpati img{
+width:160px;
+}
+
+}
+
+/*====================================
+    LANDSCAPE PHONES
+====================================*/
+@media (max-height:500px) and (orientation:landscape){
+
+.hero{
+min-height:auto;
+padding:60px 20px 40px;
+}
+
+.hero-bappa{
+width:120px;
+margin-bottom:10px;
+}
+
+.bells{
+display:none;
+}
+
+}
+
+/*====================================
+    GLOBAL RESPONSIVE FIXES
+====================================*/
+
+img{
+max-width:100%;
+height:auto;
+display:block;
+}
+
+section{
+overflow:hidden;
+}
+
+.container{
+width:min(1200px,100%);
+margin:auto;
+padding-inline:20px;
+}
+
+button,
+a{
+-webkit-tap-highlight-color:transparent;
+}
+
+body{
+overflow-x:hidden;
 }
