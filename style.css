@@ -234,65 +234,6 @@ footer{
     }
 }
 
-/* Responsive */
-
-@media(max-width:900px){
-
-.content h1{
-    font-size:50px;
-}
-
-.content h3{
-    font-size:24px;
-}
-
-.invite h2,
-.ganpati h2{
-    font-size:38px;
-}
-
-.card{
-    padding:35px;
-}
-
-}
-
-@media(max-width:600px){
-
-.content h1{
-    font-size:38px;
-}
-
-.content p{
-    font-size:17px;
-}
-
-.btn{
-    padding:14px 28px;
-}
-
-.card{
-    padding:25px;
-}
-
-.card h3{
-    font-size:22px;
-}
-
-.card p{
-    font-size:17px;
-}
-
-.ganpati img{
-    width:240px;
-}
-
-footer{
-    font-size:15px;
-}
-
-}
-
 .hidden{
     opacity:0;
     transform:translateY(60px);
@@ -363,20 +304,21 @@ footer{
 
 .family-name{
     text-align:center;
-    margin:15px 0 30px;
+    margin:20px 0 30px;
     font-family:'Cinzel', serif;
-    font-size:1.6rem;
+    font-size:28px;
     color:#d4af37;
+    font-weight:bold;
     line-height:1.8;
     letter-spacing:1px;
 }
 
 .family-name span{
-    color:#ffb347;
+    display:block;
+    color:#ffd700;
     font-weight:700;
-    font-size:2rem;
-    display:inline-block;
-    margin-top:8px;
+    font-size:36px;
+    margin-top:10px;
     text-transform:uppercase;
 }
 
@@ -386,274 +328,303 @@ footer{
     max-width:80%;
     display:block;
     margin:0 auto 20px;
-    animation:float 3s ease-in-out infinite;
+    animation:floatBappa 3s ease-in-out infinite;
     filter:drop-shadow(0 0 25px rgba(255,215,0,.7));
 }
 
-@keyframes float{
-
-0%{
-transform:translateY(0);
+@keyframes floatBappa{
+    0%{ transform:translateY(0); }
+    50%{ transform:translateY(-10px); }
+    100%{ transform:translateY(0); }
 }
 
-50%{
-transform:translateY(-10px);
-}
-
-100%{
-transform:translateY(0);
-}
-
-}
-
-.family-name{
-text-align:center;
-margin:20px 0;
-font-size:28px;
-color:#d4af37;
-font-weight:bold;
-line-height:1.8;
-}
-
-.family-name span{
-display:block;
-font-size:36px;
-color:#ffd700;
-margin-top:10px;
-}
-
-@media(max-width:768px){
-
-.hero-bappa{
-width:150px;
-}
-
-.family-name{
-font-size:22px;
-}
-
-.family-name span{
-font-size:28px;
-}
-
-}
-
-/* Temple Bells */
 /* Temple Bells */
 
 .bells{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:220px;
-pointer-events:none;
-z-index:5;
-overflow:hidden;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:220px;
+    pointer-events:none;
+    z-index:5;
+    overflow:hidden;
 }
 
 .bell{
-position:absolute;
-width:180px;
-height:auto;
-animation:bellSwing 4s ease-in-out infinite;
-filter:drop-shadow(0 5px 15px rgba(0,0,0,.35));
+    position:absolute;
+    width:180px;
+    height:auto;
+    animation:bellSwing 4s ease-in-out infinite;
+    filter:drop-shadow(0 5px 15px rgba(0,0,0,.35));
 }
 
 .left-bell{
-left:30px;
-top:0;
-transform-origin:top center;
+    left:30px;
+    top:0;
+    transform-origin:top center;
 }
 
 .right-bell{
-right:30px;
-top:0;
-transform-origin:top center;
-animation-delay:2s;
+    right:30px;
+    top:0;
+    transform-origin:top center;
+    animation-delay:2s;
 }
 
 @keyframes bellSwing{
-0%{transform:rotate(0deg);}
-25%{transform:rotate(8deg);}
-50%{transform:rotate(0deg);}
-75%{transform:rotate(-8deg);}
-100%{transform:rotate(0deg);}
+    0%{transform:rotate(0deg);}
+    25%{transform:rotate(8deg);}
+    50%{transform:rotate(0deg);}
+    75%{transform:rotate(-8deg);}
+    100%{transform:rotate(0deg);}
 }
 
-/* Mobile */
+/* ============================================
+   RESPONSIVE — ordered largest to smallest so
+   each breakpoint cascades correctly over the
+   last. Keep new breakpoints in this position,
+   never appended after a smaller one.
+   ============================================ */
 
-@media(max-width:768px){
-
-.bell{
-width:60px;
-}
-
-.left-bell{
-left:15px;
-}
-
-.right-bell{
-right:15px;
-}
-
-}
-@media (max-width:768px){
-
-.hero{
-min-height:100vh;
-padding:20px;
-}
-
-.content{
-max-width:100%;
-}
-
-.content h3{
-font-size:20px;
-}
-
-.content h1{
-font-size:34px;
-line-height:1.3;
-}
-
-.content p{
-font-size:16px;
-line-height:1.7;
-}
-
-.hero-bappa{
-width:140px;
-}
-
-.btn,
-.map-btn{
-padding:12px 25px;
-font-size:15px;
-}
-
-.invite h2,
-.ganpati h2{
-font-size:30px;
-}
-
-.family-name{
-font-size:22px;
-}
-
-.family-name span{
-font-size:28px;
-}
-
-.card{
-width:95%;
-padding:25px;
-}
-
-.card h3{
-font-size:22px;
-}
-
-.card p{
-font-size:16px;
-}
-
-.ganpati img{
-width:220px;
-}
-
-footer{
-font-size:15px;
-padding:20px;
-}
-
-.bells{
-height:130px;
-}
-
-.bell{
-width:90px;
-}
-
-.left-bell{
-left:10px;
-}
-
-.right-bell{
-right:10px;
-}
-
-}
 @media (max-width:992px){
 
-.hero{
-padding:30px 20px;
+    .hero{
+        padding:30px 20px;
+    }
+
+    .content h1{
+        font-size:54px;
+    }
+
+    .content h3{
+        font-size:26px;
+    }
+
+    .content p{
+        font-size:18px;
+    }
+
+    .invite h2,
+    .ganpati h2{
+        font-size:40px;
+    }
+
+    .hero-bappa{
+        width:180px;
+    }
+
+    .bell{
+        width:140px;
+    }
+
+    .left-bell{
+        left:20px;
+    }
+
+    .right-bell{
+        right:20px;
+    }
+
+    .card{
+        padding:35px;
+    }
+
 }
 
-.content h1{
-font-size:52px;
+@media (max-width:768px){
+
+    .hero{
+        min-height:100vh;
+        padding:20px;
+    }
+
+    .content{
+        max-width:100%;
+    }
+
+    .content h3{
+        font-size:22px;
+    }
+
+    .content h1{
+        font-size:38px;
+        line-height:1.3;
+    }
+
+    .content p{
+        font-size:17px;
+        line-height:1.7;
+    }
+
+    .hero-bappa{
+        width:150px;
+    }
+
+    .btn,
+    .map-btn{
+        padding:14px 30px;
+        font-size:16px;
+    }
+
+    .invite h2,
+    .ganpati h2{
+        font-size:32px;
+    }
+
+    .family-name{
+        font-size:22px;
+    }
+
+    .family-name span{
+        font-size:28px;
+    }
+
+    .card{
+        width:92%;
+        padding:28px;
+    }
+
+    .card h3{
+        font-size:22px;
+    }
+
+    .card p{
+        font-size:17px;
+    }
+
+    .ganpati img{
+        width:240px;
+    }
+
+    footer{
+        font-size:15px;
+        padding:22px;
+    }
+
+    .bells{
+        height:150px;
+    }
+
+    .bell{
+        width:100px;
+    }
+
+    .left-bell{
+        left:12px;
+    }
+
+    .right-bell{
+        right:12px;
+    }
+
 }
 
-.content p{
-font-size:18px;
+@media (max-width:600px){
+
+    .content h1{
+        font-size:32px;
+    }
+
+    .content p{
+        font-size:16px;
+    }
+
+    .btn{
+        padding:14px 28px;
+    }
+
+    .card{
+        width:95%;
+        padding:24px;
+    }
+
+    .card h3{
+        font-size:20px;
+    }
+
+    .card p{
+        font-size:16px;
+    }
+
+    .ganpati img{
+        width:220px;
+    }
+
+    .hero-bappa{
+        width:130px;
+    }
+
+    .bell{
+        width:80px;
+    }
+
+    .bells{
+        height:130px;
+    }
+
+    footer{
+        font-size:14px;
+    }
+
 }
 
-.hero-bappa{
-width:180px;
-}
-
-.bell{
-width:140px;
-}
-
-.left-bell{
-left:20px;
-}
-
-.right-bell{
-right:20px;
-}
-
-.card{
-padding:35px;
-}
-
-}
 @media (max-width:480px){
 
-.content h1{
-font-size:28px;
-}
+    .content h1{
+        font-size:26px;
+    }
 
-.content p{
-font-size:15px;
-}
+    .content h3{
+        font-size:18px;
+    }
 
-.hero-bappa{
-width:120px;
-}
+    .content p{
+        font-size:15px;
+    }
 
-.bell{
-width:70px;
-}
+    .hero-bappa{
+        width:110px;
+    }
 
-.card{
-padding:20px;
-}
+    .bell{
+        width:65px;
+    }
 
-.card h3{
-font-size:20px;
-}
+    .left-bell{
+        left:8px;
+    }
 
-.card p{
-font-size:15px;
-}
+    .right-bell{
+        right:8px;
+    }
 
-.btn,
-.map-btn{
-width:100%;
-text-align:center;
-}
+    .card{
+        padding:20px;
+    }
+
+    .card h3{
+        font-size:19px;
+    }
+
+    .card p{
+        font-size:15px;
+    }
+
+    .btn,
+    .map-btn{
+        width:100%;
+        text-align:center;
+        padding:14px 0;
+        font-size:15px;
+    }
+
+    .family-name{
+        font-size:19px;
+    }
+
+    .family-name span{
+        font-size:24px;
+    }
 
 }
