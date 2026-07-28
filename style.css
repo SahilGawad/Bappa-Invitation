@@ -380,21 +380,26 @@ footer{
     100%{transform:rotate(0deg);}
 }
 
-/* ============================================
-   RESPONSIVE — ordered largest to smallest so
-   each breakpoint cascades correctly over the
-   last. Keep new breakpoints in this position,
-   never appended after a smaller one.
-   ============================================ */
+/* ==========================================
+   RESPONSIVE
+========================================== */
 
-@media (max-width:992px){
+/* Tablets */
+@media (max-width:991px){
 
     .hero{
-        padding:30px 20px;
+        padding:80px 20px 40px;
+        min-height:100vh;
+    }
+
+    .content{
+        width:100%;
+        max-width:700px;
     }
 
     .content h1{
-        font-size:54px;
+        font-size:52px;
+        line-height:1.2;
     }
 
     .content h3{
@@ -405,46 +410,43 @@ footer{
         font-size:18px;
     }
 
-    .invite h2,
-    .ganpati h2{
-        font-size:40px;
-    }
-
     .hero-bappa{
         width:180px;
     }
 
-    .bell{
-        width:140px;
-    }
-
-    .left-bell{
-        left:20px;
-    }
-
-    .right-bell{
-        right:20px;
+    .invite h2,
+    .ganpati h2{
+        font-size:42px;
     }
 
     .card{
+        width:95%;
         padding:35px;
     }
 
+    .bell{
+        width:130px;
+    }
 }
 
+/* Mobile */
 @media (max-width:768px){
 
+    body{
+        overflow-x:hidden;
+    }
+
     .hero{
-        min-height:100vh;
-        padding:20px;
+        min-height:auto;
+        padding:130px 20px 60px;
     }
 
     .content{
-        max-width:100%;
+        width:100%;
     }
 
     .content h3{
-        font-size:22px;
+        font-size:20px;
     }
 
     .content h1{
@@ -453,23 +455,34 @@ footer{
     }
 
     .content p{
-        font-size:17px;
+        font-size:16px;
         line-height:1.7;
     }
 
     .hero-bappa{
-        width:150px;
+        width:140px;
+        margin-bottom:15px;
     }
 
     .btn,
     .map-btn{
+        display:inline-block;
         padding:14px 30px;
         font-size:16px;
     }
 
+    .invite,
+    .ganpati{
+        padding:70px 20px;
+    }
+
     .invite h2,
     .ganpati h2{
-        font-size:32px;
+        font-size:30px;
+    }
+
+    .ganpati img{
+        width:220px;
     }
 
     .family-name{
@@ -481,8 +494,9 @@ footer{
     }
 
     .card{
-        width:92%;
-        padding:28px;
+        width:100%;
+        padding:28px 22px;
+        border-radius:20px;
     }
 
     .card h3{
@@ -493,102 +507,12 @@ footer{
         font-size:17px;
     }
 
-    .ganpati img{
-        width:240px;
-    }
-
-    footer{
-        font-size:15px;
-        padding:22px;
-    }
-
     .bells{
-        height:150px;
+        height:120px;
     }
 
     .bell{
-        width:100px;
-    }
-
-    .left-bell{
-        left:12px;
-    }
-
-    .right-bell{
-        right:12px;
-    }
-
-}
-
-@media (max-width:600px){
-
-    .content h1{
-        font-size:32px;
-    }
-
-    .content p{
-        font-size:16px;
-    }
-
-    .btn{
-        padding:14px 28px;
-    }
-
-    .card{
-        width:95%;
-        padding:24px;
-    }
-
-    .card h3{
-        font-size:20px;
-    }
-
-    .card p{
-        font-size:16px;
-    }
-
-    .ganpati img{
-        width:220px;
-    }
-
-    .hero-bappa{
-        width:130px;
-    }
-
-    .bell{
-        width:80px;
-    }
-
-    .bells{
-        height:130px;
-    }
-
-    footer{
-        font-size:14px;
-    }
-
-}
-
-@media (max-width:480px){
-
-    .content h1{
-        font-size:26px;
-    }
-
-    .content h3{
-        font-size:18px;
-    }
-
-    .content p{
-        font-size:15px;
-    }
-
-    .hero-bappa{
-        width:110px;
-    }
-
-    .bell{
-        width:65px;
+        width:90px;
     }
 
     .left-bell{
@@ -599,12 +523,59 @@ footer{
         right:8px;
     }
 
-    .card{
+    footer{
+        font-size:15px;
         padding:20px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width:480px){
+
+    .hero{
+        padding:110px 15px 50px;
+    }
+
+    .content h3{
+        font-size:18px;
+    }
+
+    .content h1{
+        font-size:30px;
+    }
+
+    .content p{
+        font-size:15px;
+    }
+
+    .hero-bappa{
+        width:110px;
+    }
+
+    .invite h2,
+    .ganpati h2{
+        font-size:26px;
+    }
+
+    .ganpati img{
+        width:180px;
+    }
+
+    .family-name{
+        font-size:18px;
+        line-height:1.6;
+    }
+
+    .family-name span{
+        font-size:22px;
+    }
+
+    .card{
+        padding:20px 18px;
     }
 
     .card h3{
-        font-size:19px;
+        font-size:20px;
     }
 
     .card p{
@@ -614,17 +585,63 @@ footer{
     .btn,
     .map-btn{
         width:100%;
-        text-align:center;
-        padding:14px 0;
         font-size:15px;
+        padding:14px;
+    }
+
+    .bells{
+        height:90px;
+    }
+
+    .bell{
+        width:60px;
+    }
+
+    footer{
+        font-size:14px;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width:360px){
+
+    .content h1{
+        font-size:26px;
+    }
+
+    .content p{
+        font-size:14px;
+    }
+
+    .hero-bappa{
+        width:95px;
+    }
+
+    .ganpati img{
+        width:160px;
     }
 
     .family-name{
-        font-size:19px;
+        font-size:16px;
     }
 
     .family-name span{
-        font-size:24px;
+        font-size:20px;
     }
 
+    .card{
+        padding:16px;
+    }
+
+    .card h3{
+        font-size:18px;
+    }
+
+    .card p{
+        font-size:14px;
+    }
+
+    .bell{
+        display:none;
+    }
 }
