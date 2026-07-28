@@ -1,0 +1,343 @@
+/*====================================
+    LARGE LAPTOPS (1200px+)
+====================================*/
+@media (min-width:1200px){
+
+.hero{
+padding:120px 40px 70px;
+}
+
+.content{
+max-width:760px;
+}
+
+.card{
+max-width:720px;
+}
+
+.ganpati img{
+width:360px;
+}
+
+}
+
+/*====================================
+    LAPTOP (992px–1199px)
+====================================*/
+@media (max-width:1199px){
+
+.hero{
+padding:100px 30px 60px;
+}
+
+.content{
+max-width:680px;
+}
+
+.hero-bappa{
+width:220px;
+}
+
+.bell{
+width:140px;
+}
+
+.card{
+padding:40px 30px;
+}
+
+.ganpati img{
+width:300px;
+}
+
+}
+
+/*====================================
+    TABLET (768px–991px)
+====================================*/
+@media (max-width:991px){
+
+.hero{
+padding:90px 25px 50px;
+}
+
+.content{
+max-width:100%;
+}
+
+.hero-bappa{
+width:180px;
+margin-bottom:20px;
+}
+
+.bell{
+width:110px;
+}
+
+.left-bell{
+left:10px;
+}
+
+.right-bell{
+right:10px;
+}
+
+.card{
+width:95%;
+padding:35px 25px;
+}
+
+.family-name{
+padding:15px 25px;
+}
+
+.btn,
+.map-btn{
+padding:13px 28px;
+}
+
+.ganpati img{
+width:260px;
+}
+
+footer{
+padding:30px 20px;
+}
+
+}
+
+/*====================================
+    MOBILE (576px–767px)
+====================================*/
+@media (max-width:767px){
+
+html{
+font-size:15px;
+}
+
+.hero{
+min-height:100svh;
+padding:80px 18px 40px;
+}
+
+.hero-bappa{
+width:150px;
+margin-bottom:18px;
+}
+
+.bells{
+height:120px;
+}
+
+.bell{
+width:85px;
+}
+
+.content h1{
+line-height:1.25;
+}
+
+.content p{
+margin-bottom:25px;
+}
+
+.btn,
+.map-btn{
+width:100%;
+max-width:320px;
+margin:auto;
+}
+
+.family-name{
+width:100%;
+padding:15px;
+border-radius:20px;
+}
+
+.card{
+width:100%;
+padding:28px 20px;
+border-radius:20px;
+}
+
+.ganpati{
+padding:70px 20px;
+}
+
+.ganpati img{
+width:220px;
+}
+
+footer h3{
+font-size:1.3rem;
+}
+
+#topBtn{
+width:46px;
+height:46px;
+font-size:18px;
+right:15px;
+bottom:15px;
+}
+
+}
+
+/*====================================
+    SMALL MOBILE (480px)
+====================================*/
+@media (max-width:480px){
+
+html{
+font-size:14px;
+}
+
+.hero{
+padding:70px 15px 35px;
+}
+
+.hero-bappa{
+width:120px;
+}
+
+.bells{
+height:90px;
+}
+
+.bell{
+width:65px;
+}
+
+.left-bell{
+left:5px;
+}
+
+.right-bell{
+right:5px;
+}
+
+.invite{
+padding:60px 15px;
+}
+
+.family-name{
+font-size:1.1rem;
+padding:14px;
+}
+
+.family-name span{
+font-size:1.6rem;
+}
+
+.card{
+padding:22px 16px;
+}
+
+.card h3{
+font-size:1.5rem;
+}
+
+.ganpati{
+padding:60px 15px;
+}
+
+.ganpati img{
+width:180px;
+}
+
+footer{
+padding:25px 15px;
+font-size:.95rem;
+}
+
+}
+
+/*====================================
+    EXTRA SMALL DEVICES (360px)
+====================================*/
+@media (max-width:360px){
+
+.hero-bappa{
+width:100px;
+}
+
+.bell{
+width:55px;
+}
+
+.content h1{
+font-size:2rem;
+}
+
+.content h3{
+font-size:1rem;
+}
+
+.content p{
+font-size:.95rem;
+}
+
+.card{
+padding:18px 14px;
+}
+
+.btn,
+.map-btn{
+font-size:.9rem;
+padding:12px 20px;
+}
+
+.ganpati img{
+width:160px;
+}
+
+}
+
+/*====================================
+    LANDSCAPE PHONES
+====================================*/
+@media (max-height:500px) and (orientation:landscape){
+
+.hero{
+min-height:auto;
+padding:60px 20px 40px;
+}
+
+.hero-bappa{
+width:120px;
+margin-bottom:10px;
+}
+
+.bells{
+display:none;
+}
+
+}
+
+/*====================================
+    GLOBAL RESPONSIVE FIXES
+====================================*/
+
+img{
+max-width:100%;
+height:auto;
+display:block;
+}
+
+section{
+overflow:hidden;
+}
+
+.container{
+width:min(1200px,100%);
+margin:auto;
+padding-inline:20px;
+}
+
+button,
+a{
+-webkit-tap-highlight-color:transparent;
+}
+
+body{
+overflow-x:hidden;
+}
