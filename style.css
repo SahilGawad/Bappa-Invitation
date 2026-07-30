@@ -1,227 +1,232 @@
+/*=========================================
+    RESET & GLOBAL
+=========================================*/
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+}
+
+:root{
+    --bg:#fdf8ef;
+    --white:#ffffff;
+    --gold:#d4af37;
+    --gold-dark:#b8841c;
+    --gold-light:#ffe8a3;
+    --brown:#4d2c05;
+    --brown-light:#6a4b12;
+    --shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+html{
     scroll-behavior:smooth;
 }
 
 body{
     font-family:'Poppins',sans-serif;
-    background:#fdf8ef;
-    color:#4b2d0d;
+    background:var(--bg);
+    color:var(--brown);
+    line-height:1.7;
     overflow-x:hidden;
 }
 
-/* Loader */
+main{
+    width:100%;
+    overflow:hidden;
+}
+
+section{
+    width:100%;
+    position:relative;
+}
+
+img{
+    display:block;
+    max-width:100%;
+    height:auto;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/*=========================================
+    LOADER
+=========================================*/
 
 .loader{
     position:fixed;
     inset:0;
-    background:#fff8eb;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:32px;
-    color:#c89b3c;
-    font-family:'Cinzel',serif;
-    z-index:9999;
-    transition:1s;
+    background:#fff8eb;
+    z-index:99999;
+    transition:.8s;
 }
 
-/* Hero */
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.loader span{
+    font-family:'Cinzel',serif;
+    font-size:clamp(22px,4vw,38px);
+    color:var(--gold);
+    text-align:center;
+    padding:20px;
+}
+
+/*=========================================
+    HERO SECTION
+=========================================*/
 
 .hero{
-    min-height:100vh;
-    background:
-    linear-gradient(rgba(255,248,230,.65),rgba(255,248,230,.75)),
-    url("assets/bg.jpg") center/cover;
+    min-height:100svh;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:40px;
-    position:relative;
+    padding:120px 20px 70px;
+    overflow:hidden;
+    background:
+    linear-gradient(rgba(255,248,230,.72),rgba(255,248,230,.82)),
+    url("assets/bg.jpg") center/cover no-repeat;
 }
-
-.content{
-    max-width:700px;
-    animation:fadeUp 1.5s ease;
-}
-
-.content h3{
-    color:#b8841c;
-    font-size:30px;
-    margin-bottom:10px;
-    font-family:'Cinzel',serif;
-}
-
-.content h1{
-    font-size:70px;
-    color:#8a5c09;
-    margin-bottom:20px;
-    text-shadow:0 4px 15px rgba(255,200,0,.25);
-}
-
-.content p{
-    font-size:20px;
-    line-height:1.8;
-    color:#6a4b12;
-    margin-bottom:40px;
-}
-
-/* Button */
-
-.btn{
-    display:inline-block;
-    padding:16px 42px;
-    background:linear-gradient(135deg,#d4af37,#ffeb8a);
-    color:#4d2c05;
-    text-decoration:none;
-    border-radius:40px;
-    font-weight:600;
-    transition:.4s;
-    box-shadow:0 10px 30px rgba(212,175,55,.4);
-}
-
-.btn:hover{
-    transform:translateY(-6px);
-    box-shadow:0 18px 40px rgba(212,175,55,.55);
-}
-
-/* Invitation */
-
-.invite{
-    padding:100px 20px;
-    text-align:center;
-}
-
-.invite h2{
-    font-size:48px;
-    color:#9c6c14;
-    margin-bottom:60px;
-    font-family:'Cinzel',serif;
-}
-
-.card{
-    width:90%;
-    max-width:520px;
-    margin:auto;
-    background:white;
-    padding:50px;
-    border-radius:30px;
-    box-shadow:0 25px 60px rgba(0,0,0,.08);
-    transition:.5s;
-    border:2px solid #f3d67c;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-}
-
-.card h3{
-    color:#b8841c;
-    margin-top:25px;
-    font-size:28px;
-}
-
-.card p{
-    margin-top:8px;
-    font-size:20px;
-}
-
-.map-btn{
-    display:inline-block;
-    margin-top:40px;
-    padding:15px 35px;
-    border-radius:35px;
-    text-decoration:none;
-    background:#b8841c;
-    color:white;
-    transition:.3s;
-}
-
-.map-btn:hover{
-    background:#8b650d;
-}
-
-/* Ganpati Section */
-
-.ganpati{
-    padding:120px 20px;
-    text-align:center;
-}
-
-.ganpati img{
-    width:320px;
-    max-width:90%;
-    animation:float 4s ease-in-out infinite;
-}
-
-.ganpati h2{
-    margin-top:30px;
-    font-size:50px;
-    color:#9c6c14;
-    font-family:'Cinzel',serif;
-}
-
-.ganpati p{
-    margin:30px auto;
-    max-width:650px;
-    font-size:20px;
-    line-height:1.8;
-}
-
-/* Footer */
-
-footer{
-    background:#b8841c;
-    color:white;
-    text-align:center;
-    padding:30px;
-    font-size:18px;
-}
-
-/* Decorative Circles */
 
 .hero::before{
     content:"";
-    width:300px;
-    height:300px;
-    background:#ffe9a6;
-    border-radius:50%;
     position:absolute;
-    top:-80px;
-    left:-80px;
-    opacity:.3;
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    background:#ffe9a6;
+    top:-120px;
+    left:-120px;
+    opacity:.28;
 }
 
 .hero::after{
     content:"";
-    width:250px;
-    height:250px;
-    background:#ffd76f;
-    border-radius:50%;
     position:absolute;
-    bottom:-70px;
-    right:-70px;
-    opacity:.25;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background:#ffd76f;
+    right:-80px;
+    bottom:-80px;
+    opacity:.20;
 }
 
-/* Floating Animation */
+/*=========================================
+    BELLS
+=========================================*/
 
-@keyframes float{
-    0%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-18px);
-    }
-    100%{
-        transform:translateY(0);
-    }
+.bells{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:200px;
+    pointer-events:none;
+    z-index:5;
 }
 
-/* Fade Up */
+.bell{
+    position:absolute;
+    width:170px;
+    animation:bellSwing 4s ease-in-out infinite;
+    filter:drop-shadow(0 5px 15px rgba(0,0,0,.35));
+}
+
+.left-bell{
+    left:25px;
+    top:0;
+    transform-origin:top center;
+}
+
+.right-bell{
+    right:25px;
+    top:0;
+    transform-origin:top center;
+    animation-delay:2s;
+}
+
+/*=========================================
+    HERO CONTENT
+=========================================*/
+
+.content{
+    width:min(100%,750px);
+    position:relative;
+    z-index:10;
+    animation:fadeUp 1s ease;
+}
+
+.content h3{
+    font-family:'Cinzel',serif;
+    font-size:clamp(20px,3vw,30px);
+    color:var(--gold-dark);
+    margin-bottom:10px;
+}
+
+.content h1{
+    font-family:'Cinzel',serif;
+    font-size:clamp(36px,7vw,72px);
+    color:#8a5c09;
+    line-height:1.15;
+    margin-bottom:25px;
+    text-shadow:0 4px 15px rgba(255,200,0,.20);
+}
+
+.content p{
+    font-size:clamp(16px,2.8vw,22px);
+    color:var(--brown-light);
+    margin-bottom:35px;
+    line-height:1.8;
+}
+
+/*=========================================
+    BUTTON
+=========================================*/
+
+.btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    padding:16px 42px;
+    border-radius:50px;
+    background:linear-gradient(135deg,var(--gold),#ffeb8a);
+    color:var(--brown);
+    font-weight:600;
+    transition:.35s;
+    box-shadow:0 10px 25px rgba(212,175,55,.35);
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(212,175,55,.45);
+}
+
+.btn:active{
+    transform:scale(.96);
+}
+
+/*=========================================
+    ANIMATIONS
+=========================================*/
+
+@keyframes bellSwing{
+    0%{transform:rotate(0deg);}
+    25%{transform:rotate(8deg);}
+    50%{transform:rotate(0deg);}
+    75%{transform:rotate(-8deg);}
+    100%{transform:rotate(0deg);}
+}
 
 @keyframes fadeUp{
     from{
@@ -234,16 +239,302 @@ footer{
     }
 }
 
+/*=========================================
+    INVITATION SECTION
+=========================================*/
+
+.invite{
+    padding:90px 20px;
+    background:var(--bg);
+    text-align:center;
+}
+
+.invite h2{
+    font-family:'Cinzel',serif;
+    font-size:clamp(30px,5vw,52px);
+    color:var(--gold-dark);
+    margin-bottom:35px;
+    text-shadow:0 3px 10px rgba(212,175,55,.2);
+}
+
+/*=========================================
+    FAMILY NAME
+=========================================*/
+
+.family-name{
+    margin-bottom:45px;
+    font-family:'Cinzel',serif;
+    font-size:clamp(24px,3vw,34px);
+    color:var(--gold-dark);
+    line-height:1.8;
+    font-weight:700;
+}
+
+.family-name span{
+    display:block;
+    margin-top:12px;
+    font-size:clamp(30px,5vw,44px);
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    text-shadow:0 5px 15px rgba(212,175,55,.25);
+}
+
+/*=========================================
+    INVITATION CARD
+=========================================*/
+
+.card{
+    width:min(100%,560px);
+    margin:auto;
+    background:var(--white);
+    border:2px solid #f4d97f;
+    border-radius:30px;
+    padding:45px 35px;
+    box-shadow:var(--shadow);
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 25px 45px rgba(0,0,0,.12);
+}
+
+.card h3{
+    font-family:'Cinzel',serif;
+    font-size:clamp(22px,3vw,30px);
+    color:var(--gold-dark);
+    margin-top:28px;
+}
+
+.card h3:first-child{
+    margin-top:0;
+}
+
+.card p{
+    margin-top:10px;
+    font-size:clamp(17px,2.5vw,21px);
+    color:var(--brown-light);
+    line-height:1.8;
+}
+
+/*=========================================
+    MAP BUTTON
+=========================================*/
+
+.map-btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:35px;
+    padding:16px 36px;
+    background:var(--gold-dark);
+    color:var(--white);
+    border-radius:50px;
+    font-weight:600;
+    transition:.35s;
+    box-shadow:0 10px 25px rgba(184,132,28,.3);
+}
+
+.map-btn:hover{
+    background:#9b6d12;
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(184,132,28,.4);
+}
+
+.map-btn:active{
+    transform:scale(.96);
+}
+
+/*=========================================
+    CARD ICON SPACING
+=========================================*/
+
+.card h3+p{
+    margin-bottom:10px;
+}
+
+/*=========================================
+    SMALL DECORATION
+=========================================*/
+
+.card::before{
+    content:"🪔";
+    display:block;
+    font-size:38px;
+    margin-bottom:20px;
+}
+
+.card::after{
+    content:"";
+    display:block;
+    width:80px;
+    height:4px;
+    margin:30px auto 0;
+    border-radius:20px;
+    background:linear-gradient(to right,var(--gold),#ffeb8a);
+}
+
+/*=========================================
+    GANPATI SECTION
+=========================================*/
+
+.ganpati{
+    padding:100px 20px;
+    text-align:center;
+    background:linear-gradient(to bottom,#fffdf8,var(--bg));
+    overflow:hidden;
+}
+
+.ganpati::before{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background:rgba(255,215,0,.12);
+    top:-120px;
+    left:-120px;
+}
+
+.ganpati::after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:rgba(255,193,7,.10);
+    bottom:-100px;
+    right:-100px;
+}
+
+.ganpati img{
+    width:min(320px,90%);
+    margin:0 auto 30px;
+    filter:drop-shadow(0 12px 25px rgba(255,193,7,.35));
+    animation:bappaFloat 4s ease-in-out infinite;
+}
+
+.ganpati h2{
+    font-family:'Cinzel',serif;
+    font-size:clamp(32px,5vw,52px);
+    color:var(--gold-dark);
+    margin-bottom:20px;
+}
+
+.ganpati p{
+    width:min(650px,100%);
+    margin:0 auto 35px;
+    font-size:clamp(17px,2.5vw,21px);
+    color:var(--brown-light);
+    line-height:1.8;
+}
+
+.ganpati .btn{
+    margin-top:10px;
+}
+
+/*=========================================
+    FOOTER
+=========================================*/
+
+footer{
+    background:linear-gradient(135deg,var(--gold-dark),#9c6d13);
+    color:var(--white);
+    text-align:center;
+    padding:25px 20px;
+    font-size:16px;
+    letter-spacing:.5px;
+}
+
+footer p{
+    margin:0;
+}
+
+/*=========================================
+    FLOAT ANIMATION
+=========================================*/
+
+@keyframes bappaFloat{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/*=========================================
+    FADE ANIMATION
+=========================================*/
+
 .hidden{
     opacity:0;
     transform:translateY(60px);
-    transition:1s ease;
+    transition:all .8s ease;
 }
 
 .show{
     opacity:1;
     transform:translateY(0);
 }
+
+/*=========================================
+    SHINE EFFECT
+=========================================*/
+
+.shine{
+    box-shadow:
+    0 0 15px rgba(255,215,0,.5),
+    0 0 30px rgba(255,215,0,.35);
+}
+
+/*=========================================
+    IMAGE HOVER
+=========================================*/
+
+.ganpati img:hover{
+    transform:scale(1.05);
+    transition:.4s;
+}
+
+/*=========================================
+    BUTTON HOVER
+=========================================*/
+
+.btn:hover,
+.map-btn:hover{
+    filter:brightness(1.05);
+}
+
+/*=========================================
+    LOADER ANIMATION
+=========================================*/
+
+.loader{
+    animation:loaderFade .8s ease forwards;
+}
+
+@keyframes loaderFade{
+    0%{
+        opacity:1;
+        visibility:visible;
+    }
+    90%{
+        opacity:1;
+    }
+    100%{
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+/*=========================================
+    SCROLL PROGRESS BAR
+=========================================*/
 
 .progress{
     position:fixed;
@@ -253,23 +544,39 @@ footer{
     height:5px;
     background:linear-gradient(to right,#FFD700,#FF9800);
     z-index:99999;
+    transition:width .2s linear;
 }
+
+/*=========================================
+    SPARKLE EFFECT
+=========================================*/
 
 .sparkle{
     position:fixed;
     top:-20px;
+    width:8px;
+    height:8px;
     border-radius:50%;
     background:#FFD700;
     pointer-events:none;
-    animation:fall linear forwards;
     z-index:999;
+    animation:sparkleFall linear forwards;
 }
 
-@keyframes fall{
+@keyframes sparkleFall{
+    from{
+        transform:translateY(-20px) rotate(0deg);
+        opacity:1;
+    }
     to{
-        transform:translateY(110vh);
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
     }
 }
+
+/*=========================================
+    RIPPLE EFFECT
+=========================================*/
 
 .btn,
 .map-btn{
@@ -281,8 +588,8 @@ footer{
     position:absolute;
     width:20px;
     height:20px;
-    background:rgba(255,255,255,.6);
     border-radius:50%;
+    background:rgba(255,255,255,.6);
     transform:translate(-50%,-50%);
     animation:ripple .6s linear;
 }
@@ -298,302 +605,159 @@ footer{
     }
 }
 
-.shine{
-    box-shadow:0 0 20px gold,0 0 40px gold;
+/*=========================================
+    FLOATING SHADOW
+=========================================*/
+
+.card,
+.btn,
+.map-btn,
+.ganpati img{
+    transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    filter .35s ease;
 }
 
-.family-name{
+/*=========================================
+    IMAGE EFFECT
+=========================================*/
+
+.ganpati img{
+    will-change:transform;
+}
+
+.ganpati img:hover{
+    transform:translateY(-8px) scale(1.05);
+}
+
+/*=========================================
+    BUTTON EFFECT
+=========================================*/
+
+.btn:hover,
+.map-btn:hover{
+    box-shadow:0 15px 35px rgba(212,175,55,.45);
+}
+
+.btn:active,
+.map-btn:active{
+    transform:scale(.96);
+}
+
+/*=========================================
+    CARD EFFECT
+=========================================*/
+
+.card:hover{
+    border-color:var(--gold);
+}
+
+/*=========================================
+    SCROLLBAR
+=========================================*/
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#fff6de;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(var(--gold),var(--gold-dark));
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:var(--gold-dark);
+}
+
+/*=========================================
+    TEXT SELECTION
+=========================================*/
+
+::selection{
+    background:var(--gold);
+    color:var(--brown);
+}
+
+/*=========================================
+    UTILITY CLASSES
+=========================================*/
+
+.hidden{
+    opacity:0;
+    transform:translateY(60px);
+    transition:all .8s ease;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.text-center{
     text-align:center;
-    margin:20px 0 30px;
-    font-family:'Cinzel', serif;
-    font-size:28px;
-    color:#d4af37;
-    font-weight:bold;
-    line-height:1.8;
-    letter-spacing:1px;
 }
 
-.family-name span{
-    display:block;
-    color:#ffd700;
-    font-weight:700;
-    font-size:36px;
-    margin-top:10px;
-    text-transform:uppercase;
+.shadow{
+    box-shadow:var(--shadow);
 }
 
-/* Ganpati Image */
-.hero-bappa{
-    width:220px;
-    max-width:80%;
-    display:block;
-    margin:0 auto 20px;
-    animation:floatBappa 3s ease-in-out infinite;
-    filter:drop-shadow(0 0 25px rgba(255,215,0,.7));
+.rounded{
+    border-radius:20px;
 }
 
-@keyframes floatBappa{
-    0%{ transform:translateY(0); }
-    50%{ transform:translateY(-10px); }
-    100%{ transform:translateY(0); }
+.fade{
+    animation:fadeUp .8s ease;
 }
 
-/* Temple Bells */
-
-.bells{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:220px;
-    pointer-events:none;
-    z-index:5;
+.no-scroll{
     overflow:hidden;
 }
 
-.bell{
-    position:absolute;
-    width:180px;
-    height:auto;
-    animation:bellSwing 4s ease-in-out infinite;
-    filter:drop-shadow(0 5px 15px rgba(0,0,0,.35));
-}
+/*=========================================
+    RESPONSIVE DESIGN
+=========================================*/
 
-.left-bell{
-    left:30px;
-    top:0;
-    transform-origin:top center;
-}
+/* Large Desktop */
 
-.right-bell{
-    right:30px;
-    top:0;
-    transform-origin:top center;
-    animation-delay:2s;
-}
+@media (min-width:1400px){
 
-@keyframes bellSwing{
-    0%{transform:rotate(0deg);}
-    25%{transform:rotate(8deg);}
-    50%{transform:rotate(0deg);}
-    75%{transform:rotate(-8deg);}
-    100%{transform:rotate(0deg);}
-}
-
-
-/* ===================================================
-   MOBILE FIRST RESPONSIVE CSS
-   Replace your old style.css with this file.
-=================================================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:#fdf8ef;
-    color:#4b2d0d;
-    overflow-x:hidden;
-    line-height:1.6;
-}
-
-img{
-    max-width:100%;
-    display:block;
-}
-
-a{
-    text-decoration:none;
-}
-
-.hero{
-    min-height:100svh;
-    padding:6rem 1rem 3rem;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:
-    linear-gradient(rgba(255,248,230,.7),rgba(255,248,230,.8)),
-    url("assets/bg.jpg") center/cover no-repeat;
-    position:relative;
-}
-
-.hero::before,
-.hero::after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    opacity:.2;
-}
-
-.hero::before{
-    width:180px;
-    height:180px;
-    top:-60px;
-    left:-60px;
-    background:#ffe08a;
-}
-
-.hero::after{
-    width:150px;
-    height:150px;
-    bottom:-40px;
-    right:-40px;
-    background:#ffd54f;
-}
-
-.content{
-    max-width:700px;
-    width:100%;
-    z-index:2;
-}
-
-.hero-bappa{
-    width:clamp(100px,30vw,220px);
-    margin:0 auto 1rem;
-    animation:float 4s ease-in-out infinite;
-}
-
-.content h3{
-    color:#b8841c;
-    font-family:'Cinzel',serif;
-    font-size:clamp(1rem,3vw,2rem);
-}
-
-.content h1{
-    color:#8a5c09;
-    font-family:'Cinzel',serif;
-    font-size:clamp(2rem,8vw,4.5rem);
-    margin:1rem 0;
-}
-
-.content p{
-    font-size:clamp(.95rem,2.8vw,1.25rem);
-    margin-bottom:2rem;
-}
-
-.btn,.map-btn{
-    display:inline-block;
-    background:linear-gradient(135deg,#d4af37,#ffeb8a);
-    color:#4d2c05;
-    padding:.9rem 2rem;
-    border-radius:999px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.btn:hover,.map-btn:hover{
-    transform:translateY(-4px);
-}
-
-.invite,.ganpati{
-    padding:4rem 1rem;
-    text-align:center;
-}
-
-.invite h2,.ganpati h2{
-    font-family:'Cinzel',serif;
-    color:#9c6c14;
-    font-size:clamp(1.8rem,5vw,3rem);
-    margin-bottom:2rem;
-}
-
-.card{
-    width:min(100%,520px);
-    margin:auto;
-    background:#fff;
-    border-radius:1.5rem;
-    padding:1.5rem;
-    border:2px solid #f3d67c;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.card h3{
-    margin-top:1rem;
-    color:#b8841c;
-    font-size:clamp(1.2rem,3vw,1.8rem);
-}
-
-.card p{
-    font-size:clamp(.95rem,2.5vw,1.1rem);
-}
-
-.family-name{
-    text-align:center;
-    margin:1.5rem 0;
-    font-family:'Cinzel',serif;
-    font-size:clamp(1.2rem,4vw,2rem);
-    color:#d4af37;
-    line-height:1.7;
-}
-
-.family-name span{
-    display:block;
-    color:#ffd700;
-    font-size:clamp(1.4rem,5vw,2.3rem);
-    font-weight:bold;
-}
-
-.ganpati img{
-    width:min(320px,90%);
-    margin:auto;
-}
-
-footer{
-    background:#b8841c;
-    color:#fff;
-    text-align:center;
-    padding:1.5rem;
-    font-size:.95rem;
-}
-
-.loader,.progress,.sparkle,.bells{
-    position:fixed;
-}
-
-@keyframes float{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-12px);}
-}
-
-@media (min-width:768px){
-    .hero{
-        padding:5rem 2rem;
+    .content{
+        max-width:900px;
     }
 
-    .invite,.ganpati{
-        padding:6rem 2rem;
+    .hero{
+        padding:140px 40px 90px;
     }
 
     .card{
-        padding:2.5rem;
+        max-width:620px;
     }
 
-    .bells{
-        display:block;
+    .ganpati img{
+        width:360px;
+    }
+
+}
+
+/* Laptop */
+
+@media (max-width:1200px){
+
+    .hero{
+        padding:120px 25px 70px;
+    }
+
+    .content{
+        max-width:700px;
     }
 
     .bell{
-        width:120px;
-        position:absolute;
-        top:0;
-    }
-
-    .left-bell{left:20px;}
-    .right-bell{right:20px;}
-}
-
-@media (min-width:1024px){
-    .hero{
-        min-height:100vh;
+        width:140px;
     }
 
     .hero::before{
@@ -606,11 +770,282 @@ footer{
         height:220px;
     }
 
-    .bell{
-        width:170px;
+}
+
+/* Tablet */
+
+@media (max-width:992px){
+
+    .hero{
+        min-height:90vh;
+        padding:100px 25px 60px;
+    }
+
+    .content{
+        width:100%;
+    }
+
+    .content h1{
+        font-size:50px;
+    }
+
+    .content h3{
+        font-size:24px;
+    }
+
+    .content p{
+        font-size:18px;
     }
 
     .card{
-        padding:3rem;
+        width:95%;
+        padding:35px 25px;
     }
+
+    .ganpati{
+        padding:80px 20px;
+    }
+
+    .ganpati img{
+        width:250px;
+    }
+
+    .bell{
+        width:110px;
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .hero{
+        min-height:auto;
+        padding:90px 18px 55px;
+    }
+
+    .hero::before{
+        width:180px;
+        height:180px;
+        left:-80px;
+        top:-80px;
+    }
+
+    .hero::after{
+        width:160px;
+        height:160px;
+        right:-70px;
+        bottom:-70px;
+    }
+
+    .bells{
+        height:110px;
+    }
+
+    .bell{
+        width:80px;
+    }
+
+    .left-bell{
+        left:8px;
+    }
+
+    .right-bell{
+        right:8px;
+    }
+
+    .content{
+        width:100%;
+    }
+
+    .content h1{
+        font-size:42px;
+    }
+
+    .content h3{
+        font-size:20px;
+    }
+
+    .content p{
+        font-size:16px;
+    }
+
+    .btn,
+    .map-btn{
+        width:100%;
+        max-width:320px;
+        padding:15px;
+    }
+
+    .invite,
+    .ganpati{
+        padding:70px 18px;
+    }
+
+    .family-name{
+        font-size:22px;
+    }
+
+    .family-name span{
+        font-size:30px;
+    }
+
+    .card{
+        width:100%;
+        padding:28px 20px;
+        border-radius:22px;
+    }
+
+    .card h3{
+        font-size:22px;
+    }
+
+    .card p{
+        font-size:17px;
+    }
+
+    footer{
+        padding:20px;
+        font-size:15px;
+    }
+
+}
+
+/* Small Mobile */
+
+@media (max-width:480px){
+
+    .hero{
+        padding:80px 15px 45px;
+    }
+
+    .content h1{
+        font-size:32px;
+    }
+
+    .content h3{
+        font-size:18px;
+    }
+
+    .content p{
+        font-size:15px;
+    }
+
+    .family-name{
+        font-size:18px;
+    }
+
+    .family-name span{
+        font-size:24px;
+    }
+
+    .card{
+        padding:22px 16px;
+    }
+
+    .card h3{
+        font-size:20px;
+    }
+
+    .card p{
+        font-size:15px;
+    }
+
+    .ganpati{
+        padding:55px 15px;
+    }
+
+    .ganpati img{
+        width:180px;
+    }
+
+    .ganpati h2{
+        font-size:28px;
+    }
+
+    .ganpati p{
+        font-size:15px;
+    }
+
+    .btn,
+    .map-btn{
+        width:100%;
+        font-size:15px;
+    }
+
+    .bell{
+        display:none;
+    }
+
+    footer{
+        font-size:14px;
+    }
+
+}
+
+/* Extra Small */
+
+@media (max-width:360px){
+
+    .hero{
+        padding:70px 12px 40px;
+    }
+
+    .content h1{
+        font-size:28px;
+    }
+
+    .content p{
+        font-size:14px;
+    }
+
+    .card{
+        padding:18px 14px;
+    }
+
+    .ganpati img{
+        width:150px;
+    }
+
+    .family-name{
+        font-size:17px;
+    }
+
+    .family-name span{
+        font-size:22px;
+    }
+
+}
+
+/* Landscape Phones */
+
+@media (max-height:500px) and (orientation:landscape){
+
+    .hero{
+        min-height:120vh;
+        padding:60px 20px;
+    }
+
+    .bells{
+        display:none;
+    }
+
+}
+
+/* Hover Devices */
+
+@media (hover:none){
+
+    .btn:hover,
+    .map-btn:hover,
+    .card:hover,
+    .ganpati img:hover{
+        transform:none;
+    }
+
 }
