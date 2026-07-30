@@ -380,268 +380,237 @@ footer{
     100%{transform:rotate(0deg);}
 }
 
-/* ==========================================
-   RESPONSIVE
-========================================== */
 
-/* Tablets */
-@media (max-width:991px){
+/* ===================================================
+   MOBILE FIRST RESPONSIVE CSS
+   Replace your old style.css with this file.
+=================================================== */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#fdf8ef;
+    color:#4b2d0d;
+    overflow-x:hidden;
+    line-height:1.6;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+}
+
+.hero{
+    min-height:100svh;
+    padding:6rem 1rem 3rem;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:
+    linear-gradient(rgba(255,248,230,.7),rgba(255,248,230,.8)),
+    url("assets/bg.jpg") center/cover no-repeat;
+    position:relative;
+}
+
+.hero::before,
+.hero::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    opacity:.2;
+}
+
+.hero::before{
+    width:180px;
+    height:180px;
+    top:-60px;
+    left:-60px;
+    background:#ffe08a;
+}
+
+.hero::after{
+    width:150px;
+    height:150px;
+    bottom:-40px;
+    right:-40px;
+    background:#ffd54f;
+}
+
+.content{
+    max-width:700px;
+    width:100%;
+    z-index:2;
+}
+
+.hero-bappa{
+    width:clamp(100px,30vw,220px);
+    margin:0 auto 1rem;
+    animation:float 4s ease-in-out infinite;
+}
+
+.content h3{
+    color:#b8841c;
+    font-family:'Cinzel',serif;
+    font-size:clamp(1rem,3vw,2rem);
+}
+
+.content h1{
+    color:#8a5c09;
+    font-family:'Cinzel',serif;
+    font-size:clamp(2rem,8vw,4.5rem);
+    margin:1rem 0;
+}
+
+.content p{
+    font-size:clamp(.95rem,2.8vw,1.25rem);
+    margin-bottom:2rem;
+}
+
+.btn,.map-btn{
+    display:inline-block;
+    background:linear-gradient(135deg,#d4af37,#ffeb8a);
+    color:#4d2c05;
+    padding:.9rem 2rem;
+    border-radius:999px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover,.map-btn:hover{
+    transform:translateY(-4px);
+}
+
+.invite,.ganpati{
+    padding:4rem 1rem;
+    text-align:center;
+}
+
+.invite h2,.ganpati h2{
+    font-family:'Cinzel',serif;
+    color:#9c6c14;
+    font-size:clamp(1.8rem,5vw,3rem);
+    margin-bottom:2rem;
+}
+
+.card{
+    width:min(100%,520px);
+    margin:auto;
+    background:#fff;
+    border-radius:1.5rem;
+    padding:1.5rem;
+    border:2px solid #f3d67c;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.card h3{
+    margin-top:1rem;
+    color:#b8841c;
+    font-size:clamp(1.2rem,3vw,1.8rem);
+}
+
+.card p{
+    font-size:clamp(.95rem,2.5vw,1.1rem);
+}
+
+.family-name{
+    text-align:center;
+    margin:1.5rem 0;
+    font-family:'Cinzel',serif;
+    font-size:clamp(1.2rem,4vw,2rem);
+    color:#d4af37;
+    line-height:1.7;
+}
+
+.family-name span{
+    display:block;
+    color:#ffd700;
+    font-size:clamp(1.4rem,5vw,2.3rem);
+    font-weight:bold;
+}
+
+.ganpati img{
+    width:min(320px,90%);
+    margin:auto;
+}
+
+footer{
+    background:#b8841c;
+    color:#fff;
+    text-align:center;
+    padding:1.5rem;
+    font-size:.95rem;
+}
+
+.loader,.progress,.sparkle,.bells{
+    position:fixed;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+}
+
+@media (min-width:768px){
     .hero{
-        padding:80px 20px 40px;
+        padding:5rem 2rem;
+    }
+
+    .invite,.ganpati{
+        padding:6rem 2rem;
+    }
+
+    .card{
+        padding:2.5rem;
+    }
+
+    .bells{
+        display:block;
+    }
+
+    .bell{
+        width:120px;
+        position:absolute;
+        top:0;
+    }
+
+    .left-bell{left:20px;}
+    .right-bell{right:20px;}
+}
+
+@media (min-width:1024px){
+    .hero{
         min-height:100vh;
     }
 
-    .content{
-        width:100%;
-        max-width:700px;
+    .hero::before{
+        width:260px;
+        height:260px;
     }
 
-    .content h1{
-        font-size:52px;
-        line-height:1.2;
-    }
-
-    .content h3{
-        font-size:26px;
-    }
-
-    .content p{
-        font-size:18px;
-    }
-
-    .hero-bappa{
-        width:180px;
-    }
-
-    .invite h2,
-    .ganpati h2{
-        font-size:42px;
-    }
-
-    .card{
-        width:95%;
-        padding:35px;
-    }
-
-    .bell{
-        width:130px;
-    }
-}
-
-/* Mobile */
-@media (max-width:768px){
-
-    body{
-        overflow-x:hidden;
-    }
-
-    .hero{
-        min-height:auto;
-        padding:130px 20px 60px;
-    }
-
-    .content{
-        width:100%;
-    }
-
-    .content h3{
-        font-size:20px;
-    }
-
-    .content h1{
-        font-size:38px;
-        line-height:1.3;
-    }
-
-    .content p{
-        font-size:16px;
-        line-height:1.7;
-    }
-
-    .hero-bappa{
-        width:140px;
-        margin-bottom:15px;
-    }
-
-    .btn,
-    .map-btn{
-        display:inline-block;
-        padding:14px 30px;
-        font-size:16px;
-    }
-
-    .invite,
-    .ganpati{
-        padding:70px 20px;
-    }
-
-    .invite h2,
-    .ganpati h2{
-        font-size:30px;
-    }
-
-    .ganpati img{
+    .hero::after{
         width:220px;
-    }
-
-    .family-name{
-        font-size:22px;
-    }
-
-    .family-name span{
-        font-size:28px;
-    }
-
-    .card{
-        width:100%;
-        padding:28px 22px;
-        border-radius:20px;
-    }
-
-    .card h3{
-        font-size:22px;
-    }
-
-    .card p{
-        font-size:17px;
-    }
-
-    .bells{
-        height:120px;
+        height:220px;
     }
 
     .bell{
-        width:90px;
-    }
-
-    .left-bell{
-        left:8px;
-    }
-
-    .right-bell{
-        right:8px;
-    }
-
-    footer{
-        font-size:15px;
-        padding:20px;
-    }
-}
-
-/* Small Mobile */
-@media (max-width:480px){
-
-    .hero{
-        padding:110px 15px 50px;
-    }
-
-    .content h3{
-        font-size:18px;
-    }
-
-    .content h1{
-        font-size:30px;
-    }
-
-    .content p{
-        font-size:15px;
-    }
-
-    .hero-bappa{
-        width:110px;
-    }
-
-    .invite h2,
-    .ganpati h2{
-        font-size:26px;
-    }
-
-    .ganpati img{
-        width:180px;
-    }
-
-    .family-name{
-        font-size:18px;
-        line-height:1.6;
-    }
-
-    .family-name span{
-        font-size:22px;
+        width:170px;
     }
 
     .card{
-        padding:20px 18px;
-    }
-
-    .card h3{
-        font-size:20px;
-    }
-
-    .card p{
-        font-size:15px;
-    }
-
-    .btn,
-    .map-btn{
-        width:100%;
-        font-size:15px;
-        padding:14px;
-    }
-
-    .bells{
-        height:90px;
-    }
-
-    .bell{
-        width:60px;
-    }
-
-    footer{
-        font-size:14px;
-    }
-}
-
-/* Extra Small Devices */
-@media (max-width:360px){
-
-    .content h1{
-        font-size:26px;
-    }
-
-    .content p{
-        font-size:14px;
-    }
-
-    .hero-bappa{
-        width:95px;
-    }
-
-    .ganpati img{
-        width:160px;
-    }
-
-    .family-name{
-        font-size:16px;
-    }
-
-    .family-name span{
-        font-size:20px;
-    }
-
-    .card{
-        padding:16px;
-    }
-
-    .card h3{
-        font-size:18px;
-    }
-
-    .card p{
-        font-size:14px;
-    }
-
-    .bell{
-        display:none;
+        padding:3rem;
     }
 }
