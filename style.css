@@ -551,144 +551,200 @@ footer p{
 
 }
 
+/*=========================================
+    RESPONSIVE DESIGN
+=========================================*/
+
+/* Large Desktop */
+
+@media (min-width:1400px){
+
+.hero{
+    padding:150px 40px 100px;
+}
+
+.content{
+    max-width:900px;
+}
+
+.card{
+    max-width:650px;
+}
+
+.ganpati img{
+    width:360px;
+}
+
+}
+
+/* Laptop */
+
+@media (max-width:1200px){
+
+.hero{
+    padding:130px 30px 80px;
+}
+
+.content{
+    max-width:760px;
+}
+
+.bell{
+    width:130px;
+}
+
+}
+
+/* Tablet */
+
+@media (max-width:992px){
+
+.hero{
+    min-height:auto;
+    padding:100px 30px 70px;
+}
+
+.content h1{
+    font-size:48px;
+}
+
+.content h3{
+    font-size:24px;
+}
+
+.content p{
+    font-size:18px;
+    line-height:1.9;
+}
+
+.card{
+    width:90%;
+    padding:35px 28px;
+}
+
+.ganpati{
+    padding:90px 30px;
+}
+
+.ganpati img{
+    width:240px;
+}
+
+.bell{
+    width:95px;
+}
+
+}
+
 /* Mobile */
 
 @media (max-width:768px){
 
+body{
+    overflow-x:hidden;
+}
+
 .hero{
-
-    min-height:100vh;
-
-    padding:90px 18px 50px;
-
+    min-height:auto;
+    padding:90px 28px 60px;
 }
 
 .hero::before,
 .hero::after{
-
     display:none;
-
 }
 
-@media (max-width:768px){
+.bells{
+    height:90px;
+}
+
+.bell{
+    width:65px;
+}
+
+.left-bell{
+    left:8px;
+}
+
+.right-bell{
+    right:8px;
+}
 
 .sparkle{
     width:5px;
     height:5px;
 }
 
-}
-
-.bells{
-
-    height:90px;
-
-}
-
-.bell{
-
-    width:70px;
-
-}
-
-.left-bell{
-
-    left:8px;
-
-}
-
-.right-bell{
-
-    right:8px;
-
-}
-
 .content{
-
+    width:100%;
     max-width:100%;
-
+    padding:0 8px;
 }
 
 .content h1{
-
-    font-size:38px;
-
+    font-size:36px;
     line-height:1.25;
-
 }
 
 .content h3{
-
     font-size:20px;
-
 }
 
 .content p{
-
+    max-width:34ch;
+    margin:22px auto 35px;
     font-size:16px;
-
-    line-height:1.8;
-
+    line-height:1.9;
 }
 
 .btn,
 .map-btn{
-
-    width:100%;
-
-    max-width:330px;
-
-    margin:12px auto;
-
     display:flex;
-
+    justify-content:center;
+    width:100%;
+    max-width:320px;
+    margin:14px auto;
 }
 
 .invite,
 .ganpati{
-
-    padding:70px 18px;
-
+    padding:70px 25px;
 }
 
 .family-name{
-
     font-size:22px;
-
 }
 
 .family-name span{
-
     font-size:30px;
-
 }
 
 .card{
-
     width:100%;
-
-    padding:28px 20px;
-
+    margin:20px auto;
+    padding:28px 22px;
     border-radius:22px;
-
 }
 
 .card h3{
-
     font-size:22px;
-
 }
 
 .card p{
-
+    max-width:28ch;
+    margin-inline:auto;
     font-size:16px;
+    line-height:1.8;
+}
 
+.ganpati p{
+    max-width:30ch;
+    margin-inline:auto;
 }
 
 footer{
-
-    padding:18px;
-
+    padding:20px;
+    font-size:15px;
 }
 
 }
@@ -698,180 +754,127 @@ footer{
 @media (max-width:576px){
 
 .hero{
+    padding:80px 22px 50px;
+}
 
-    padding:80px 15px 40px;
-
+.content{
+    padding:0 4px;
 }
 
 .content h1{
-
     font-size:32px;
-
 }
 
 .content h3{
-
     font-size:18px;
-
 }
 
 .content p{
-
     font-size:15px;
-
 }
 
 .family-name{
-
     font-size:20px;
-
 }
 
 .family-name span{
-
     font-size:26px;
-
 }
 
 .card{
-
     padding:24px 18px;
-
 }
 
 .card h3{
-
     font-size:20px;
-
 }
 
 .card p{
-
     font-size:15px;
-
 }
 
 .ganpati{
-
-    padding:60px 15px;
-
+    padding:60px 22px;
 }
 
 .ganpati img{
-
     width:180px;
-
 }
 
 .ganpati h2{
-
     font-size:28px;
-
 }
 
 .ganpati p{
-
     font-size:15px;
-
 }
 
 }
 
-/* Very Small Phones */
+/* Extra Small */
 
 @media (max-width:400px){
 
 .hero{
-
-    padding:70px 12px 35px;
-
+    padding:70px 18px 45px;
 }
 
 .content h1{
-
     font-size:28px;
-
 }
 
 .content h3{
-
     font-size:17px;
-
 }
 
 .content p{
-
     font-size:14px;
-
 }
 
 .family-name{
-
     font-size:18px;
-
 }
 
 .family-name span{
-
     font-size:23px;
-
 }
 
 .card{
-
-    padding:20px 15px;
-
+    padding:20px 16px;
 }
 
 .card h3{
-
     font-size:18px;
-
 }
 
 .card p{
-
     font-size:14px;
-
 }
 
 .ganpati img{
-
     width:150px;
-
 }
 
 .ganpati h2{
-
     font-size:24px;
-
 }
 
 .ganpati p{
-
     font-size:14px;
-
 }
 
 .btn,
 .map-btn{
-
     font-size:14px;
-
     padding:14px;
-
 }
 
 .bells{
-
     display:none;
-
 }
 
 footer{
-
     font-size:13px;
-
 }
 
 }
@@ -881,15 +884,11 @@ footer{
 @media (max-height:500px) and (orientation:landscape){
 
 .hero{
-
-    min-height:130vh;
-
+    min-height:120vh;
 }
 
 .bells{
-
     display:none;
-
 }
 
 }
@@ -902,9 +901,7 @@ footer{
 .map-btn:hover,
 .card:hover,
 .ganpati img:hover{
-
     transform:none;
-
 }
 
 }
