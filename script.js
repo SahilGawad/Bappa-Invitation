@@ -179,38 +179,31 @@ window.addEventListener("scroll", () => {
 // FLOATING SPARKLES
 // =========================================
 
-function createSparkle() {
+function createSparkle(){
 
-    const sparkle = document.createElement("span");
-
+    const sparkle = document.createElement("div");
     sparkle.className = "sparkle";
 
-    sparkle.style.left = `${Math.random() * window.innerWidth}px`;
+    sparkle.style.left = Math.random() * window.innerWidth + "px";
 
-    const size = Math.random() * 6 + 4;
-
-    sparkle.style.width = `${size}px`;
-    sparkle.style.height = `${size}px`;
+    const size = Math.random() * 8 + 4;
+    sparkle.style.width = size + "px";
+    sparkle.style.height = size + "px";
 
     sparkle.style.animationDuration =
-        `${Math.random() * 2 + 3}s`;
-
-    sparkle.style.opacity =
-        (Math.random() * 0.6 + 0.3).toFixed(2);
+        (Math.random() * 4 + 4) + "s";
 
     document.body.appendChild(sparkle);
 
-    sparkle.addEventListener("animationend", () => {
-
+    setTimeout(() => {
         sparkle.remove();
-
-    });
+    }, 8000);
 
 }
 
+setInterval(createSparkle, 180);
 
-// Create sparkle every 700ms
-setInterval(createSparkle, 700);
+
 
 
 // =========================================

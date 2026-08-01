@@ -8,48 +8,32 @@
     box-sizing:border-box;
 }
 
-:root{
-    --bg:#fdf8ef;
-    --white:#ffffff;
-    --gold:#d4af37;
-    --gold-dark:#b8841c;
-    --gold-light:#ffe8a3;
-    --brown:#4d2c05;
-    --brown-light:#6a4b12;
-    --shadow:0 15px 35px rgba(0,0,0,.08);
-}
-
 html{
     scroll-behavior:smooth;
+    font-size:16px;
 }
 
 body{
     font-family:'Poppins',sans-serif;
-    background:var(--bg);
-    color:var(--brown);
+    background:#fdf8ef;
+    color:#4d2c05;
     line-height:1.7;
     overflow-x:hidden;
 }
 
-main{
-    width:100%;
-    overflow:hidden;
-}
-
-section{
-    width:100%;
-    position:relative;
-}
-
 img{
-    display:block;
     max-width:100%;
+    display:block;
     height:auto;
 }
 
 a{
     text-decoration:none;
     color:inherit;
+}
+
+main{
+    overflow:hidden;
 }
 
 /*=========================================
@@ -64,62 +48,54 @@ a{
     align-items:center;
     background:#fff8eb;
     z-index:99999;
-    transition:.8s;
-}
-
-.loader.hide{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
 }
 
 .loader span{
     font-family:'Cinzel',serif;
-    font-size:clamp(22px,4vw,38px);
-    color:var(--gold);
-    text-align:center;
-    padding:20px;
+    color:#b8841c;
+    font-size:clamp(24px,5vw,40px);
 }
 
 /*=========================================
-    HERO SECTION
+    HERO
 =========================================*/
 
 .hero{
-    min-height:100svh;
+    position:relative;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:120px 20px 70px;
     overflow:hidden;
+    padding:120px 20px 80px;
     background:
-    linear-gradient(rgba(255,248,230,.72),rgba(255,248,230,.82)),
+    linear-gradient(rgba(255,248,230,.82),rgba(255,248,230,.82)),
     url("assets/bg.jpg") center/cover no-repeat;
 }
 
 .hero::before{
     content:"";
     position:absolute;
-    width:320px;
-    height:320px;
+    width:350px;
+    height:350px;
+    left:-150px;
+    top:-150px;
     border-radius:50%;
-    background:#ffe9a6;
-    top:-120px;
-    left:-120px;
-    opacity:.28;
+    background:#ffe8a3;
+    opacity:.3;
 }
 
 .hero::after{
     content:"";
     position:absolute;
-    width:260px;
-    height:260px;
+    width:280px;
+    height:280px;
+    right:-120px;
+    bottom:-120px;
     border-radius:50%;
-    background:#ffd76f;
-    right:-80px;
-    bottom:-80px;
-    opacity:.20;
+    background:#ffd86b;
+    opacity:.25;
 }
 
 /*=========================================
@@ -128,31 +104,26 @@ a{
 
 .bells{
     position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:200px;
+    inset:0;
+    height:180px;
     pointer-events:none;
-    z-index:5;
 }
 
 .bell{
     position:absolute;
-    width:170px;
-    animation:bellSwing 4s ease-in-out infinite;
-    filter:drop-shadow(0 5px 15px rgba(0,0,0,.35));
+    width:150px;
+    filter:drop-shadow(0 6px 12px rgba(0,0,0,.25));
+    animation:bellSwing 4s infinite ease-in-out;
 }
 
 .left-bell{
-    left:25px;
+    left:20px;
     top:0;
-    transform-origin:top center;
 }
 
 .right-bell{
-    right:25px;
+    right:20px;
     top:0;
-    transform-origin:top center;
     animation-delay:2s;
 }
 
@@ -161,82 +132,72 @@ a{
 =========================================*/
 
 .content{
-    width:min(100%,750px);
+    width:100%;
+    max-width:760px;
     position:relative;
-    z-index:10;
-    animation:fadeUp 1s ease;
+    z-index:5;
 }
 
 .content h3{
     font-family:'Cinzel',serif;
-    font-size:clamp(20px,3vw,30px);
-    color:var(--gold-dark);
-    margin-bottom:10px;
+    color:#b8841c;
+    font-size:clamp(22px,3vw,30px);
+    margin-bottom:15px;
 }
 
 .content h1{
     font-family:'Cinzel',serif;
-    font-size:clamp(36px,7vw,72px);
+    font-size:clamp(40px,7vw,72px);
     color:#8a5c09;
-    line-height:1.15;
+    line-height:1.2;
     margin-bottom:25px;
-    text-shadow:0 4px 15px rgba(255,200,0,.20);
 }
 
 .content p{
-    font-size:clamp(16px,2.8vw,22px);
-    color:var(--brown-light);
-    margin-bottom:35px;
-    line-height:1.8;
+    max-width:700px;
+    margin:auto auto 35px;
+    font-size:clamp(17px,2.5vw,22px);
+    line-height:1.9;
 }
 
 /*=========================================
     BUTTON
 =========================================*/
 
-.btn{
+.btn,
+.map-btn{
     display:inline-flex;
     justify-content:center;
     align-items:center;
-    padding:16px 42px;
+    padding:16px 38px;
     border-radius:50px;
-    background:linear-gradient(135deg,var(--gold),#ffeb8a);
-    color:var(--brown);
     font-weight:600;
-    transition:.35s;
-    box-shadow:0 10px 25px rgba(212,175,55,.35);
+    transition:.3s;
 }
 
-.btn:hover{
+.btn{
+    background:linear-gradient(135deg,#d4af37,#ffeb8a);
+    color:#4d2c05;
+}
+
+.map-btn{
+    background:#b8841c;
+    color:#fff;
+}
+
+.btn:hover,
+.map-btn:hover{
     transform:translateY(-5px);
-    box-shadow:0 15px 35px rgba(212,175,55,.45);
-}
-
-.btn:active{
-    transform:scale(.96);
 }
 
 /*=========================================
-    ANIMATIONS
+    ANIMATION
 =========================================*/
 
 @keyframes bellSwing{
-    0%{transform:rotate(0deg);}
+    0%,100%{transform:rotate(0deg);}
     25%{transform:rotate(8deg);}
-    50%{transform:rotate(0deg);}
     75%{transform:rotate(-8deg);}
-    100%{transform:rotate(0deg);}
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(60px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
 }
 
 /*=========================================
@@ -244,17 +205,17 @@ a{
 =========================================*/
 
 .invite{
-    padding:90px 20px;
-    background:var(--bg);
+    padding:100px 20px;
+    background:#fdf8ef;
     text-align:center;
 }
 
 .invite h2{
     font-family:'Cinzel',serif;
-    font-size:clamp(30px,5vw,52px);
-    color:var(--gold-dark);
-    margin-bottom:35px;
-    text-shadow:0 3px 10px rgba(212,175,55,.2);
+    font-size:clamp(32px,5vw,52px);
+    color:#b8841c;
+    margin-bottom:45px;
+    line-height:1.3;
 }
 
 /*=========================================
@@ -262,22 +223,20 @@ a{
 =========================================*/
 
 .family-name{
-    margin-bottom:45px;
     font-family:'Cinzel',serif;
     font-size:clamp(24px,3vw,34px);
-    color:var(--gold-dark);
-    line-height:1.8;
-    font-weight:700;
+    color:#8a5c09;
+    margin-bottom:45px;
+    line-height:1.6;
 }
 
 .family-name span{
     display:block;
-    margin-top:12px;
-    font-size:clamp(30px,5vw,44px);
-    color:var(--gold);
-    text-transform:uppercase;
+    margin-top:10px;
+    font-size:clamp(30px,5vw,46px);
+    color:#d4af37;
     letter-spacing:2px;
-    text-shadow:0 5px 15px rgba(212,175,55,.25);
+    text-transform:uppercase;
 }
 
 /*=========================================
@@ -285,26 +244,44 @@ a{
 =========================================*/
 
 .card{
-    width:min(100%,560px);
-    margin:auto;
-    background:var(--white);
-    border:2px solid #f4d97f;
-    border-radius:30px;
+    width:100%;
+    max-width:600px;
+    margin:0 auto;
     padding:45px 35px;
-    box-shadow:var(--shadow);
+    background:#fff;
+    border:2px solid #f2d57a;
+    border-radius:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
     transition:.35s;
 }
 
 .card:hover{
     transform:translateY(-8px);
-    box-shadow:0 25px 45px rgba(0,0,0,.12);
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+}
+
+.card::before{
+    content:"🪔";
+    display:block;
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.card::after{
+    content:"";
+    display:block;
+    width:90px;
+    height:4px;
+    margin:35px auto 0;
+    border-radius:50px;
+    background:linear-gradient(to right,#d4af37,#ffe8a3);
 }
 
 .card h3{
     font-family:'Cinzel',serif;
+    color:#b8841c;
     font-size:clamp(22px,3vw,30px);
-    color:var(--gold-dark);
-    margin-top:28px;
+    margin-top:30px;
 }
 
 .card h3:first-child{
@@ -314,8 +291,12 @@ a{
 .card p{
     margin-top:10px;
     font-size:clamp(17px,2.5vw,21px);
-    color:var(--brown-light);
     line-height:1.8;
+    color:#6a4b12;
+}
+
+.card h3+p{
+    margin-bottom:12px;
 }
 
 /*=========================================
@@ -323,56 +304,13 @@ a{
 =========================================*/
 
 .map-btn{
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
     margin-top:35px;
-    padding:16px 36px;
-    background:var(--gold-dark);
-    color:var(--white);
-    border-radius:50px;
-    font-weight:600;
-    transition:.35s;
-    box-shadow:0 10px 25px rgba(184,132,28,.3);
+    min-width:220px;
+    box-shadow:0 10px 25px rgba(184,132,28,.25);
 }
 
 .map-btn:hover{
-    background:#9b6d12;
-    transform:translateY(-5px);
-    box-shadow:0 15px 35px rgba(184,132,28,.4);
-}
-
-.map-btn:active{
-    transform:scale(.96);
-}
-
-/*=========================================
-    CARD ICON SPACING
-=========================================*/
-
-.card h3+p{
-    margin-bottom:10px;
-}
-
-/*=========================================
-    SMALL DECORATION
-=========================================*/
-
-.card::before{
-    content:"🪔";
-    display:block;
-    font-size:38px;
-    margin-bottom:20px;
-}
-
-.card::after{
-    content:"";
-    display:block;
-    width:80px;
-    height:4px;
-    margin:30px auto 0;
-    border-radius:20px;
-    background:linear-gradient(to right,var(--gold),#ffeb8a);
+    background:#9a6d12;
 }
 
 /*=========================================
@@ -380,10 +318,11 @@ a{
 =========================================*/
 
 .ganpati{
-    padding:100px 20px;
+    padding:110px 20px;
     text-align:center;
-    background:linear-gradient(to bottom,#fffdf8,var(--bg));
     overflow:hidden;
+    position:relative;
+    background:linear-gradient(to bottom,#fffdf8,#fdf8ef);
 }
 
 .ganpati::before{
@@ -400,38 +339,34 @@ a{
 .ganpati::after{
     content:"";
     position:absolute;
-    width:220px;
-    height:220px;
+    width:240px;
+    height:240px;
     border-radius:50%;
     background:rgba(255,193,7,.10);
-    bottom:-100px;
     right:-100px;
+    bottom:-100px;
 }
 
 .ganpati img{
     width:min(320px,90%);
-    margin:0 auto 30px;
+    margin:0 auto 35px;
     filter:drop-shadow(0 12px 25px rgba(255,193,7,.35));
     animation:bappaFloat 4s ease-in-out infinite;
 }
 
 .ganpati h2{
     font-family:'Cinzel',serif;
+    color:#b8841c;
     font-size:clamp(32px,5vw,52px);
-    color:var(--gold-dark);
     margin-bottom:20px;
 }
 
 .ganpati p{
-    width:min(650px,100%);
+    max-width:650px;
     margin:0 auto 35px;
     font-size:clamp(17px,2.5vw,21px);
-    color:var(--brown-light);
+    color:#6a4b12;
     line-height:1.8;
-}
-
-.ganpati .btn{
-    margin-top:10px;
 }
 
 /*=========================================
@@ -439,12 +374,11 @@ a{
 =========================================*/
 
 footer{
-    background:linear-gradient(135deg,var(--gold-dark),#9c6d13);
-    color:var(--white);
+    background:linear-gradient(135deg,#b8841c,#9b6d12);
+    color:#fff;
     text-align:center;
     padding:25px 20px;
     font-size:16px;
-    letter-spacing:.5px;
 }
 
 footer p{
@@ -452,29 +386,25 @@ footer p{
 }
 
 /*=========================================
-    FLOAT ANIMATION
+    ANIMATIONS
 =========================================*/
 
 @keyframes bappaFloat{
-    0%{
+
+    0%,100%{
         transform:translateY(0);
     }
+
     50%{
         transform:translateY(-15px);
     }
-    100%{
-        transform:translateY(0);
-    }
-}
 
-/*=========================================
-    FADE ANIMATION
-=========================================*/
+}
 
 .hidden{
     opacity:0;
     transform:translateY(60px);
-    transition:all .8s ease;
+    transition:.8s;
 }
 
 .show{
@@ -482,74 +412,15 @@ footer p{
     transform:translateY(0);
 }
 
-/*=========================================
-    SHINE EFFECT
-=========================================*/
-
 .shine{
     box-shadow:
-    0 0 15px rgba(255,215,0,.5),
-    0 0 30px rgba(255,215,0,.35);
+    0 0 15px rgba(255,215,0,.4),
+    0 0 30px rgba(255,215,0,.25);
 }
 
-/*=========================================
-    IMAGE HOVER
-=========================================*/
-
-.ganpati img:hover{
-    transform:scale(1.05);
-    transition:.4s;
-}
-
-/*=========================================
-    BUTTON HOVER
-=========================================*/
-
-.btn:hover,
-.map-btn:hover{
-    filter:brightness(1.05);
-}
-
-/*=========================================
-    LOADER ANIMATION
-=========================================*/
-
-.loader{
-    animation:loaderFade .8s ease forwards;
-}
-
-@keyframes loaderFade{
-    0%{
-        opacity:1;
-        visibility:visible;
-    }
-    90%{
-        opacity:1;
-    }
-    100%{
-        opacity:0;
-        visibility:hidden;
-    }
-}
-
-/*=========================================
-    SCROLL PROGRESS BAR
-=========================================*/
-
-.progress{
-    position:fixed;
-    top:0;
-    left:0;
-    width:0%;
-    height:5px;
-    background:linear-gradient(to right,#FFD700,#FF9800);
-    z-index:99999;
-    transition:width .2s linear;
-}
-
-/*=========================================
-    SPARKLE EFFECT
-=========================================*/
+/*==============================
+   SPARKLES
+==============================*/
 
 .sparkle{
     position:fixed;
@@ -557,165 +428,33 @@ footer p{
     width:8px;
     height:8px;
     border-radius:50%;
-    background:#FFD700;
+    background:radial-gradient(circle,#fff8b0,#FFD700);
+    box-shadow:
+        0 0 8px #FFD700,
+        0 0 18px #FFD700,
+        0 0 30px rgba(255,215,0,.7);
     pointer-events:none;
-    z-index:999;
+    z-index:9999;
     animation:sparkleFall linear forwards;
 }
 
 @keyframes sparkleFall{
-    from{
-        transform:translateY(-20px) rotate(0deg);
-        opacity:1;
-    }
-    to{
-        transform:translateY(110vh) rotate(360deg);
+
+    0%{
+        transform:translateY(-30px) rotate(0deg) scale(0);
         opacity:0;
     }
-}
 
-/*=========================================
-    RIPPLE EFFECT
-=========================================*/
-
-.btn,
-.map-btn{
-    position:relative;
-    overflow:hidden;
-}
-
-.ripple{
-    position:absolute;
-    width:20px;
-    height:20px;
-    border-radius:50%;
-    background:rgba(255,255,255,.6);
-    transform:translate(-50%,-50%);
-    animation:ripple .6s linear;
-}
-
-@keyframes ripple{
-    from{
-        transform:translate(-50%,-50%) scale(0);
+    10%{
         opacity:1;
+        transform:translateY(0) scale(1);
     }
-    to{
-        transform:translate(-50%,-50%) scale(15);
+
+    100%{
+        transform:translateY(110vh) rotate(360deg) scale(.2);
         opacity:0;
     }
-}
 
-/*=========================================
-    FLOATING SHADOW
-=========================================*/
-
-.card,
-.btn,
-.map-btn,
-.ganpati img{
-    transition:
-    transform .35s ease,
-    box-shadow .35s ease,
-    filter .35s ease;
-}
-
-/*=========================================
-    IMAGE EFFECT
-=========================================*/
-
-.ganpati img{
-    will-change:transform;
-}
-
-.ganpati img:hover{
-    transform:translateY(-8px) scale(1.05);
-}
-
-/*=========================================
-    BUTTON EFFECT
-=========================================*/
-
-.btn:hover,
-.map-btn:hover{
-    box-shadow:0 15px 35px rgba(212,175,55,.45);
-}
-
-.btn:active,
-.map-btn:active{
-    transform:scale(.96);
-}
-
-/*=========================================
-    CARD EFFECT
-=========================================*/
-
-.card:hover{
-    border-color:var(--gold);
-}
-
-/*=========================================
-    SCROLLBAR
-=========================================*/
-
-::-webkit-scrollbar{
-    width:10px;
-}
-
-::-webkit-scrollbar-track{
-    background:#fff6de;
-}
-
-::-webkit-scrollbar-thumb{
-    background:linear-gradient(var(--gold),var(--gold-dark));
-    border-radius:20px;
-}
-
-::-webkit-scrollbar-thumb:hover{
-    background:var(--gold-dark);
-}
-
-/*=========================================
-    TEXT SELECTION
-=========================================*/
-
-::selection{
-    background:var(--gold);
-    color:var(--brown);
-}
-
-/*=========================================
-    UTILITY CLASSES
-=========================================*/
-
-.hidden{
-    opacity:0;
-    transform:translateY(60px);
-    transition:all .8s ease;
-}
-
-.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-.text-center{
-    text-align:center;
-}
-
-.shadow{
-    box-shadow:var(--shadow);
-}
-
-.rounded{
-    border-radius:20px;
-}
-
-.fade{
-    animation:fadeUp .8s ease;
-}
-
-.no-scroll{
-    overflow:hidden;
 }
 
 /*=========================================
@@ -726,21 +465,21 @@ footer p{
 
 @media (min-width:1400px){
 
-    .content{
-        max-width:900px;
-    }
+.hero{
+    padding:150px 40px 100px;
+}
 
-    .hero{
-        padding:140px 40px 90px;
-    }
+.content{
+    max-width:900px;
+}
 
-    .card{
-        max-width:620px;
-    }
+.card{
+    max-width:650px;
+}
 
-    .ganpati img{
-        width:360px;
-    }
+.ganpati img{
+    width:360px;
+}
 
 }
 
@@ -748,27 +487,27 @@ footer p{
 
 @media (max-width:1200px){
 
-    .hero{
-        padding:120px 25px 70px;
-    }
+.hero{
+    padding:130px 25px 80px;
+}
 
-    .content{
-        max-width:700px;
-    }
+.content{
+    max-width:760px;
+}
 
-    .bell{
-        width:140px;
-    }
+.bell{
+    width:130px;
+}
 
-    .hero::before{
-        width:260px;
-        height:260px;
-    }
+.hero::before{
+    width:260px;
+    height:260px;
+}
 
-    .hero::after{
-        width:220px;
-        height:220px;
-    }
+.hero::after{
+    width:220px;
+    height:220px;
+}
 
 }
 
@@ -776,43 +515,39 @@ footer p{
 
 @media (max-width:992px){
 
-    .hero{
-        min-height:90vh;
-        padding:100px 25px 60px;
-    }
+.hero{
+    padding:110px 20px 70px;
+    min-height:100vh;
+}
 
-    .content{
-        width:100%;
-    }
+.content h1{
+    font-size:52px;
+}
 
-    .content h1{
-        font-size:50px;
-    }
+.content h3{
+    font-size:24px;
+}
 
-    .content h3{
-        font-size:24px;
-    }
+.content p{
+    font-size:18px;
+}
 
-    .content p{
-        font-size:18px;
-    }
+.card{
+    max-width:90%;
+    padding:35px 28px;
+}
 
-    .card{
-        width:95%;
-        padding:35px 25px;
-    }
+.ganpati{
+    padding:90px 20px;
+}
 
-    .ganpati{
-        padding:80px 20px;
-    }
+.ganpati img{
+    width:240px;
+}
 
-    .ganpati img{
-        width:250px;
-    }
-
-    .bell{
-        width:110px;
-    }
+.bell{
+    width:100px;
+}
 
 }
 
@@ -820,232 +555,356 @@ footer p{
 
 @media (max-width:768px){
 
-    body{
-        overflow-x:hidden;
-    }
+.hero{
 
-    .hero{
-        min-height:auto;
-        padding:90px 18px 55px;
-    }
+    min-height:100vh;
 
-    .hero::before{
-        width:180px;
-        height:180px;
-        left:-80px;
-        top:-80px;
-    }
-
-    .hero::after{
-        width:160px;
-        height:160px;
-        right:-70px;
-        bottom:-70px;
-    }
-
-    .bells{
-        height:110px;
-    }
-
-    .bell{
-        width:80px;
-    }
-
-    .left-bell{
-        left:8px;
-    }
-
-    .right-bell{
-        right:8px;
-    }
-
-    .content{
-        width:100%;
-    }
-
-    .content h1{
-        font-size:42px;
-    }
-
-    .content h3{
-        font-size:20px;
-    }
-
-    .content p{
-        font-size:16px;
-    }
-
-    .btn,
-    .map-btn{
-        width:100%;
-        max-width:320px;
-        padding:15px;
-    }
-
-    .invite,
-    .ganpati{
-        padding:70px 18px;
-    }
-
-    .family-name{
-        font-size:22px;
-    }
-
-    .family-name span{
-        font-size:30px;
-    }
-
-    .card{
-        width:100%;
-        padding:28px 20px;
-        border-radius:22px;
-    }
-
-    .card h3{
-        font-size:22px;
-    }
-
-    .card p{
-        font-size:17px;
-    }
-
-    footer{
-        padding:20px;
-        font-size:15px;
-    }
+    padding:90px 18px 50px;
 
 }
 
-/* Small Mobile */
+.hero::before,
+.hero::after{
 
-@media (max-width:480px){
-
-    .hero{
-        padding:80px 15px 45px;
-    }
-
-    .content h1{
-        font-size:32px;
-    }
-
-    .content h3{
-        font-size:18px;
-    }
-
-    .content p{
-        font-size:15px;
-    }
-
-    .family-name{
-        font-size:18px;
-    }
-
-    .family-name span{
-        font-size:24px;
-    }
-
-    .card{
-        padding:22px 16px;
-    }
-
-    .card h3{
-        font-size:20px;
-    }
-
-    .card p{
-        font-size:15px;
-    }
-
-    .ganpati{
-        padding:55px 15px;
-    }
-
-    .ganpati img{
-        width:180px;
-    }
-
-    .ganpati h2{
-        font-size:28px;
-    }
-
-    .ganpati p{
-        font-size:15px;
-    }
-
-    .btn,
-    .map-btn{
-        width:100%;
-        font-size:15px;
-    }
-
-    .bell{
-        display:none;
-    }
-
-    footer{
-        font-size:14px;
-    }
+    display:none;
 
 }
 
-/* Extra Small */
+@media (max-width:768px){
 
-@media (max-width:360px){
-
-    .hero{
-        padding:70px 12px 40px;
-    }
-
-    .content h1{
-        font-size:28px;
-    }
-
-    .content p{
-        font-size:14px;
-    }
-
-    .card{
-        padding:18px 14px;
-    }
-
-    .ganpati img{
-        width:150px;
-    }
-
-    .family-name{
-        font-size:17px;
-    }
-
-    .family-name span{
-        font-size:22px;
-    }
+.sparkle{
+    width:5px;
+    height:5px;
+}
 
 }
 
-/* Landscape Phones */
+.bells{
+
+    height:90px;
+
+}
+
+.bell{
+
+    width:70px;
+
+}
+
+.left-bell{
+
+    left:8px;
+
+}
+
+.right-bell{
+
+    right:8px;
+
+}
+
+.content{
+
+    max-width:100%;
+
+}
+
+.content h1{
+
+    font-size:38px;
+
+    line-height:1.25;
+
+}
+
+.content h3{
+
+    font-size:20px;
+
+}
+
+.content p{
+
+    font-size:16px;
+
+    line-height:1.8;
+
+}
+
+.btn,
+.map-btn{
+
+    width:100%;
+
+    max-width:330px;
+
+    margin:12px auto;
+
+    display:flex;
+
+}
+
+.invite,
+.ganpati{
+
+    padding:70px 18px;
+
+}
+
+.family-name{
+
+    font-size:22px;
+
+}
+
+.family-name span{
+
+    font-size:30px;
+
+}
+
+.card{
+
+    width:100%;
+
+    padding:28px 20px;
+
+    border-radius:22px;
+
+}
+
+.card h3{
+
+    font-size:22px;
+
+}
+
+.card p{
+
+    font-size:16px;
+
+}
+
+footer{
+
+    padding:18px;
+
+}
+
+}
+
+/* Small Phones */
+
+@media (max-width:576px){
+
+.hero{
+
+    padding:80px 15px 40px;
+
+}
+
+.content h1{
+
+    font-size:32px;
+
+}
+
+.content h3{
+
+    font-size:18px;
+
+}
+
+.content p{
+
+    font-size:15px;
+
+}
+
+.family-name{
+
+    font-size:20px;
+
+}
+
+.family-name span{
+
+    font-size:26px;
+
+}
+
+.card{
+
+    padding:24px 18px;
+
+}
+
+.card h3{
+
+    font-size:20px;
+
+}
+
+.card p{
+
+    font-size:15px;
+
+}
+
+.ganpati{
+
+    padding:60px 15px;
+
+}
+
+.ganpati img{
+
+    width:180px;
+
+}
+
+.ganpati h2{
+
+    font-size:28px;
+
+}
+
+.ganpati p{
+
+    font-size:15px;
+
+}
+
+}
+
+/* Very Small Phones */
+
+@media (max-width:400px){
+
+.hero{
+
+    padding:70px 12px 35px;
+
+}
+
+.content h1{
+
+    font-size:28px;
+
+}
+
+.content h3{
+
+    font-size:17px;
+
+}
+
+.content p{
+
+    font-size:14px;
+
+}
+
+.family-name{
+
+    font-size:18px;
+
+}
+
+.family-name span{
+
+    font-size:23px;
+
+}
+
+.card{
+
+    padding:20px 15px;
+
+}
+
+.card h3{
+
+    font-size:18px;
+
+}
+
+.card p{
+
+    font-size:14px;
+
+}
+
+.ganpati img{
+
+    width:150px;
+
+}
+
+.ganpati h2{
+
+    font-size:24px;
+
+}
+
+.ganpati p{
+
+    font-size:14px;
+
+}
+
+.btn,
+.map-btn{
+
+    font-size:14px;
+
+    padding:14px;
+
+}
+
+.bells{
+
+    display:none;
+
+}
+
+footer{
+
+    font-size:13px;
+
+}
+
+}
+
+/* Landscape */
 
 @media (max-height:500px) and (orientation:landscape){
 
-    .hero{
-        min-height:120vh;
-        padding:60px 20px;
-    }
+.hero{
 
-    .bells{
-        display:none;
-    }
+    min-height:130vh;
 
 }
 
-/* Hover Devices */
+.bells{
+
+    display:none;
+
+}
+
+}
+
+/* Touch Devices */
 
 @media (hover:none){
 
-    .btn:hover,
-    .map-btn:hover,
-    .card:hover,
-    .ganpati img:hover{
-        transform:none;
-    }
+.btn:hover,
+.map-btn:hover,
+.card:hover,
+.ganpati img:hover{
+
+    transform:none;
+
+}
 
 }
