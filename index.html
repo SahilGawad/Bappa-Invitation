@@ -146,6 +146,51 @@ aria-label="Open Map">
 
 </section>
 
+</section>
+
+<!-- Last 3 Years Bappa Memories -->
+<section class="bappa-memories">
+    <h2>🙏 गेल्या ३ वर्षांच्या बाप्पाच्या आठवणी 🙏</h2>
+    <p class="memories-subtitle">बाप्पाच्या आगमनाच्या सुंदर आठवणी...</p>
+
+    <div class="memory-gallery">
+
+        <!-- 2023 -->
+        <div class="memory-card">
+            <div class="memory-image">
+                <img src="assets/2023.png" alt="Bappa 2023">
+            </div>
+            <div class="memory-info">
+                <h3>२०२३</h3>
+                <p>गणपती बाप्पा मोरया 🙏</p>
+            </div>
+        </div>
+
+        <!-- 2024 -->
+        <div class="memory-card">
+            <div class="memory-image">
+                <img src="assets/2024.jpeg" alt="Bappa 2024">
+            </div>
+            <div class="memory-info">
+                <h3>२०२४</h3>
+                <p>गणपती बाप्पा मोरया 🙏</p>
+            </div>
+        </div>
+
+        <!-- 2025 -->
+        <div class="memory-card">
+            <div class="memory-image">
+                <img src="assets/2026.jpeg" alt="Bappa 2025">
+            </div>
+            <div class="memory-info">
+                <h3>२०२५</h3>
+                <p>गणपती बाप्पा मोरया 🙏</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 <!-- GANPATI -->
 
 <section class="ganpati">
@@ -157,7 +202,6 @@ src="assets/bappa.png"
 alt="श्री गणपती"
 
 loading="lazy">
-
 <h2>
 
 🙏 गणपती बाप्पा मोरया 🙏
@@ -172,19 +216,16 @@ loading="lazy">
 
 </p>
 
-<a
+<a href="javascript:void(0);"
+   class="btn"
+   aria-label="Confirm Attendance"
+   onclick="openContact()">
 
-href="#"
-
-class="btn"
-
-aria-label="Confirm Attendance">
-
-आपली उपस्थिती कळवा
+    आपली उपस्थिती कळवा
 
 </a>
 
-</section>
+
 
 </main>
 
@@ -197,6 +238,31 @@ aria-label="Confirm Attendance">
 </p>
 
 </footer>
+
+<div id="contactPopup" class="contact-popup">
+    <div class="contact-box">
+
+        <span class="close-contact" onclick="closeContact()">×</span>
+
+        <div class="contact-icon">🙏</div>
+
+        <h2>साहिल गावड</h2>
+
+        <p>संपर्कासाठी</p>
+
+        <a href="tel:+917276728576" class="phone-link">
+            📞 +91 7276728576
+        </a>
+
+        <br><br>
+
+        <a href="tel:+917276728576" class="call-link">
+            📞 आता संपर्क करा
+        </a>
+
+
+    </div>
+</div>
 
 <script src="script.js"></script>
 

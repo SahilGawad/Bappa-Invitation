@@ -446,3 +446,18 @@ console.log(
     "%cWebsite initialized successfully ✔",
     "color:#4CAF50;font-size:14px;"
 );
+
+function openContact() {
+    document.getElementById("contactPopup").classList.add("active");
+}
+
+function closeContact() {
+    document.getElementById("contactPopup").classList.remove("active");
+}
+
+// Close popup when clicking outside
+document.getElementById("contactPopup").addEventListener("click", function (event) {
+    if (event.target === this) {
+        closeContact();
+    }
+});

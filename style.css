@@ -905,3 +905,228 @@ footer{
 }
 
 }
+
+/* ==============================
+   BAPPA MEMORIES SECTION
+================================ */
+
+.bappa-memories {
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.bappa-memories h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
+    font-family: "Noto Serif Devanagari", serif;
+    color: #ffd700;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+.memories-subtitle {
+    color: #f5d9a6;
+    font-size: 18px;
+    margin-bottom: 45px;
+}
+
+/* Gallery */
+
+.memory-gallery {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Card */
+
+.memory-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    border-radius: 20px;
+    padding: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: all 0.4s ease;
+}
+
+.memory-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 180, 0, 0.35);
+    border-color: #ffd700;
+}
+
+/* Image */
+
+.memory-image {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.memory-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.memory-card:hover .memory-image img {
+    transform: scale(1.08);
+}
+
+/* Text */
+
+.memory-info {
+    padding: 18px 10px 10px;
+}
+
+.memory-info h3 {
+    margin: 0;
+    font-size: 30px;
+    color: #ffd700;
+    font-family: "Noto Serif Devanagari", serif;
+}
+
+.memory-info p {
+    margin: 7px 0 0;
+    color: #fff;
+    font-size: 15px;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .bappa-memories {
+        padding: 60px 15px;
+    }
+
+    .bappa-memories h2 {
+        font-size: 28px;
+    }
+
+    .memories-subtitle {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+
+    .memory-gallery {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .memory-image {
+        height: 400px;
+    }
+}
+
+/* Small Mobile */
+
+@media (max-width: 480px) {
+
+    .bappa-memories h2 {
+        font-size: 24px;
+    }
+
+    .memory-image {
+        height: 350px;
+    }
+
+    .memory-info h3 {
+        font-size: 26px;
+    }
+}
+
+.contact-popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+}
+
+.contact-popup.active {
+    display: flex;
+}
+
+.contact-box {
+    position: relative;
+    width: 320px;
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: #1b1208;
+    border: 1px solid #ffd700;
+    border-radius: 22px;
+
+    box-shadow: 0 0 35px rgba(255, 215, 0, 0.35);
+
+    animation: contactOpen 0.3s ease;
+}
+
+.contact-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.contact-box h2 {
+    color: #ffd700;
+    margin: 5px 0 10px;
+}
+
+.contact-box p {
+    color: #ddd;
+    margin-bottom: 8px;
+}
+
+.phone-link {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.call-link {
+    display: inline-block;
+    padding: 10px 25px;
+
+    background: #ffd700;
+    color: #1b1208;
+
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.close-contact {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+@keyframes contactOpen {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
