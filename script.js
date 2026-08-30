@@ -1,463 +1,263 @@
-// =========================================
-// LOADER
-// =========================================
+document.addEventListener("DOMContentLoaded", function () {
 
-window.addEventListener("load", () => {
-    const loader = document.querySelector(".loader");
+    /* ==========================================
+       ELEMENTS
+    ========================================== */
 
-    if (!loader) return;
+    const openingScreen =
+        document.getElementById("openingScreen");
 
-    setTimeout(() => {
-        loader.style.opacity = "0";
-        loader.style.visibility = "hidden";
+    const music =
+        document.getElementById("bgMusic");
 
-        setTimeout(() => {
-            loader.remove();
-        }, 500);
-
-    }, 1200);
-});
+    const musicButton =
+        document.getElementById("musicBtn");
 
 
-// =========================================
-// FADE IN ANIMATION
-// =========================================
+    /* ==========================================
+       OPEN BY CLICK / TOUCH ANYWHERE
+    ========================================== */
 
-const animatedElements = document.querySelectorAll(
-    ".content, .invite, .card, .ganpati"
-);
+    if (openingScreen) {
 
-const observer = new IntersectionObserver((entries) => {
+        let alreadyOpened = false;
 
-    entries.forEach((entry) => {
+        function openInvitation() {
 
-        if (entry.isIntersecting) {
+            /* Prevent double triggering */
 
-            entry.target.classList.add("show");
-            observer.unobserve(entry.target);
+            if (alreadyOpened) {
+                return;
+            }
+
+            alreadyOpened = true;
+
+
+            /* Start music */
+
+            if (music) {
+
+                music.play()
+                    .then(function () {
+
+                        if (musicButton) {
+                            musicButton.innerHTML = "❚❚";
+                        }
+
+                    })
+                    .catch(function () {
+
+                        console.log(
+                            "Music autoplay blocked."
+                        );
+
+                    });
+
+            }
+
+
+            /* Opening animation */
+
+            openingScreen.classList.add("opened");
+
+
+            /* Remove opening screen */
+
+            setTimeout(function () {
+
+                openingScreen.style.display = "none";
+
+            }, 1300);
 
         }
 
-    });
 
-}, {
-    threshold: 0.2
-});
+        /* Laptop mouse */
 
-animatedElements.forEach((element) => {
-
-    element.classList.add("hidden");
-    observer.observe(element);
-
-});
-
-
-// =========================================
-// RIPPLE BUTTON EFFECT
-// =========================================
-
-const buttons = document.querySelectorAll(".btn, .map-btn");
-
-buttons.forEach((button) => {
-
-    button.addEventListener("click", (e) => {
-
-        const rect = button.getBoundingClientRect();
-
-        const ripple = document.createElement("span");
-
-        ripple.className = "ripple";
-
-        ripple.style.left = `${e.clientX - rect.left}px`;
-        ripple.style.top = `${e.clientY - rect.top}px`;
-
-        button.appendChild(ripple);
-
-        ripple.addEventListener("animationend", () => {
-            ripple.remove();
-        });
-
-    });
-
-});
-
-
-// =========================================
-// SMOOTH SCROLL TO SECTION
-// =========================================
-
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
-
-    link.addEventListener("click", (e) => {
-
-        const target = document.querySelector(
-            link.getAttribute("href")
+        openingScreen.addEventListener(
+            "click",
+            openInvitation
         );
 
-        if (!target) return;
 
-        e.preventDefault();
+        /* Mobile touch */
 
-        target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
+        openingScreen.addEventListener(
+            "touchend",
+            function (event) {
 
-    });
+                event.preventDefault();
 
-});
+                openInvitation();
 
-
-// =========================================
-// REVEAL ELEMENTS ON PAGE LOAD
-// =========================================
-
-window.addEventListener("DOMContentLoaded", () => {
-
-    document.body.classList.add("loaded");
-
-});
-
-
-// =========================================
-// CONSOLE MESSAGE
-// =========================================
-
-console.log(
-    "%c🙏 Ganpati Bappa Morya 🙏",
-    "color:#d4af37;font-size:22px;font-weight:bold;"
-);
-
-// =========================================
-// SCROLL PROGRESS BAR
-// =========================================
-
-const progressBar = document.querySelector(".progress");
-
-function updateProgressBar() {
-
-    if (!progressBar) return;
-
-    const scrollTop = window.scrollY;
-
-    const scrollHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-
-    const percent = (scrollTop / scrollHeight) * 100;
-
-    progressBar.style.width = `${percent}%`;
-
-}
-
-
-// =========================================
-// OPTIMIZED SCROLL
-// =========================================
-
-let ticking = false;
-
-window.addEventListener("scroll", () => {
-
-    if (!ticking) {
-
-        window.requestAnimationFrame(() => {
-
-            updateProgressBar();
-
-            ticking = false;
-
-        });
-
-        ticking = true;
-
-    }
-
-});
-
-
-// =========================================
-// FLOATING SPARKLES
-// =========================================
-
-function createSparkle(){
-
-    const sparkle = document.createElement("div");
-    sparkle.className = "sparkle";
-
-    sparkle.style.left = Math.random() * window.innerWidth + "px";
-
-    const size = Math.random() * 8 + 4;
-    sparkle.style.width = size + "px";
-    sparkle.style.height = size + "px";
-
-    sparkle.style.animationDuration =
-        (Math.random() * 4 + 4) + "s";
-
-    document.body.appendChild(sparkle);
-
-    setTimeout(() => {
-        sparkle.remove();
-    }, 8000);
-
-}
-
-setInterval(createSparkle, 180);
-
-
-
-
-// =========================================
-// FLOATING GANPATI IMAGE
-// =========================================
-
-const ganpatiImage = document.querySelector(".ganpati img");
-
-if (ganpatiImage) {
-
-    ganpatiImage.animate(
-
-        [
-
-            {
-                transform: "translateY(0px)"
             },
-
             {
-                transform: "translateY(-15px)"
-            },
-
-            {
-                transform: "translateY(0px)"
+                passive: false
             }
+        );
 
-        ],
-
-        {
-
-            duration: 3500,
-            iterations: Infinity,
-            easing: "ease-in-out"
-
-        }
-
-    );
-
-}
+    }
 
 
-// =========================================
-// PARALLAX DECORATION
-// =========================================
+    /* ==========================================
+       MUSIC BUTTON
+    ========================================== */
 
-const hero = document.querySelector(".hero");
+    if (musicButton && music) {
 
-window.addEventListener("scroll", () => {
+        musicButton.addEventListener(
+            "click",
+            function (event) {
 
-    if (!hero) return;
+                /* Don't reopen invitation */
 
-    const offset = window.scrollY * 0.15;
-
-    hero.style.backgroundPositionY = `${offset}px`;
-
-});
+                event.stopPropagation();
 
 
-// =========================================
-// INITIALIZE
-// =========================================
+                if (music.paused) {
 
-updateProgressBar();
+                    music.play()
+                        .then(function () {
 
-// =========================================
-// BUTTON SHINE EFFECT
-// =========================================
+                            musicButton.innerHTML =
+                                "❚❚";
 
-const shineButtons = document.querySelectorAll(".btn");
+                        });
 
-function shineButton(button) {
+                }
 
-    button.classList.add("shine");
+                else {
 
-    setTimeout(() => {
+                    music.pause();
 
-        button.classList.remove("shine");
+                    musicButton.innerHTML =
+                        "♫";
 
-    }, 1000);
+                }
 
-}
-
-setInterval(() => {
-
-    shineButtons.forEach(shineButton);
-
-}, 4500);
-
-
-// =========================================
-// WELCOME HEADING ANIMATION
-// =========================================
-
-const heading = document.querySelector(".content h1");
-
-function animateHeading() {
-
-    if (!heading) return;
-
-    heading.animate(
-
-        [
-            {
-                opacity: 0,
-                transform: "translateY(40px)",
-                letterSpacing: "0px"
-            },
-
-            {
-                opacity: 1,
-                transform: "translateY(0)",
-                letterSpacing: "3px"
             }
-
-        ],
-
-        {
-            duration: 1200,
-            easing: "ease-out",
-            fill: "forwards"
-        }
-
-    );
-
-}
-
-window.addEventListener("load", () => {
-
-    setTimeout(animateHeading, 1300);
-
-});
-
-
-// =========================================
-// DISABLE ANIMATIONS WHEN TAB IS HIDDEN
-// =========================================
-
-document.addEventListener("visibilitychange", () => {
-
-    if (document.hidden) {
-
-        document.documentElement.style.scrollBehavior = "auto";
-
-    } else {
-
-        document.documentElement.style.scrollBehavior = "smooth";
+        );
 
     }
 
-});
+
+    /* ==========================================
+       SCROLL REVEAL
+    ========================================== */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
 
 
-// =========================================
-// RESIZE HANDLER
-// =========================================
+    if (revealElements.length > 0) {
 
-window.addEventListener("resize", () => {
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
 
-    updateProgressBar();
+                    entries.forEach(
+                        function (entry) {
 
-});
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.08
+                }
+            );
 
 
-// =========================================
-// BACK TO TOP (OPTIONAL)
-// =========================================
+        revealElements.forEach(
+            function (element) {
 
-const topButton = document.querySelector(".top-btn");
+                observer.observe(element);
 
-if (topButton) {
+            }
+        );
 
-    window.addEventListener("scroll", () => {
+    }
 
-        if (window.scrollY > 400) {
 
-            topButton.classList.add("show");
+    /* ==========================================
+       CONTACT POPUP
+    ========================================== */
 
-        } else {
+    window.openContact = function () {
 
-            topButton.classList.remove("show");
+        const popup =
+            document.getElementById(
+                "contactPopup"
+            );
+
+        if (popup) {
+
+            popup.classList.add("active");
 
         }
 
-    });
-
-    topButton.addEventListener("click", () => {
-
-        window.scrollTo({
-
-            top: 0,
-            behavior: "smooth"
-
-        });
-
-    });
-
-}
+    };
 
 
-// =========================================
-// PREVENT IMAGE DRAGGING
-// =========================================
+    window.closeContact = function () {
 
-document.querySelectorAll("img").forEach((img) => {
+        const popup =
+            document.getElementById(
+                "contactPopup"
+            );
 
-    img.setAttribute("draggable", "false");
+        if (popup) {
 
-});
+            popup.classList.remove("active");
 
+        }
 
-// =========================================
-// PRELOAD IMAGES
-// =========================================
-
-window.addEventListener("load", () => {
-
-    document.querySelectorAll("img").forEach((img) => {
-
-        if (img.complete) return;
-
-        img.loading = "eager";
-
-    });
-
-});
+    };
 
 
-// =========================================
-// FINAL INITIALIZATION
-// =========================================
+    /* ==========================================
+       CLOSE CONTACT POPUP OUTSIDE
+    ========================================== */
 
-console.clear();
+    const contactPopup =
+        document.getElementById(
+            "contactPopup"
+        );
 
-console.log(
-    "%c🙏 Ganpati Bappa Morya 🙏",
-    "color:#d4af37;font-size:24px;font-weight:bold;"
-);
 
-console.log(
-    "%cWebsite initialized successfully ✔",
-    "color:#4CAF50;font-size:14px;"
-);
+    if (contactPopup) {
 
-function openContact() {
-    document.getElementById("contactPopup").classList.add("active");
-}
+        contactPopup.addEventListener(
+            "click",
+            function (event) {
 
-function closeContact() {
-    document.getElementById("contactPopup").classList.remove("active");
-}
+                if (
+                    event.target === contactPopup
+                ) {
 
-// Close popup when clicking outside
-document.getElementById("contactPopup").addEventListener("click", function (event) {
-    if (event.target === this) {
-        closeContact();
+                    contactPopup.classList.remove(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
     }
+
 });

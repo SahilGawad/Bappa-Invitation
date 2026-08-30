@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="mr">
+
 <head>
 
 <meta charset="UTF-8">
@@ -13,7 +14,7 @@ content="श्री गणेश चतुर्थी उत्सवाच�
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect"
-href="https://fonts.gstatic.com"
+href="https://fonts.googleapis.com"
 crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
@@ -23,246 +24,485 @@ rel="stylesheet">
 
 </head>
 
+
 <body>
 
-<!-- Loader -->
 
-<div id="loader" class="loader">
+<!-- =========================================
+     TOUCH / CLICK ANYWHERE TO OPEN
+========================================= -->
 
-<span>॥ श्री गणेशाय नमः ॥</span>
+<div id="openingScreen">
+
+    <div class="opening-glow"></div>
+
+    <div class="opening-content">
+
+        <div class="opening-top">
+            ॥ श्री गणेशाय नमः ॥
+        </div>
+
+        <div class="opening-symbol">
+            ॐ
+        </div>
+
+        <div class="opening-line"></div>
+
+        <p class="opening-small">
+            शुभ मंगल
+        </p>
+
+        <h1 class="opening-title">
+
+            गणपती बाप्पा
+
+            <span>
+                मोरया!
+            </span>
+
+        </h1>
+
+        <p class="opening-invite">
+            आपणास आग्रहाचे निमंत्रण
+        </p>
+
+        <p class="opening-hint">
+            ✦ स्क्रीनवर कुठेही टच करा ✦
+        </p>
+
+    </div>
 
 </div>
 
-<main>
 
-<!-- HERO -->
+<!-- =========================================
+     MUSIC
+========================================= -->
+
+<button
+    id="musicBtn"
+    class="music-btn"
+    type="button"
+>
+    ♫
+</button>
+
+
+<audio id="bgMusic" loop>
+
+    <source
+        src="assets/music.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+
+<main id="mainInvitation">
+
+
+<!-- =========================================
+     HERO
+========================================= -->
 
 <section class="hero">
 
-<div class="bells">
 
-<img
-src="assets/bell.png"
-class="bell left-bell"
-alt="Temple Bell"
-loading="lazy">
+    <div class="bells">
 
-<img
-src="assets/bell.png"
-class="bell right-bell"
-alt="Temple Bell"
-loading="lazy">
+        <img
+            src="assets/bell.png"
+            class="bell left-bell"
+            alt="Temple Bell"
+            loading="lazy"
+        >
 
-</div>
 
-<div class="content">
+        <img
+            src="assets/bell.png"
+            class="bell right-bell"
+            alt="Temple Bell"
+            loading="lazy"
+        >
 
-<h3>॥ श्री गणेशाय नमः ॥</h3>
+    </div>
 
-<h1>गणेशोत्सवाचे हार्दिक निमंत्रण</h1>
 
-<p>
-श्री गणरायाच्या कृपेने, यंदा ही आमच्या घरी दीड दिवसांसाठी आपल्या लाडक्या गणपती बाप्पाचे आगमन होत आहे. तरी आपण सर्वांनी सहपरिवार उपस्थित राहून दर्शनाचा व प्रसादाचा लाभ घ्यावा, ही नम्र विनंती...!
-</p>
 
-<a
-href="#invite"
-class="btn"
-aria-label="Invitation">
+    <div class="content reveal">
 
-निमंत्रण पहा
 
-</a>
+        <h3>
+            ॥ श्री गणेशाय नमः ॥
+        </h3>
 
-</div>
+
+        <h1>
+            गणेशोत्सवाचे हार्दिक निमंत्रण
+        </h1>
+
+
+        <p>
+
+            श्री गणरायाच्या कृपेने, यंदा ही आमच्या घरी
+            दीड दिवसांसाठी आपल्या लाडक्या गणपती बाप्पाचे
+            आगमन होत आहे.
+
+            तरी आपण सर्वांनी सहपरिवार उपस्थित राहून
+            दर्शनाचा व प्रसादाचा लाभ घ्यावा,
+            ही नम्र विनंती...!
+
+        </p>
+
+
+        <a
+            href="#invite"
+            class="btn"
+        >
+            निमंत्रण पहा
+        </a>
+
+
+    </div>
 
 </section>
 
-<!-- INVITATION -->
+
+
+<!-- =========================================
+     INVITATION
+========================================= -->
 
 <section
-id="invite"
-class="invite">
+    id="invite"
+    class="invite reveal"
+>
 
-<h2>
 
-🌺 श्री गणेश चतुर्थी उत्सव 🌺
+    <h2>
+        🌺 श्री गणेश चतुर्थी उत्सव 🌺
+    </h2>
 
-</h2>
 
-<h3 class="family-name">
+    <h3 class="family-name">
 
-सप्रेम निमंत्रण
+        सप्रेम निमंत्रण
 
-<span>
+        <span>
+            गावड परिवार
+        </span>
 
-गावड परिवार
+    </h3>
 
-</span>
 
-</h3>
 
-<div class="card">
+    <div class="card">
 
-<h3>📅 दिनांक</h3>
 
-<p>
+        <h3>
+            📅 दिनांक
+        </h3>
 
-१४ सप्टेंबर २०२६
 
-</p>
+        <p>
+            १४ सप्टेंबर २०२६
+        </p>
 
-<h3>🍛 स्नेह भोजन</h3>
 
-<p>
 
- दुपारी १:०० वाजता
+        <h3>
+            🍛 स्नेह भोजन
+        </h3>
 
-</p>
 
-<h3>📍 स्थळ</h3>
+        <p>
+            दुपारी १:०० वाजता
+        </p>
 
-<p>
-आगरवाडी, ता. पालघर, राम मंदिराजवळ, गावड आळी
-</p>
 
-<a
 
-href="https://maps.app.goo.gl/bEqyfsQRfQtmmC319"
+        <h3>
+            📍 स्थळ
+        </h3>
 
-target="_blank"
 
-rel="noopener noreferrer"
+        <p>
+            आगरवाडी, ता. पालघर,
+            राम मंदिराजवळ,
+            गावड आळी
+        </p>
 
-class="map-btn"
 
-aria-label="Open Map">
 
-📍 Open Map
+        <a
+            href="https://maps.app.goo.gl/bEqyfsQRfQtmmC319"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="map-btn"
+        >
 
-</a>
+            📍 Open Map
 
-</div>
+        </a>
+
+
+    </div>
+
 
 </section>
 
-</section>
 
-<!-- Last 3 Years Bappa Memories -->
-<section class="bappa-memories">
-    <h2>🙏 गेल्या ३ वर्षांच्या बाप्पाच्या आठवणी 🙏</h2>
-    <p class="memories-subtitle">बाप्पाच्या आगमनाच्या सुंदर आठवणी...</p>
+
+<!-- =========================================
+     BAPPA MEMORIES
+========================================= -->
+
+<section class="bappa-memories reveal">
+
+
+    <h2>
+        🙏 गेल्या ३ वर्षांच्या बाप्पाच्या आठवणी 🙏
+    </h2>
+
+
+    <p class="memories-subtitle">
+        बाप्पाच्या आगमनाच्या सुंदर आठवणी...
+    </p>
+
+
 
     <div class="memory-gallery">
 
+
         <!-- 2023 -->
+
         <div class="memory-card">
+
+
             <div class="memory-image">
-                <img src="assets/2023.png" alt="Bappa 2023">
+
+                <img
+                    src="assets/2023.png"
+                    alt="Bappa 2023"
+                    loading="lazy"
+                >
+
             </div>
+
+
             <div class="memory-info">
-                <h3>२०२३</h3>
-                <p>गणपती बाप्पा मोरया 🙏</p>
+
+                <h3>
+                    २०२३
+                </h3>
+
+                <p>
+                    गणपती बाप्पा मोरया 🙏
+                </p>
+
             </div>
+
+
         </div>
+
+
 
         <!-- 2024 -->
+
         <div class="memory-card">
+
+
             <div class="memory-image">
-                <img src="assets/2024.jpeg" alt="Bappa 2024">
+
+                <img
+                    src="assets/2024.jpeg"
+                    alt="Bappa 2024"
+                    loading="lazy"
+                >
+
             </div>
+
+
             <div class="memory-info">
-                <h3>२०२४</h3>
-                <p>गणपती बाप्पा मोरया 🙏</p>
+
+                <h3>
+                    २०२४
+                </h3>
+
+                <p>
+                    गणपती बाप्पा मोरया 🙏
+                </p>
+
             </div>
+
+
         </div>
+
+
 
         <!-- 2025 -->
+
         <div class="memory-card">
+
+
             <div class="memory-image">
-                <img src="assets/2026.jpeg" alt="Bappa 2025">
+
+                <img
+                    src="assets/2026.jpeg"
+                    alt="Bappa 2025"
+                    loading="lazy"
+                >
+
             </div>
+
+
             <div class="memory-info">
-                <h3>२०२५</h3>
-                <p>गणपती बाप्पा मोरया 🙏</p>
+
+                <h3>
+                    २०२५
+                </h3>
+
+                <p>
+                    गणपती बाप्पा मोरया 🙏
+                </p>
+
             </div>
+
+
         </div>
 
+
     </div>
+
 </section>
 
-<!-- GANPATI -->
 
-<section class="ganpati">
 
-<img
+<!-- =========================================
+     GANPATI
+========================================= -->
 
-src="assets/bappa.png"
+<section class="ganpati reveal">
 
-alt="श्री गणपती"
 
-loading="lazy">
-<h2>
+    <img
+        src="assets/bappa.png"
+        alt="श्री गणपती"
+        loading="lazy"
+    >
 
-🙏 गणपती बाप्पा मोरया 🙏
 
-</h2>
+    <h2>
+        🙏 गणपती बाप्पा मोरया 🙏
+    </h2>
 
-<p>
 
-आपली उपस्थितीच आमच्यासाठी
+    <p>
 
-सर्वात मोठा आशीर्वाद आहे.
+        आपली उपस्थितीच आमच्यासाठी
+        सर्वात मोठा आशीर्वाद आहे.
 
-</p>
+    </p>
 
-<a href="javascript:void(0);"
-   class="btn"
-   aria-label="Confirm Attendance"
-   onclick="openContact()">
 
-    आपली उपस्थिती कळवा
+    <a
+        href="javascript:void(0);"
+        class="btn"
+        onclick="openContact()"
+    >
 
-</a>
+        आपली उपस्थिती कळवा
 
+    </a>
+
+
+</section>
 
 
 </main>
 
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
 <footer>
 
-<p>
-
-© 2026 Sahil Gawad. All Rights Reserved.
-
-</p>
+    <p>
+        © 2026 Sahil Gawad. All Rights Reserved.
+    </p>
 
 </footer>
 
-<div id="contactPopup" class="contact-popup">
+
+
+<!-- =========================================
+     CONTACT POPUP
+========================================= -->
+
+<div
+    id="contactPopup"
+    class="contact-popup"
+>
+
+
     <div class="contact-box">
 
-        <span class="close-contact" onclick="closeContact()">×</span>
 
-        <div class="contact-icon">🙏</div>
+        <span
+            class="close-contact"
+            onclick="closeContact()"
+        >
+            ×
+        </span>
 
-        <h2>साहिल गावड</h2>
 
-        <p>संपर्कासाठी</p>
+        <div class="contact-icon">
+            🙏
+        </div>
 
-        <a href="tel:+917276728576" class="phone-link">
+
+        <h2>
+            साहिल गावड
+        </h2>
+
+
+        <p>
+            संपर्कासाठी
+        </p>
+
+
+        <a
+            href="tel:+917276728576"
+            class="phone-link"
+        >
+
             📞 +91 7276728576
+
         </a>
 
-        <br><br>
 
-        <a href="tel:+917276728576" class="call-link">
+        <br>
+        <br>
+
+
+        <a
+            href="tel:+917276728576"
+            class="call-link"
+        >
+
             📞 आता संपर्क करा
+
         </a>
 
 
     </div>
+
 </div>
+
+
 
 <script src="script.js"></script>
 

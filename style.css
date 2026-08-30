@@ -1,1132 +1,1590 @@
-/*=========================================
-    RESET & GLOBAL
-=========================================*/
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-    font-size:16px;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:#fdf8ef;
-    color:#4d2c05;
-    line-height:1.7;
-    overflow-x:hidden;
-}
-
-img{
-    max-width:100%;
-    display:block;
-    height:auto;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-main{
-    overflow:hidden;
-}
-
-/*=========================================
-    LOADER
-=========================================*/
-
-.loader{
-    position:fixed;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#fff8eb;
-    z-index:99999;
-}
-
-.loader span{
-    font-family:'Cinzel',serif;
-    color:#b8841c;
-    font-size:clamp(24px,5vw,40px);
-}
-
-/*=========================================
-    HERO
-=========================================*/
-
-.hero{
-    position:relative;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    overflow:hidden;
-    padding:120px 20px 80px;
-    background:
-    linear-gradient(rgba(255,248,230,.82),rgba(255,248,230,.82)),
-    url("assets/bg.jpg") center/cover no-repeat;
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    width:350px;
-    height:350px;
-    left:-150px;
-    top:-150px;
-    border-radius:50%;
-    background:#ffe8a3;
-    opacity:.3;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    width:280px;
-    height:280px;
-    right:-120px;
-    bottom:-120px;
-    border-radius:50%;
-    background:#ffd86b;
-    opacity:.25;
-}
-
-/*=========================================
-    BELLS
-=========================================*/
-
-.bells{
-    position:absolute;
-    inset:0;
-    height:180px;
-    pointer-events:none;
-}
-
-.bell{
-    position:absolute;
-    width:150px;
-    filter:drop-shadow(0 6px 12px rgba(0,0,0,.25));
-    animation:bellSwing 4s infinite ease-in-out;
-}
-
-.left-bell{
-    left:20px;
-    top:0;
-}
-
-.right-bell{
-    right:20px;
-    top:0;
-    animation-delay:2s;
-}
-
-/*=========================================
-    HERO CONTENT
-=========================================*/
-
-.content{
-    width:100%;
-    max-width:760px;
-    position:relative;
-    z-index:5;
-}
-
-.content h3{
-    font-family:'Cinzel',serif;
-    color:#b8841c;
-    font-size:clamp(22px,3vw,30px);
-    margin-bottom:15px;
-}
-
-.content h1{
-    font-family:'Cinzel',serif;
-    font-size:clamp(40px,7vw,72px);
-    color:#8a5c09;
-    line-height:1.2;
-    margin-bottom:25px;
-}
-
-.content p{
-    max-width:700px;
-    margin:auto auto 35px;
-    font-size:clamp(17px,2.5vw,22px);
-    line-height:1.9;
-}
-
-/*=========================================
-    BUTTON
-=========================================*/
-
-.btn,
-.map-btn{
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    padding:16px 38px;
-    border-radius:50px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.btn{
-    background:linear-gradient(135deg,#d4af37,#ffeb8a);
-    color:#4d2c05;
-}
-
-.map-btn{
-    background:#b8841c;
-    color:#fff;
-}
-
-.btn:hover,
-.map-btn:hover{
-    transform:translateY(-5px);
-}
-
-/*=========================================
-    ANIMATION
-=========================================*/
-
-@keyframes bellSwing{
-    0%,100%{transform:rotate(0deg);}
-    25%{transform:rotate(8deg);}
-    75%{transform:rotate(-8deg);}
-}
-
-/*=========================================
-    INVITATION SECTION
-=========================================*/
-
-.invite{
-    padding:100px 20px;
-    background:#fdf8ef;
-    text-align:center;
-}
-
-.invite h2{
-    font-family:'Cinzel',serif;
-    font-size:clamp(32px,5vw,52px);
-    color:#b8841c;
-    margin-bottom:45px;
-    line-height:1.3;
-}
-
-/*=========================================
-    FAMILY NAME
-=========================================*/
-
-.family-name{
-    font-family:'Cinzel',serif;
-    font-size:clamp(24px,3vw,34px);
-    color:#8a5c09;
-    margin-bottom:45px;
-    line-height:1.6;
-}
-
-.family-name span{
-    display:block;
-    margin-top:10px;
-    font-size:clamp(30px,5vw,46px);
-    color:#d4af37;
-    letter-spacing:2px;
-    text-transform:uppercase;
-}
-
-/*=========================================
-    INVITATION CARD
-=========================================*/
-
-.card{
-    width:100%;
-    max-width:600px;
-    margin:0 auto;
-    padding:45px 35px;
-    background:#fff;
-    border:2px solid #f2d57a;
-    border-radius:30px;
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
-    transition:.35s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 20px 40px rgba(0,0,0,.12);
-}
-
-.card::before{
-    content:"🪔";
-    display:block;
-    font-size:42px;
-    margin-bottom:20px;
-}
-
-.card::after{
-    content:"";
-    display:block;
-    width:90px;
-    height:4px;
-    margin:35px auto 0;
-    border-radius:50px;
-    background:linear-gradient(to right,#d4af37,#ffe8a3);
-}
-
-.card h3{
-    font-family:'Cinzel',serif;
-    color:#b8841c;
-    font-size:clamp(22px,3vw,30px);
-    margin-top:30px;
-}
-
-.card h3:first-child{
-    margin-top:0;
-}
-
-.card p{
-    margin-top:10px;
-    font-size:clamp(17px,2.5vw,21px);
-    line-height:1.8;
-    color:#6a4b12;
-}
-
-.card h3+p{
-    margin-bottom:12px;
-}
-
-/*=========================================
-    MAP BUTTON
-=========================================*/
-
-.map-btn{
-    margin-top:35px;
-    min-width:220px;
-    box-shadow:0 10px 25px rgba(184,132,28,.25);
-}
-
-.map-btn:hover{
-    background:#9a6d12;
-}
-
-/*=========================================
-    GANPATI SECTION
-=========================================*/
-
-.ganpati{
-    padding:110px 20px;
-    text-align:center;
-    overflow:hidden;
-    position:relative;
-    background:linear-gradient(to bottom,#fffdf8,#fdf8ef);
-}
-
-.ganpati::before{
-    content:"";
-    position:absolute;
-    width:260px;
-    height:260px;
-    border-radius:50%;
-    background:rgba(255,215,0,.12);
-    top:-120px;
-    left:-120px;
-}
-
-.ganpati::after{
-    content:"";
-    position:absolute;
-    width:240px;
-    height:240px;
-    border-radius:50%;
-    background:rgba(255,193,7,.10);
-    right:-100px;
-    bottom:-100px;
-}
-
-.ganpati img{
-    width:min(320px,90%);
-    margin:0 auto 35px;
-    filter:drop-shadow(0 12px 25px rgba(255,193,7,.35));
-    animation:bappaFloat 4s ease-in-out infinite;
-}
-
-.ganpati h2{
-    font-family:'Cinzel',serif;
-    color:#b8841c;
-    font-size:clamp(32px,5vw,52px);
-    margin-bottom:20px;
-}
-
-.ganpati p{
-    max-width:650px;
-    margin:0 auto 35px;
-    font-size:clamp(17px,2.5vw,21px);
-    color:#6a4b12;
-    line-height:1.8;
-}
-
-/*=========================================
-    FOOTER
-=========================================*/
-
-footer{
-    background:linear-gradient(135deg,#b8841c,#9b6d12);
-    color:#fff;
-    text-align:center;
-    padding:25px 20px;
-    font-size:16px;
-}
-
-footer p{
-    margin:0;
-}
-
-/*=========================================
-    ANIMATIONS
-=========================================*/
-
-@keyframes bappaFloat{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-15px);
-    }
-
-}
-
-.hidden{
-    opacity:0;
-    transform:translateY(60px);
-    transition:.8s;
-}
-
-.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-.shine{
-    box-shadow:
-    0 0 15px rgba(255,215,0,.4),
-    0 0 30px rgba(255,215,0,.25);
-}
-
-/*==============================
-   SPARKLES
-==============================*/
-
-.sparkle{
-    position:fixed;
-    top:-20px;
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:radial-gradient(circle,#fff8b0,#FFD700);
-    box-shadow:
-        0 0 8px #FFD700,
-        0 0 18px #FFD700,
-        0 0 30px rgba(255,215,0,.7);
-    pointer-events:none;
-    z-index:9999;
-    animation:sparkleFall linear forwards;
-}
-
-@keyframes sparkleFall{
-
-    0%{
-        transform:translateY(-30px) rotate(0deg) scale(0);
-        opacity:0;
-    }
-
-    10%{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
-
-    100%{
-        transform:translateY(110vh) rotate(360deg) scale(.2);
-        opacity:0;
-    }
-
-}
-
-/*=========================================
-    RESPONSIVE DESIGN
-=========================================*/
-
-/* Large Desktop */
-
-@media (min-width:1400px){
-
-.hero{
-    padding:150px 40px 100px;
-}
-
-.content{
-    max-width:900px;
-}
-
-.card{
-    max-width:650px;
-}
-
-.ganpati img{
-    width:360px;
-}
-
-}
-
-/* Laptop */
-
-@media (max-width:1200px){
-
-.hero{
-    padding:130px 25px 80px;
-}
-
-.content{
-    max-width:760px;
-}
-
-.bell{
-    width:130px;
-}
-
-.hero::before{
-    width:260px;
-    height:260px;
-}
-
-.hero::after{
-    width:220px;
-    height:220px;
-}
-
-}
-
-/* Tablet */
-
-@media (max-width:992px){
-
-.hero{
-    padding:110px 20px 70px;
-    min-height:100vh;
-}
-
-.content h1{
-    font-size:52px;
-}
-
-.content h3{
-    font-size:24px;
-}
-
-.content p{
-    font-size:18px;
-}
-
-.card{
-    max-width:90%;
-    padding:35px 28px;
-}
-
-.ganpati{
-    padding:90px 20px;
-}
-
-.ganpati img{
-    width:240px;
-}
-
-.bell{
-    width:100px;
-}
-
-}
-
-/*=========================================
-    RESPONSIVE DESIGN
-=========================================*/
-
-/* Large Desktop */
-
-@media (min-width:1400px){
-
-.hero{
-    padding:150px 40px 100px;
-}
-
-.content{
-    max-width:900px;
-}
-
-.card{
-    max-width:650px;
-}
-
-.ganpati img{
-    width:360px;
-}
-
-}
-
-/* Laptop */
-
-@media (max-width:1200px){
-
-.hero{
-    padding:130px 30px 80px;
-}
-
-.content{
-    max-width:760px;
-}
-
-.bell{
-    width:130px;
-}
-
-}
-
-/* Tablet */
-
-@media (max-width:992px){
-
-.hero{
-    min-height:auto;
-    padding:100px 30px 70px;
-}
-
-.content h1{
-    font-size:48px;
-}
-
-.content h3{
-    font-size:24px;
-}
-
-.content p{
-    font-size:18px;
-    line-height:1.9;
-}
-
-.card{
-    width:90%;
-    padding:35px 28px;
-}
-
-.ganpati{
-    padding:90px 30px;
-}
-
-.ganpati img{
-    width:240px;
-}
-
-.bell{
-    width:95px;
-}
-
-}
-
-/* Mobile */
-
-@media (max-width:768px){
-
-body{
-    overflow-x:hidden;
-}
-
-.hero{
-    min-height:auto;
-    padding:90px 28px 60px;
-}
-
-.hero::before,
-.hero::after{
-    display:none;
-}
-
-.bells{
-    height:90px;
-}
-
-.bell{
-    width:65px;
-}
-
-.left-bell{
-    left:8px;
-}
-
-.right-bell{
-    right:8px;
-}
-
-.sparkle{
-    width:5px;
-    height:5px;
-}
-
-.content{
-    width:100%;
-    max-width:100%;
-    padding:0 8px;
-}
-
-.content h1{
-    font-size:36px;
-    line-height:1.25;
-}
-
-.content h3{
-    font-size:20px;
-}
-
-.content p{
-    max-width:34ch;
-    margin:22px auto 35px;
-    font-size:16px;
-    line-height:1.9;
-}
-
-.btn,
-.map-btn{
-    display:flex;
-    justify-content:center;
-    width:100%;
-    max-width:320px;
-    margin:14px auto;
-}
-
-.invite,
-.ganpati{
-    padding:70px 25px;
-}
-
-.family-name{
-    font-size:22px;
-}
-
-.family-name span{
-    font-size:30px;
-}
-
-.card{
-    width:100%;
-    margin:20px auto;
-    padding:28px 22px;
-    border-radius:22px;
-}
-
-.card h3{
-    font-size:22px;
-}
-
-.card p{
-    max-width:28ch;
-    margin-inline:auto;
-    font-size:16px;
-    line-height:1.8;
-}
-
-.ganpati p{
-    max-width:30ch;
-    margin-inline:auto;
-}
-
-footer{
-    padding:20px;
-    font-size:15px;
-}
-
-}
-
-/* Small Phones */
-
-@media (max-width:576px){
-
-.hero{
-    padding:80px 22px 50px;
-}
-
-.content{
-    padding:0 4px;
-}
-
-.content h1{
-    font-size:32px;
-}
-
-.content h3{
-    font-size:18px;
-}
-
-.content p{
-    font-size:15px;
-}
-
-.family-name{
-    font-size:20px;
-}
-
-.family-name span{
-    font-size:26px;
-}
-
-.card{
-    padding:24px 18px;
-}
-
-.card h3{
-    font-size:20px;
-}
-
-.card p{
-    font-size:15px;
-}
-
-.ganpati{
-    padding:60px 22px;
-}
-
-.ganpati img{
-    width:180px;
-}
-
-.ganpati h2{
-    font-size:28px;
-}
-
-.ganpati p{
-    font-size:15px;
-}
-
-}
-
-/* Extra Small */
-
-@media (max-width:400px){
-
-.hero{
-    padding:70px 18px 45px;
-}
-
-.content h1{
-    font-size:28px;
-}
-
-.content h3{
-    font-size:17px;
-}
-
-.content p{
-    font-size:14px;
-}
-
-.family-name{
-    font-size:18px;
-}
-
-.family-name span{
-    font-size:23px;
-}
-
-.card{
-    padding:20px 16px;
-}
-
-.card h3{
-    font-size:18px;
-}
-
-.card p{
-    font-size:14px;
-}
-
-.ganpati img{
-    width:150px;
-}
-
-.ganpati h2{
-    font-size:24px;
-}
-
-.ganpati p{
-    font-size:14px;
-}
-
-.btn,
-.map-btn{
-    font-size:14px;
-    padding:14px;
-}
-
-.bells{
-    display:none;
-}
-
-footer{
-    font-size:13px;
-}
-
-}
-
-/* Landscape */
-
-@media (max-height:500px) and (orientation:landscape){
-
-.hero{
-    min-height:120vh;
-}
-
-.bells{
-    display:none;
-}
-
-}
-
-/* Touch Devices */
-
-@media (hover:none){
-
-.btn:hover,
-.map-btn:hover,
-.card:hover,
-.ganpati img:hover{
-    transform:none;
-}
-
-}
-
-/* ==============================
-   BAPPA MEMORIES SECTION
-================================ */
-
-.bappa-memories {
-    padding: 80px 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.bappa-memories h2 {
-    font-size: 38px;
-    margin-bottom: 10px;
-    font-family: "Noto Serif Devanagari", serif;
-    color: #ffd700;
-    text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-}
-
-.memories-subtitle {
-    color: #f5d9a6;
-    font-size: 18px;
-    margin-bottom: 45px;
-}
-
-/* Gallery */
-
-.memory-gallery {
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-/* Card */
-
-.memory-card {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 215, 0, 0.5);
-    border-radius: 20px;
-    padding: 12px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    transition: all 0.4s ease;
-}
-
-.memory-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(255, 180, 0, 0.35);
-    border-color: #ffd700;
-}
-
-/* Image */
-
-.memory-image {
-    width: 100%;
-    height: 350px;
-    overflow: hidden;
-    border-radius: 15px;
-}
-
-.memory-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.memory-card:hover .memory-image img {
-    transform: scale(1.08);
-}
-
-/* Text */
-
-.memory-info {
-    padding: 18px 10px 10px;
-}
-
-.memory-info h3 {
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
     margin: 0;
-    font-size: 30px;
-    color: #ffd700;
-    font-family: "Noto Serif Devanagari", serif;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.memory-info p {
-    margin: 7px 0 0;
-    color: #fff;
-    font-size: 15px;
+html {
+    scroll-behavior: smooth;
 }
 
-/* Mobile */
+body {
+    min-height: 100vh;
 
-@media (max-width: 768px) {
+    background:
+        radial-gradient(
+            circle at top,
+            #3b2b08 0%,
+            #171105 45%,
+            #080602 100%
+        );
 
-    .bappa-memories {
-        padding: 60px 15px;
-    }
+    color: #f8e7a6;
 
-    .bappa-memories h2 {
-        font-size: 28px;
-    }
+    font-family:
+        "Poppins",
+        sans-serif;
 
-    .memories-subtitle {
-        font-size: 15px;
-        margin-bottom: 30px;
-    }
-
-    .memory-gallery {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-    }
-
-    .memory-image {
-        height: 400px;
-    }
+    overflow-x: hidden;
 }
 
-/* Small Mobile */
 
-@media (max-width: 480px) {
+/* Golden background particles */
 
-    .bappa-memories h2 {
-        font-size: 24px;
-    }
+body::before {
+    content: "";
 
-    .memory-image {
-        height: 350px;
-    }
-
-    .memory-info h3 {
-        font-size: 26px;
-    }
-}
-
-.contact-popup {
-    display: none;
     position: fixed;
+
     inset: 0;
-    z-index: 9999;
+
+    pointer-events: none;
+
+    opacity: 0.08;
+
+    background-image:
+        radial-gradient(
+            #ffd95a 1px,
+            transparent 1px
+        );
+
+    background-size: 22px 22px;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   CLICK TO OPEN SCREEN
+========================================================= */
+
+#openingScreen {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    z-index: 999999;
+
+    display: flex;
 
     align-items: center;
     justify-content: center;
 
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(6px);
-}
-
-.contact-popup.active {
-    display: flex;
-}
-
-.contact-box {
-    position: relative;
-    width: 320px;
-    padding: 35px 25px;
-
     text-align: center;
 
-    background: #1b1208;
-    border: 1px solid #ffd700;
-    border-radius: 22px;
+    overflow: hidden;
 
-    box-shadow: 0 0 35px rgba(255, 215, 0, 0.35);
-
-    animation: contactOpen 0.3s ease;
-}
-
-.contact-icon {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-
-.contact-box h2 {
-    color: #ffd700;
-    margin: 5px 0 10px;
-}
-
-.contact-box p {
-    color: #ddd;
-    margin-bottom: 8px;
-}
-
-.phone-link {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.call-link {
-    display: inline-block;
-    padding: 10px 25px;
-
-    background: #ffd700;
-    color: #1b1208;
-
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.close-contact {
-    position: absolute;
-    top: 8px;
-    right: 15px;
-
-    color: white;
-    font-size: 28px;
     cursor: pointer;
+
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #b58b20 0%,
+            #765a12 25%,
+            #3d2d06 55%,
+            #171105 100%
+        );
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease,
+        transform 1.2s ease;
 }
 
-@keyframes contactOpen {
+
+/* Decorative circle */
+
+#openingScreen::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: min(78vw, 430px);
+    height: min(78vw, 430px);
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(
+            255,
+            222,
+            105,
+            0.6
+        );
+
+    box-shadow:
+
+        0 0 0 20px
+        rgba(255,220,100,.07),
+
+        0 0 0 45px
+        rgba(255,220,100,.04),
+
+        0 0 80px
+        rgba(255,200,50,.3);
+
+    animation:
+        openingRotate
+        20s linear infinite;
+}
+
+
+/* Outer ring */
+
+#openingScreen::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: min(115vw, 650px);
+    height: min(115vw, 650px);
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,220,100,.16);
+
+    animation:
+        openingPulse
+        4s ease-in-out infinite;
+}
+
+
+/* Opening content */
+
+.opening-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 90%;
+
+    max-width: 520px;
+
+    animation:
+        openingContent
+        1.3s ease;
+}
+
+
+/* Top text */
+
+.opening-top {
+
+    font-family:
+        "Noto Serif Devanagari",
+        serif;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    color: #ffe47b;
+
+    margin-bottom: 22px;
+}
+
+
+/* OM */
+
+.opening-symbol {
+
+    font-family:
+        "Noto Serif Devanagari",
+        serif;
+
+    font-size:
+        clamp(
+            75px,
+            18vw,
+            110px
+        );
+
+    line-height: 1;
+
+    color: #ffdc4d;
+
+    text-shadow:
+
+        0 0 12px #ffdc4d,
+
+        0 0 35px #ffc400,
+
+        0 0 75px
+        rgba(255,190,0,.5);
+
+    animation:
+        symbolGlow
+        2.5s ease-in-out infinite;
+}
+
+
+/* Golden line */
+
+.opening-line {
+
+    width: 80px;
+
+    height: 1px;
+
+    margin:
+        22px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ffe17a,
+            transparent
+        );
+}
+
+
+/* Small heading */
+
+.opening-small {
+
+    margin:
+        0 0 8px;
+
+    color: #dfc15f;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+}
+
+
+/* Opening title */
+
+.opening-title {
+
+    margin: 0;
+
+    color: #fff0ae;
+
+    font-family:
+        "Noto Serif Devanagari",
+        serif;
+
+    font-size:
+        clamp(
+            36px,
+            9vw,
+            62px
+        );
+
+    line-height: 1.2;
+
+    font-weight: 600;
+
+    text-shadow:
+        0 3px 20px
+        rgba(0,0,0,.7);
+}
+
+
+.opening-title span {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: #ffd34d;
+
+    text-shadow:
+        0 0 20px
+        rgba(255,205,60,.4);
+}
+
+
+/* Invitation text */
+
+.opening-invite {
+
+    margin:
+        20px 0 0;
+
+    color: #e5d19a;
+
+    font-size: 14px;
+}
+
+
+/* Touch hint */
+
+.opening-hint {
+
+    margin-top: 35px;
+
+    color: #cdb46c;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    animation:
+        hintBlink
+        2s ease-in-out infinite;
+}
+
+
+/* Opening disappears */
+
+#openingScreen.opened {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        scale(1.08);
+}
+
+
+/* Opening animations */
+
+@keyframes openingContent {
+
     from {
+
         opacity: 0;
-        transform: scale(0.8);
+
+        transform:
+            translateY(30px)
+            scale(.95);
     }
 
     to {
+
         opacity: 1;
-        transform: scale(1);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
+}
+
+
+@keyframes symbolGlow {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+        filter:
+            brightness(1);
+    }
+
+    50% {
+
+        transform:
+            scale(1.08);
+
+        filter:
+            brightness(1.25);
+    }
+}
+
+
+@keyframes openingRotate {
+
+    from {
+
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+@keyframes openingPulse {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+        opacity: .5;
+    }
+
+    50% {
+
+        transform:
+            scale(1.08);
+
+        opacity: .2;
+    }
+}
+
+
+@keyframes hintBlink {
+
+    0%,
+    100% {
+
+        opacity: .4;
+    }
+
+    50% {
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.music-btn {
+
+    position: fixed;
+
+    top: 18px;
+    right: 18px;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid #f3cc52;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe36b,
+            #d59c17
+        );
+
+    color: #261900;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    z-index: 1000;
+
+    box-shadow:
+        0 0 25px
+        rgba(255,205,60,.45);
+
+    transition:
+        transform .3s ease;
+}
+
+.music-btn:hover {
+
+    transform:
+        scale(1.08);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    padding:
+        100px
+        20px
+        80px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #765a12 0%,
+            #392b07 38%,
+            #171105 75%,
+            #080602 100%
+        );
+}
+
+
+/* Golden glow */
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,210,70,.15),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BELLS
+========================================================= */
+
+.bells {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    pointer-events: none;
+}
+
+
+.bell {
+
+    position: absolute;
+
+    width: 75px;
+
+    height: auto;
+
+    top: 20px;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(255,210,60,.35)
+        );
+
+    animation:
+        bellSwing
+        3s ease-in-out infinite;
+}
+
+
+.left-bell {
+
+    left: 30px;
+
+    transform-origin:
+        top center;
+}
+
+
+.right-bell {
+
+    right: 30px;
+
+    transform-origin:
+        top center;
+
+    animation-delay:
+        1s;
+}
+
+
+@keyframes bellSwing {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(-4deg);
+    }
+
+    50% {
+
+        transform:
+            rotate(4deg);
+    }
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 800px;
+}
+
+
+.content h3 {
+
+    color: #e5c45d;
+
+    font-size: 14px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+
+.content h1 {
+
+    font-family:
+        "Noto Serif Devanagari",
+        serif;
+
+    font-size:
+        clamp(
+            40px,
+            8vw,
+            75px
+        );
+
+    line-height: 1.2;
+
+    color: #ffedab;
+
+    text-shadow:
+        0 4px 20px
+        rgba(0,0,0,.6);
+
+    margin-bottom: 25px;
+}
+
+
+.content p {
+
+    max-width: 680px;
+
+    margin:
+        0 auto
+        30px;
+
+    color: #d8c694;
+
+    font-size: 15px;
+
+    line-height: 2;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.btn {
+
+    display: inline-block;
+
+    padding:
+        13px 28px;
+
+    border-radius: 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe36b,
+            #d7a21e
+        );
+
+    color: #241800;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    border:
+        1px solid #ffe590;
+
+    box-shadow:
+        0 8px 30px
+        rgba(225,174,40,.3);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.btn:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 12px 40px
+        rgba(225,174,40,.55);
+}
+
+
+/* =========================================================
+   INVITATION
+========================================================= */
+
+.invite {
+
+    padding:
+        100px
+        20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #171105,
+            #2c2106,
+            #171105
+        );
+}
+
+
+.invite h2 {
+
+    font-family:
+        "Noto Serif Devanagari",
+        serif;
+
+    font-size:
+        clamp(
+            30px,
+            6vw,
+            50px
+        );
+
+    color: #ffe9a0;
+
+    margin-bottom: 20px;
+}
+
+
+.family-name {
+
+    color: #d6b750;
+
+    font-size: 17px;
+
+    margin-bottom: 40px;
+}
+
+
+.family-name span {
+
+    display: block;
+
+    margin-top: 8px;
+
+    color: #ffd34d;
+
+    font-size: 30px;
+
+    font-family:
+        "Noto Serif Devanagari",
+        serif;
+}
+
+
+/* =========================================================
+   INVITATION CARD
+========================================================= */
+
+.card {
+
+    max-width: 600px;
+
+    margin: auto;
+
+    padding:
+        40px 30px;
+
+    border:
+        1px solid
+        rgba(225,183,63,.45);
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #4b3809,
+            #211804
+        );
+
+    box-shadow:
+        inset 0 0 35px
+        rgba(0,0,0,.5),
+
+        0 15px 50px
+        rgba(0,0,0,.3);
+}
+
+
+.card h3 {
+
+    color: #e7c459;
+
+    font-size: 15px;
+
+    margin-top: 22px;
+
+    margin-bottom: 7px;
+}
+
+
+.card h3:first-child {
+
+    margin-top: 0;
+}
+
+
+.card p {
+
+    color: #f2dfa0;
+
+    line-height: 1.8;
+
+    margin-bottom: 10px;
+}
+
+
+/* Map button */
+
+.map-btn {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding:
+        12px 25px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe16a,
+            #d49b18
+        );
+
+    color: #241800;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 6px 25px
+        rgba(230,180,40,.3);
+
+    transition:
+        transform .3s ease;
+}
+
+
+.map-btn:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =========================================================
+   BAPPA MEMORIES
+========================================================= */
+
+.bappa-memories {
+
+    padding:
+        100px 20px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #4a3709,
+            #1a1203 75%
+        );
+}
+
+
+.bappa-memories h2 {
+
+    font-family:
+        "Noto Serif Devanagari",
+        serif;
+
+    color: #ffe7a0;
+
+    font-size:
+        clamp(
+            28px,
+            6vw,
+            48px
+        );
+
+    margin-bottom: 12px;
+}
+
+
+.memories-subtitle {
+
+    color: #cdb879;
+
+    margin-bottom: 45px;
+
+    font-size: 14px;
+}
+
+
+/* Gallery */
+
+.memory-gallery {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* Memory card */
+
+.memory-card {
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    border:
+        1px solid
+        rgba(221,181,61,.4);
+
+    background:
+        linear-gradient(
+            145deg,
+            #4b3709,
+            #1d1504
+        );
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.35);
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+
+.memory-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,0,0,.5);
+}
+
+
+/* Memory image */
+
+.memory-image {
+
+    width: 100%;
+
+    aspect-ratio:
+        4 / 5;
+
+    overflow: hidden;
+
+    background:
+        #3b2b08;
+}
+
+
+.memory-image img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform .5s ease;
+}
+
+
+.memory-card:hover
+.memory-image img {
+
+    transform:
+        scale(1.06);
+}
+
+
+/* Memory info */
+
+.memory-info {
+
+    padding:
+        18px 10px;
+}
+
+
+.memory-info h3 {
+
+    color: #f0cb55;
+
+    font-size: 24px;
+
+    margin-bottom: 5px;
+}
+
+
+.memory-info p {
+
+    color: #cdb77a;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   GANPATI SECTION
+========================================================= */
+
+.ganpati {
+
+    padding:
+        110px 20px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #6c5010,
+            #2b2005 45%,
+            #100c03 100%
+        );
+}
+
+
+.ganpati img {
+
+    width:
+        min(80vw, 400px);
+
+    max-height: 500px;
+
+    object-fit: contain;
+
+    display: block;
+
+    margin:
+        0 auto 35px;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(255,210,70,.3)
+        );
+}
+
+
+.ganpati h2 {
+
+    font-family:
+        "Noto Serif Devanagari",
+        serif;
+
+    font-size:
+        clamp(
+            30px,
+            7vw,
+            52px
+        );
+
+    color: #ffe394;
+
+    margin-bottom: 20px;
+}
+
+
+.ganpati p {
+
+    max-width: 500px;
+
+    margin:
+        0 auto
+        30px;
+
+    color: #d8c694;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        25px 15px;
+
+    text-align: center;
+
+    background: #090702;
+
+    border-top:
+        1px solid
+        rgba(218,177,56,.2);
+}
+
+
+footer p {
+
+    color: #887743;
+
+    font-size: 11px;
+
+    letter-spacing: .5px;
+}
+
+
+/* =========================================================
+   CONTACT POPUP
+========================================================= */
+
+.contact-popup {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,.75);
+
+    backdrop-filter:
+        blur(8px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+}
+
+
+.contact-popup.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* Contact box */
+
+.contact-box {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 400px;
+
+    padding:
+        40px 25px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(235,196,75,.55);
+
+    border-radius: 25px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #6b5010,
+            #211803
+        );
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.7);
+
+    transform:
+        scale(.9);
+
+    transition:
+        transform .3s ease;
+}
+
+
+.contact-popup.active
+.contact-box {
+
+    transform:
+        scale(1);
+}
+
+
+/* Close */
+
+.close-contact {
+
+    position: absolute;
+
+    top: 12px;
+    right: 18px;
+
+    font-size: 30px;
+
+    color: #e9ca68;
+
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+
+.close-contact:hover {
+
+    color: #fff0a0;
+}
+
+
+/* Contact icon */
+
+.contact-icon {
+
+    font-size: 55px;
+
+    margin-bottom: 10px;
+}
+
+
+.contact-box h2 {
+
+    color: #ffe28a;
+
+    font-family:
+        "Noto Serif Devanagari",
+        serif;
+
+    margin-bottom: 5px;
+}
+
+
+.contact-box p {
+
+    color: #c9b576;
+
+    margin-bottom: 18px;
+}
+
+
+.phone-link {
+
+    color: #ffe07a;
+
+    font-size: 18px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+.call-link {
+
+    display: inline-block;
+
+    padding:
+        12px 25px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe16a,
+            #d49b18
+        );
+
+    color: #241800;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .hero {
+
+        padding:
+            100px 18px
+            70px;
+    }
+
+
+    .bell {
+
+        width: 55px;
+
+        top: 15px;
+    }
+
+
+    .left-bell {
+
+        left: 12px;
+    }
+
+
+    .right-bell {
+
+        right: 12px;
+    }
+
+
+    .content h1 {
+
+        font-size: 40px;
+    }
+
+
+    .content p {
+
+        font-size: 13px;
+
+        line-height: 1.9;
+    }
+
+
+    .invite {
+
+        padding:
+            75px 18px;
+    }
+
+
+    .card {
+
+        padding:
+            30px 20px;
+    }
+
+
+    .memory-gallery {
+
+        grid-template-columns:
+            1fr;
+
+        max-width: 430px;
+    }
+
+
+    .memory-image {
+
+        aspect-ratio:
+            4 / 5;
+    }
+
+
+    .bappa-memories {
+
+        padding:
+            75px 18px;
+    }
+
+
+    .ganpati {
+
+        padding:
+            80px 18px;
+    }
+
+
+    .music-btn {
+
+        width: 44px;
+        height: 44px;
+
+        top: 12px;
+        right: 12px;
+    }
+
+
+    #openingScreen::before {
+
+        width: 310px;
+        height: 310px;
+    }
+
+
+    #openingScreen::after {
+
+        width: 430px;
+        height: 430px;
+    }
+
+
+    .opening-symbol {
+
+        font-size: 85px;
+    }
+
+
+    .opening-title {
+
+        font-size: 40px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .opening-title {
+
+        font-size: 34px;
+    }
+
+
+    .opening-top {
+
+        font-size: 10px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .opening-hint {
+
+        font-size: 9px;
+    }
+
+
+    .content h1 {
+
+        font-size: 34px;
+    }
+
+
+    .family-name span {
+
+        font-size: 25px;
+    }
+
 }
