@@ -1,0 +1,1681 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #351108 0%,
+            #180806 45%,
+            #080201 100%
+        );
+
+    color: #f4dfaa;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* Golden background particles */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.08;
+
+    background-image:
+        radial-gradient(
+            #ffd95a 1px,
+            transparent 1px
+        );
+
+    background-size: 22px 22px;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   CLICK TO OPEN SCREEN
+========================================================= */
+
+#openingScreen {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    z-index: 999999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #7a2e0d 0%,
+            #61210c 25%,
+            #351008 55%,
+            #180806 100%
+        );
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease,
+        transform 1.2s ease;
+}
+
+
+/* Decorative circle */
+
+
+/* Outer ring */
+
+
+/* Opening content */
+
+.opening-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 90%;
+
+    max-width: 520px;
+
+    animation:
+        openingContent
+        1.3s ease;
+}
+
+
+/* Top text */
+
+
+/* OM */
+
+
+/* Golden line */
+
+.opening-line {
+
+    width: 80px;
+
+    height: 1px;
+
+    margin:
+        22px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ffe17a,
+            transparent
+        );
+}
+
+
+/* Small heading */
+
+.opening-small {
+
+    margin:
+        0 0 8px;
+
+    color: #d5a958;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+}
+
+
+/* Opening title */
+
+
+.opening-title span {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: #e5ae3e;
+
+    text-shadow:
+        0 0 20px
+        rgba(255,205,60,.4);
+}
+
+
+/* Invitation text */
+
+.opening-invite {
+
+    margin:
+        20px 0 0;
+
+    color: #d7c29b;
+
+    font-size: 14px;
+}
+
+
+/* Touch hint */
+
+
+/* Opening disappears */
+
+#openingScreen.opened {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        scale(1.08);
+}
+
+
+/* Opening animations */
+
+@keyframes openingContent {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(.95);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes symbolGlow {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+        filter:
+            brightness(1);
+    }
+
+    50% {
+
+        transform:
+            scale(1.08);
+
+        filter:
+            brightness(1.25);
+    }
+}
+
+
+@keyframes openingRotate {
+
+    from {
+
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+@keyframes openingPulse {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+        opacity: .5;
+    }
+
+    50% {
+
+        transform:
+            scale(1.08);
+
+        opacity: .2;
+    }
+}
+
+
+@keyframes hintBlink {
+
+    0%,
+    100% {
+
+        opacity: .4;
+    }
+
+    50% {
+
+        opacity: 1;
+    }
+}
+
+
+
+/* =========================================================
+   CINEMATIC TWO-DOOR OPENING
+========================================================= */
+
+#openingScreen {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 999999;
+    overflow: hidden;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    background:
+        radial-gradient(circle at center,
+            #3a1609 0%,
+            #180704 42%,
+            #070201 100%);
+}
+
+/* Warm light behind the doors */
+
+/* =========================================================
+   DOORS
+========================================================= */
+
+.door {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 5;
+    overflow: hidden;
+
+    background:
+        linear-gradient(90deg,
+            #160503 0%,
+            #351008 14%,
+            #5b1d0b 34%,
+            #78300d 50%,
+            #5a1c09 68%,
+            #2d0b05 86%,
+            #100301 100%);
+
+    box-shadow:
+        inset 0 0 90px rgba(0, 0, 0, .88),
+        inset 0 0 25px rgba(218, 145, 44, .12);
+
+    transition:
+        transform 1.8s cubic-bezier(.77, 0, .175, 1);
+
+    will-change: transform;
+}
+
+/* Wood grain */
+.door::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(245, 190, 90, .055) 0px,
+            rgba(245, 190, 90, .055) 2px,
+            transparent 3px,
+            transparent 11px,
+            rgba(0, 0, 0, .12) 12px,
+            transparent 18px,
+            transparent 29px
+        );
+    opacity: .9;
+}
+
+/* Inner golden frame */
+.door::after {
+    content: "";
+    position: absolute;
+    top: 3%;
+    bottom: 3%;
+    width: 91%;
+    border: 2px solid rgba(226, 171, 67, .38);
+    box-shadow:
+        inset 0 0 28px rgba(0, 0, 0, .7),
+        0 0 12px rgba(226, 171, 67, .10);
+    pointer-events: none;
+}
+
+.door-left {
+    left: 0;
+    transform-origin: left center;
+}
+
+.door-right {
+    right: 0;
+    transform-origin: right center;
+}
+
+.door-left::after {
+    left: 3%;
+    border-right: 3px solid rgba(239, 186, 77, .62);
+}
+
+.door-right::after {
+    right: 3%;
+    border-left: 3px solid rgba(239, 186, 77, .62);
+}
+
+/* Optional panel element from the HTML */
+.door-panel {
+    position: absolute;
+    top: 7%;
+    bottom: 7%;
+    width: 72%;
+    border: 1px solid rgba(231, 176, 69, .20);
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, .55);
+    opacity: .7;
+}
+
+.door-left .door-panel {
+    left: 12%;
+}
+
+.door-right .door-panel {
+    right: 12%;
+}
+
+/* =========================================================
+   CENTER TOUCH BUTTON
+========================================================= */
+
+.touch-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 124px;
+    height: 124px;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    border-radius: 50%;
+    border: 2px solid rgba(255, 230, 145, .95);
+
+    color: #4a1805;
+
+    background:
+        radial-gradient(circle at 35% 28%,
+            #fff4b0 0%,
+            #ffe071 20%,
+            #eab02e 46%,
+            #b66b0b 74%,
+            #703006 100%);
+
+    box-shadow:
+        0 0 12px rgba(255, 221, 110, .95),
+        0 0 35px rgba(255, 184, 45, .78),
+        0 0 75px rgba(196, 76, 14, .42);
+
+    animation: touchPulse 2s ease-in-out infinite;
+    user-select: none;
+}
+
+/* Ripple rings */
+.touch-button::before,
+.touch-button::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 211, 95, .52);
+    animation: touchRipple 2.2s ease-out infinite;
+}
+
+.touch-button::before {
+    inset: -11px;
+}
+
+.touch-button::after {
+    inset: -24px;
+    animation-delay: .65s;
+    opacity: .35;
+}
+
+.touch-button span {
+    font-family: "Noto Serif Devanagari", serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, .35);
+}
+
+.touch-button small {
+    margin-top: 4px;
+    font-family: "Noto Serif Devanagari", serif;
+    font-size: 12px;
+    font-weight: 600;
+    opacity: .88;
+}
+
+/* =========================================================
+   OPENING ANIMATION
+========================================================= */
+
+#openingScreen.opened .door-left {
+    transform: translateX(-100%);
+}
+
+#openingScreen.opened .door-right {
+    transform: translateX(100%);
+}
+
+#openingScreen.opened .touch-button {
+    transform: translate(-50%, -50%) scale(2.4);
+    opacity: 0;
+    transition:
+        transform .8s ease,
+        opacity .5s ease;
+}
+
+#openingScreen.opened::before {
+    transform: translate(-50%, -50%) scale(2.3);
+    opacity: 0;
+    transition:
+        transform 1.5s ease,
+        opacity 1s ease;
+}
+
+#openingScreen.hidden {
+    display: none;
+}
+
+@keyframes touchPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.07);
+    }
+}
+
+@keyframes touchRipple {
+    0% {
+        transform: scale(.75);
+        opacity: .75;
+    }
+    100% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+}
+
+@keyframes doorLightPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: .65;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.12);
+        opacity: 1;
+    }
+}
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.music-btn {
+
+    position: fixed;
+
+    top: 18px;
+    right: 18px;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid #f3cc52;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8b94d,
+            #d59c17
+        );
+
+    color: #261900;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    z-index: 1000;
+
+    box-shadow:
+        0 0 25px
+        rgba(255,205,60,.45);
+
+    transition:
+        transform .3s ease;
+}
+
+.music-btn:hover {
+
+    transform:
+        scale(1.08);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    padding:
+        100px
+        20px
+        80px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #61210c 0%,
+            #2a0b07 38%,
+            #180806 75%,
+            #080201 100%
+        );
+}
+
+
+/* Golden glow */
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,210,70,.15),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BELLS
+========================================================= */
+
+.bells {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    pointer-events: none;
+}
+
+
+.bell {
+
+    position: absolute;
+
+    width: 75px;
+
+    height: auto;
+
+    top: 20px;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(255,210,60,.35)
+        );
+
+    animation:
+        bellSwing
+        3s ease-in-out infinite;
+}
+
+
+.left-bell {
+
+    left: 30px;
+
+    transform-origin:
+        top center;
+}
+
+
+.right-bell {
+
+    right: 30px;
+
+    transform-origin:
+        top center;
+
+    animation-delay:
+        1s;
+}
+
+
+@keyframes bellSwing {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(-4deg);
+    }
+
+    50% {
+
+        transform:
+            rotate(4deg);
+    }
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 800px;
+}
+
+
+.content h3 {
+
+    color: #d8a64a;
+
+    font-size: 14px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+
+.content h1 {
+
+    font-family:
+        "Noto Serif Devanagari",
+        serif;
+
+    font-size:
+        clamp(
+            40px,
+            8vw,
+            75px
+        );
+
+    line-height: 1.2;
+
+    color: #f0d39b;
+
+    text-shadow:
+        0 4px 20px
+        rgba(0,0,0,.6);
+
+    margin-bottom: 25px;
+}
+
+
+.content p {
+
+    max-width: 680px;
+
+    margin:
+        0 auto
+        30px;
+
+    color: #cdbb9b;
+
+    font-size: 15px;
+
+    line-height: 2;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.btn {
+
+    display: inline-block;
+
+    padding:
+        13px 28px;
+
+    border-radius: 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8b94d,
+            #a96019
+        );
+
+    color: #2a0b03;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    border:
+        1px solid #f0c96b;
+
+    box-shadow:
+        0 8px 30px
+        rgba(225,174,40,.3);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.btn:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 12px 40px
+        rgba(225,174,40,.55);
+}
+
+
+/* =========================================================
+   INVITATION
+========================================================= */
+
+.invite {
+
+    padding:
+        100px
+        20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #180806,
+            #2c2106,
+            #180806
+        );
+}
+
+
+.invite h2 {
+
+    font-family:
+        "Noto Serif Devanagari",
+        serif;
+
+    font-size:
+        clamp(
+            30px,
+            6vw,
+            50px
+        );
+
+    color: #efd39a;
+
+    margin-bottom: 20px;
+}
+
+
+.family-name {
+
+    color: #c79b52;
+
+    font-size: 17px;
+
+    margin-bottom: 40px;
+}
+
+
+.family-name span {
+
+    display: block;
+
+    margin-top: 8px;
+
+    color: #e5ae3e;
+
+    font-size: 30px;
+
+    font-family:
+        "Noto Serif Devanagari",
+        serif;
+}
+
+
+/* =========================================================
+   INVITATION CARD
+========================================================= */
+
+.card {
+
+    max-width: 600px;
+
+    margin: auto;
+
+    padding:
+        40px 30px;
+
+    border:
+        1px solid
+        rgba(225,183,63,.45);
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #4a170a,
+            #241008
+        );
+
+    box-shadow:
+        inset 0 0 35px
+        rgba(0,0,0,.5),
+
+        0 15px 50px
+        rgba(0,0,0,.3);
+}
+
+
+.card h3 {
+
+    color: #e7c459;
+
+    font-size: 15px;
+
+    margin-top: 22px;
+
+    margin-bottom: 7px;
+}
+
+
+.card h3:first-child {
+
+    margin-top: 0;
+}
+
+
+.card p {
+
+    color: #dfc79b;
+
+    line-height: 1.8;
+
+    margin-bottom: 10px;
+}
+
+
+/* Map button */
+
+.map-btn {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding:
+        12px 25px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e5b34c,
+            #a75b17
+        );
+
+    color: #2a0b03;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 6px 25px
+        rgba(230,180,40,.3);
+
+    transition:
+        transform .3s ease;
+}
+
+
+.map-btn:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =========================================================
+   BAPPA MEMORIES
+========================================================= */
+
+.bappa-memories {
+
+    padding:
+        100px 20px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #42150a,
+            #190706 75%
+        );
+}
+
+
+.bappa-memories h2 {
+
+    font-family:
+        "Noto Serif Devanagari",
+        serif;
+
+    color: #efd39a;
+
+    font-size:
+        clamp(
+            28px,
+            6vw,
+            48px
+        );
+
+    margin-bottom: 12px;
+}
+
+
+.memories-subtitle {
+
+    color: #b79c79;
+
+    margin-bottom: 45px;
+
+    font-size: 14px;
+}
+
+
+/* Gallery */
+
+.memory-gallery {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* Memory card */
+
+.memory-card {
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    border:
+        1px solid
+        rgba(221,181,61,.4);
+
+    background:
+        linear-gradient(
+            145deg,
+            #4a170a,
+            #211008
+        );
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.35);
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+
+.memory-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,0,0,.5);
+}
+
+
+/* Memory image */
+
+.memory-image {
+
+    width: 100%;
+
+    aspect-ratio:
+        4 / 5;
+
+    overflow: hidden;
+
+    background:
+        #351108;
+}
+
+
+.memory-image img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform .5s ease;
+}
+
+
+.memory-card:hover
+.memory-image img {
+
+    transform:
+        scale(1.06);
+}
+
+
+/* Memory info */
+
+.memory-info {
+
+    padding:
+        18px 10px;
+}
+
+
+.memory-info h3 {
+
+    color: #dca84a;
+
+    font-size: 24px;
+
+    margin-bottom: 5px;
+}
+
+
+.memory-info p {
+
+    color: #b79c82;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   GANPATI SECTION
+========================================================= */
+
+.ganpati {
+
+    padding:
+        110px 20px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #5a1d0c,
+            #2b0d08 45%,
+            #100403 100%
+        );
+}
+
+
+.ganpati img {
+
+    width:
+        min(80vw, 400px);
+
+    max-height: 500px;
+
+    object-fit: contain;
+
+    display: block;
+
+    margin:
+        0 auto 35px;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(255,210,70,.3)
+        );
+}
+
+
+.ganpati h2 {
+
+    font-family:
+        "Noto Serif Devanagari",
+        serif;
+
+    font-size:
+        clamp(
+            30px,
+            7vw,
+            52px
+        );
+
+    color: #efd09a;
+
+    margin-bottom: 20px;
+}
+
+
+.ganpati p {
+
+    max-width: 500px;
+
+    margin:
+        0 auto
+        30px;
+
+    color: #cdbb9b;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        25px 15px;
+
+    text-align: center;
+
+    background: #090302;
+
+    border-top:
+        1px solid
+        rgba(218,177,56,.2);
+}
+
+
+footer p {
+
+    color: #8f7350;
+
+    font-size: 11px;
+
+    letter-spacing: .5px;
+}
+
+
+/* =========================================================
+   CONTACT POPUP
+========================================================= */
+
+.contact-popup {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,.75);
+
+    backdrop-filter:
+        blur(8px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+}
+
+
+.contact-popup.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* Contact box */
+
+.contact-box {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 400px;
+
+    padding:
+        40px 25px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(235,196,75,.55);
+
+    border-radius: 25px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #5b1d0c,
+            #241008
+        );
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.7);
+
+    transform:
+        scale(.9);
+
+    transition:
+        transform .3s ease;
+}
+
+
+.contact-popup.active
+.contact-box {
+
+    transform:
+        scale(1);
+}
+
+
+/* Close */
+
+.close-contact {
+
+    position: absolute;
+
+    top: 12px;
+    right: 18px;
+
+    font-size: 30px;
+
+    color: #e9ca68;
+
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+
+.close-contact:hover {
+
+    color: #f6d88f;
+}
+
+
+/* Contact icon */
+
+.contact-icon {
+
+    font-size: 55px;
+
+    margin-bottom: 10px;
+}
+
+
+.contact-box h2 {
+
+    color: #efd09a;
+
+    font-family:
+        "Noto Serif Devanagari",
+        serif;
+
+    margin-bottom: 5px;
+}
+
+
+.contact-box p {
+
+    color: #b39a78;
+
+    margin-bottom: 18px;
+}
+
+
+.phone-link {
+
+    color: #e6b34e;
+
+    font-size: 18px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+.call-link {
+
+    display: inline-block;
+
+    padding:
+        12px 25px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e5b34c,
+            #a75b17
+        );
+
+    color: #2a0b03;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .hero {
+
+        padding:
+            100px 18px
+            70px;
+    }
+
+
+    .bell {
+
+        width: 55px;
+
+        top: 15px;
+    }
+
+
+    .left-bell {
+
+        left: 12px;
+    }
+
+
+    .right-bell {
+
+        right: 12px;
+    }
+
+
+    .content h1 {
+
+        font-size: 40px;
+    }
+
+
+    .content p {
+
+        font-size: 13px;
+
+        line-height: 1.9;
+    }
+
+
+    .invite {
+
+        padding:
+            75px 18px;
+    }
+
+
+    .card {
+
+        padding:
+            30px 20px;
+    }
+
+
+    .memory-gallery {
+
+        grid-template-columns:
+            1fr;
+
+        max-width: 430px;
+    }
+
+
+    .memory-image {
+
+        aspect-ratio:
+            4 / 5;
+    }
+
+
+    .bappa-memories {
+
+        padding:
+            75px 18px;
+    }
+
+
+    .ganpati {
+
+        padding:
+            80px 18px;
+    }
+
+
+    .music-btn {
+
+        width: 44px;
+        height: 44px;
+
+        top: 12px;
+        right: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   OPENING SCREEN - MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .door {
+        transition-duration: 1.5s;
+    }
+
+    .touch-button {
+        width: 105px;
+        height: 105px;
+    }
+
+    .touch-button span {
+        font-size: 17px;
+    }
+
+    .touch-button small {
+        font-size: 10px;
+    }
+
+    #openingScreen::before {
+        width: 300px;
+        height: 300px;
+    }
+}
