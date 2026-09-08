@@ -2,6 +2,7 @@
    GANPATI INVITATION
    SACRED IVORY & SANDALWOOD • 24K ANTIQUE GOLD • ROYAL MAROON
    धवल चंदन, सुवर्ण व कुंकुम मंगलमूर्ती निमंत्रण
+   Performance Optimized: GPU Compositing, Zero CLS, Instant Decodes
    ========================================================= */
 
 :root {
@@ -636,7 +637,7 @@ body {
 }
 
 /* =========================================================
-   HERO SECTION
+   HERO SECTION & OPTIMIZED IMAGES
    ========================================================= */
 
 .hero {
@@ -652,7 +653,7 @@ body {
     z-index: 2;
 }
 
-/* Swinging Temple Brass Bells */
+/* Swinging Temple Brass Bells - GPU Composited */
 .bells {
     position: absolute;
     top: 0;
@@ -666,12 +667,17 @@ body {
     position: absolute;
     top: 0;
     width: clamp(88px, 7vw, 115px);
-    filter: drop-shadow(0 12px 14px rgba(120, 80, 20, 0.35));
+    height: auto;
+    aspect-ratio: 115 / 140;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 12px rgba(120, 80, 20, 0.3));
     transform-origin: top center;
     animation: bellSwing 4s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
     pointer-events: auto;
     cursor: pointer;
     transition: transform 0.2s ease;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .bell.ringing {
@@ -784,13 +790,16 @@ body {
     100% { transform: translateX(-50%) scale(1.15); opacity: 0.95; }
 }
 
-/* Bappa Murti & Divine Halo */
+/* Bappa Murti & Divine Halo - Zero CLS & GPU Accelerated */
 .hero-bappa-container {
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 15px;
+    min-height: 200px;
+    min-width: 200px;
+    contain: layout style;
 }
 
 .prabhavali-arch {
@@ -811,6 +820,8 @@ body {
     filter: blur(14px);
     animation: haloBreathe 4.5s ease-in-out infinite alternate;
     pointer-events: none;
+    will-change: transform, opacity;
+    transform: translateZ(0);
 }
 
 @keyframes haloBreathe {
@@ -821,10 +832,15 @@ body {
 .hero-bappa {
     position: relative;
     width: 200px;
+    height: auto;
     max-width: 65vw;
-    filter: drop-shadow(0 14px 24px rgba(120, 80, 20, 0.32)) drop-shadow(0 0 35px rgba(255, 204, 82, 0.4));
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(120, 80, 20, 0.35));
     animation: bappaFloat 4.5s ease-in-out infinite;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, opacity 0.4s ease;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .hero-bappa:hover {
@@ -1311,7 +1327,7 @@ body {
 }
 
 /* =========================================================
-   MEMORIES GALLERY
+   MEMORIES GALLERY & SKELETON SHIMMER (DEFERRED RENDERING)
    ========================================================= */
 
 .bappa-memories {
@@ -1319,6 +1335,9 @@ body {
     text-align: center;
     position: relative;
     z-index: 2;
+    /* Defer offscreen painting until scrolled near */
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 700px;
 }
 
 .memories-subtitle {
@@ -1353,9 +1372,24 @@ body {
     box-shadow: 0 18px 40px rgba(120, 85, 35, 0.18), 0 0 25px rgba(201, 148, 42, 0.2);
 }
 
+/* Elegant Sacred Sandalwood / Ivory Shimmer Placeholder */
 .memory-image {
     position: relative;
     overflow: hidden;
+    background: linear-gradient(110deg, #fbf6ec 8%, #f2e4cc 18%, #fbf6ec 33%);
+    background-size: 200% 100%;
+    animation: shimmerPlaceholder 2s linear infinite;
+    aspect-ratio: 1 / 1;
+    min-height: 320px;
+}
+
+@keyframes shimmerPlaceholder {
+    0%   { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.memory-image.loaded {
+    animation: none;
     background: #faf3e6;
 }
 
@@ -1381,8 +1415,10 @@ body {
     height: 320px;
     display: block;
     object-fit: cover;
+    aspect-ratio: 1 / 1;
     filter: brightness(0.98) contrast(1.02);
-    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+    opacity: 1;
 }
 
 .memory-card:hover img {
@@ -1411,7 +1447,7 @@ body {
 }
 
 /* =========================================================
-   FINAL GANPATI SECTION
+   FINAL GANPATI SECTION (DEFERRED RENDERING)
    ========================================================= */
 
 .ganpati {
@@ -1420,13 +1456,25 @@ body {
     text-align: center;
     background: radial-gradient(circle at 50% 50%, rgba(255, 235, 175, 0.4) 0%, transparent 70%);
     z-index: 2;
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 550px;
+}
+
+.hero-bappa-container.sm {
+    min-height: 160px;
+    min-width: 160px;
 }
 
 .hero-bappa-container.sm .hero-bappa,
 .ganpati img {
     width: 160px;
-    filter: drop-shadow(0 12px 22px rgba(120, 80, 20, 0.3)) drop-shadow(0 0 30px rgba(255, 204, 82, 0.35));
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 18px rgba(120, 80, 20, 0.3));
     animation: finalBappa 4.5s ease-in-out infinite;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 @keyframes finalBappa {
@@ -1743,27 +1791,25 @@ body.doors-opened .divine-halo {
 #openingScreen.opening ~ #mainContent .hero-bappa-container,
 body.doors-opened .hero-bappa-container {
     animation: bappaContainerEntrance 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    will-change: transform, opacity;
 }
 
 @keyframes bappaContainerEntrance {
     0% {
         opacity: 0;
-        transform: translateY(45px) scale(0.8);
-        filter: blur(3px);
+        transform: translateY(35px) scale(0.85);
     }
     65% {
         opacity: 1;
-        transform: translateY(-8px) scale(1.04);
-        filter: blur(0);
+        transform: translateY(-6px) scale(1.03);
     }
     100% {
         opacity: 1;
         transform: translateY(0) scale(1);
-        filter: blur(0);
     }
 }
 
-/* 3. Bappa Glow Entrance & Perpetual Float */
+/* 3. Bappa Entrance & Perpetual Float - Optimized GPU Shader & Zero Frame Drops */
 #openingScreen.opening ~ #mainContent .hero-bappa,
 body.doors-opened .hero-bappa {
     animation: bappaGlowEntrance 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both, bappaFloat 4.5s ease-in-out 2.0s infinite;
@@ -1772,15 +1818,18 @@ body.doors-opened .hero-bappa {
 @keyframes bappaGlowEntrance {
     0% {
         opacity: 0;
-        filter: drop-shadow(0 6px 12px rgba(120, 80, 20, 0.25)) drop-shadow(0 0 70px rgba(255, 215, 122, 1)) brightness(1.25);
+        transform: translateY(20px) scale(0.92);
+        filter: drop-shadow(0 6px 12px rgba(120, 80, 20, 0.25));
     }
     60% {
         opacity: 1;
-        filter: drop-shadow(0 20px 32px rgba(120, 80, 20, 0.38)) drop-shadow(0 0 50px rgba(255, 204, 82, 0.75)) brightness(1.08);
+        transform: translateY(-4px) scale(1.02);
+        filter: drop-shadow(0 14px 24px rgba(120, 80, 20, 0.38));
     }
     100% {
         opacity: 1;
-        filter: drop-shadow(0 14px 24px rgba(120, 80, 20, 0.32)) drop-shadow(0 0 35px rgba(255, 204, 82, 0.4)) brightness(1);
+        transform: translateY(0) scale(1);
+        filter: drop-shadow(0 10px 20px rgba(120, 80, 20, 0.35));
     }
 }
 
@@ -1992,6 +2041,11 @@ body.doors-opened .hero .btn {
         width: 155px;
     }
 
+    .hero-bappa-container {
+        min-height: 155px;
+        min-width: 155px;
+    }
+
     .divine-halo {
         width: 210px;
         height: 210px;
@@ -2021,6 +2075,10 @@ body.doors-opened .hero .btn {
         top: -100px;
         height: 100px;
         width: 3px;
+    }
+
+    .memory-image {
+        min-height: 270px;
     }
 
     .memory-image img {
